@@ -1,8 +1,9 @@
-# Force11 - Decision Trees Code for WG3
+# [dkNET](dknet.org) - Decision Trees Code
 
-This repository contains the source code for some decision trees developed by [Force11](http://force11.org)'s [WP3: Decision Trees](https://www.force11.org/group/scholarly-commons-working-group/wp3decision-trees).
+Based on the [Force11 Decision Trees](https://github.com/force11/Force11-DecisionTrees), developed under [WG3](https://www.force11.org/group/scholarly-commons-working-group/wp3decision-trees).
 
-These trees are implemented as PolicyModels (formerly: DataTags) models:
+This repository contains the source code for some decision trees developed for dkNET.
 
-  * To see them as an interactive interview, visit [our decision tree catalog](http://decision-trees.force11.org/models/).
-  * To edit them, download/clone this repository. A PolicyModel/DataTags tutorial is available [here](http://datatagginglibrary.readthedocs.io).
+These trees are implemented as [PolicyModels](https://datatagginglibrary.readthedocs.io/en/latest/) (formerly: DataTags) models.
+
+> When an interactive version of these trees will be available, its URL will be posted here.
