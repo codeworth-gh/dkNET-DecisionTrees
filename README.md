@@ -6,4 +6,9 @@ This repository contains the source code for some decision trees developed for d
 
 These trees are implemented as [PolicyModels](https://datatagginglibrary.readthedocs.io/en/latest/) (formerly: DataTags) models.
 
-> When an interactive version of these trees will be available, its URL will be posted here.
+```
+ +---------------------------------------------------+
+ |  When an interactive version of these trees       |
+ |  will be available, its URL will be posted here.  |
+ +---------------------------------------------------+
+```
