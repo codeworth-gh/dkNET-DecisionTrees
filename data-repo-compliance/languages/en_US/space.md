@@ -1,18 +1,17 @@
-# DataTags
-<-- TODO: describe DataTags
+# DataRepoCompliance
+<-- TODO: describe DataRepoCompliance
 
-# DataTags/Assertions
-<-- TODO: describe DataTags/Assertions
+# DataRepoCompliance/Assertions
+<-- TODO: describe DataRepoCompliance/Assertions
 
-# DataTags/Assertions/Open
-<-- TODO: describe DataTags/Assertions/Open
+# DataRepoCompliance/Assertions/Open
+<-- TODO: describe DataRepoCompliance/Assertions/Open
 
-# DataTags/Assertions/FAIR
-<-- TODO: describe DataTags/Assertions/FAIR
+# DataRepoCompliance/Assertions/FAIR
+<-- TODO: describe DataRepoCompliance/Assertions/FAIR
 
-# DataTags/Assertions/Citable
-<-- TODO: describe DataTags/Assertions/Citable
+# DataRepoCompliance/Assertions/Citable
+<-- TODO: describe DataRepoCompliance/Assertions/Citable
 
-# DataTags/Assertions/Trustworthy
+# DataRepoCompliance/Assertions/Trustworthy
 <-- TODO: describe DataTags/Assertions/Trustworthy
-

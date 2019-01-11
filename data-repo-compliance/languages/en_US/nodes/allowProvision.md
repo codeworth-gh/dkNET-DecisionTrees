@@ -1,0 +1,1 @@
+Do you allow the provision of documentation that aids in proper (re)-use of the data?

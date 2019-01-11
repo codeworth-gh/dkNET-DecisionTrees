@@ -5,7 +5,7 @@
 [end]
 
 [>sOpen< section:
-  {title: Openness}
+  {title: Open}
   [>open< ask:
     {text: Does the repository provide access to the data with minimal or no restrictions? }
     {answers:
@@ -37,49 +37,99 @@
   ]
 ]
 [>sFAIR< section:
-  {title: Testing whether a repository implements FAIR}
-  [>FAIR< ask:
-    {text: Does your repository assign globally unique and persistent identifiers (PID)? }
-    {answers:
-      {yes: [set: FAIRProps += PID] }
-    }
-  ]
-  [>DRC38< ask:
-    {text:Does the PID resolve to a landing page that describes the data? }
-    {answers:
-      {yes: [set: FAIRProps+=humanAccessible]}
-    }
-  ]
-  [ask:
-    {text:Does the repository support the addition of rich metadata to promote search and reuse of data? }
-    {answers:
-      {yes: [set: FAIRProps+=RichMetadata]}
-    }
-  ]
-  [ask:
-    {text:Does the repository have a policy that ensures the metadata (landing page) will persist even if the data are no longer available? }
-    {answers:
-      {yes: [set: FAIRProps+=PersistentMetadata]}
-    }
+  {title: FAIR (Findable, Accessible, Interoperable, Reusable)}
+  [>sFindable< section:
+    {title: Findable}
+    [>PID< ask:
+      {text: Does your repository assign globally unique and persistent identifiers (PID)? }
+      {answers:
+        {yes: [set: FAIRProps += PID] }
+      }
+    ]
+    [>DRC38< ask:
+      {text:Does the PID resolve to a landing page that describes the data? }
+      {answers:
+        {yes: [set: FAIRProps+=humanAccessible]}
+      }
+    ]
+    [>RichMetadata<ask:
+      {text:Does the repository support the addition of rich metadata to promote search and reuse of data? }
+      {answers:
+        {yes: [set: FAIRProps+=RichMetadata]}
+      }
+    ]
+    [ask:
+      {text: Does the repository provide web-based search and access to the data and metadata?}
+      {answers:
+        {yes: [set: FAIRProps += machineAccessible] }
+      }
+    ]
+  ] <-- /section Findable
+
+  [>sAccessible< section:
+    {title: Accessible}
+    [ask:
+      {text:Does the repository have a policy that ensures the metadata (landing page) will persist even if the data are no longer available? }
+      {answers:
+        {yes: [set: FAIRProps+=PersistentMetadata]}
+      }
+    ]
+
+    [ask:
+      {text: Does the repository provide a clear license for reuse of the data?}
+      {answers:
+        {yes: [set: FAIRProps += License] }
+      }
+    ]
+    [ask:
+      {text: Does the repository enforce or allow the use of community standards for data format or metadata?}
+      {answers:
+        {yes: [set: FAIRProps += CommunityStandard] }
+      }
+    ]
+  ] <-- /section Accessible
+
+  [>sInteroperable< section:
+    {title: Interoperable }
+    [>scholix< ask:
+      {text: Does the repository share literature-data links with Scholix.org, either directly or indirectly?}
+      {answers:
+        {yes: }
+        {no: }
+      }
+    ]
+    [>datacite< ask:
+      {text: Do you include references to literature in metadata submitted to DataCite?}
+      {answers:
+        {yes: }
+        {no: }
+      }
+    ]
   ]
 
-  [ask:
-    {text: Does the repository provide web-based search and access to the data and metadata?}
-    {answers:
-      {yes: [set: FAIRProps += machineAccessible] }
-    }
-  ]
-  [ask:
-    {text: Does the repository provide a clear license for reuse of the data?}
-    {answers:
-      {yes: [set: FAIRProps += License] }
-    }
-  ]
-  [ask:
-    {text: Does the repository enforce or allow the use of community standards for data format or metadata?}
-    {answers:
-      {yes: [set: FAIRProps += CommunityStandard] }
-    }
+  [>sReusable< section:
+    {title: Re-usable}
+    [>allowProvision< ask:
+      {text: Do you allow the provision of documentation that aids in proper (re)-use of the data?}
+      {answers:
+        {yes: }
+        {no: }
+      }
+    ]
+    [>acceptDkNetMetadata< ask:
+      {text:Does your repository accept metadata that is applicable to the dkNET community disciplines?}
+      {answers:
+        {yes: }
+        {no: }
+      }
+    ]
+    [>acceptGeneralMetadata< ask:
+      {text: Does your repository accept metadata that is generally applicable to all disciplines?}
+      {answers:
+        {yes: }
+        {no: }
+      }
+    ]
   ]
 
   [when:
