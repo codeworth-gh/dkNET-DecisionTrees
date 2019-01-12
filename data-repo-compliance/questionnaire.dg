@@ -40,12 +40,6 @@
   {title: FAIR (Findable, Accessible, Interoperable, Reusable)}
   [>sFindable< section:
     {title: Findable}
-    [>PID< ask:
-      {text: Does your repository assign globally unique and persistent identifiers (PID)? }
-      {answers:
-        {yes: [set: FAIRProps += PID] }
-      }
-    ]
     [>DRC38< ask:
       {text:Does the PID resolve to a landing page that describes the data? }
       {answers:
@@ -62,6 +56,12 @@
       {text: Does the repository provide web-based search and access to the data and metadata?}
       {answers:
         {yes: [set: FAIRProps += machineAccessible] }
+      }
+    ]
+    [>PID< ask:
+      {text: Does your repository assign globally unique and persistent identifiers (PID)? }
+      {answers:
+        {yes: [set: FAIRProps += PID] }
       }
     ]
   ] <-- /section Findable
