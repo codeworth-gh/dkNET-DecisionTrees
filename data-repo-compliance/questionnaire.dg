@@ -1,9 +1,3 @@
-[>main< call: sOpen]
-[call: sFAIR]
-[call: sCitable]
-[call: sTrustworthy]
-[end]
-
 [>sOpen< section:
   {title: Open}
   [>open< ask:
@@ -36,6 +30,9 @@
     {else:[set: Open=Closed]}
   ]
 ]
+
+<-- 
+
 [>sFAIR< section:
   {title: FAIR (Findable, Accessible, Interoperable, Reusable)}
   [>sFindable< section:
@@ -146,6 +143,8 @@
     ]
 ]
 
+<-- 
+
 [>sCitable< section:
   {title: Citable}
   [>citable< ask:
@@ -169,6 +168,8 @@
     }
   ]
 ]
+
+<-- 
 
 [>sTrustworthy< section:
   {title: Trustworthy-ness}
