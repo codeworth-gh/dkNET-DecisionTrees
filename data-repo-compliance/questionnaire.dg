@@ -31,7 +31,7 @@
   ]
 ]
 
-<-- 
+<--
 
 [>sFAIR< section:
   {title: FAIR (Findable, Accessible, Interoperable, Reusable)}
@@ -40,26 +40,30 @@
     [>DRC38< ask:
       {text:Does the PID resolve to a landing page that describes the data? }
       {answers:
-        {yes: [set: FAIRProps+=humanAccessible]}
+        {yes: [set: FindableProps+=humanAccessible; Findable=SomewhatFindable]}
       }
     ]
     [>RichMetadata<ask:
       {text:Does the repository support the addition of rich metadata to promote search and reuse of data? }
       {answers:
-        {yes: [set: FAIRProps+=RichMetadata]}
+        {yes: [set: FindableProps+=RichMetadata; Findable=SomewhatFindable]}
       }
     ]
     [ask:
       {text: Does the repository provide web-based search and access to the data and metadata?}
       {answers:
-        {yes: [set: FAIRProps += machineAccessible] }
+        {yes: [set: FindableProps+=machineAccessible; Findable=SomewhatFindable] }
       }
     ]
     [>PID< ask:
       {text: Does your repository assign globally unique and persistent identifiers (PID)? }
       {answers:
-        {yes: [set: FAIRProps += PID] }
+        {yes: [set: FindableProps+=PID; Findable=SomewhatFindable] }
       }
+    ]
+    [when:
+      {FindableProps+=humanAccessible,RichMetadata,machineAccessible,PID : [set: Findable=FullyFindable] }
+      {else: [set: Findable=NotFindable]}
     ]
   ] <-- /section Findable
 
@@ -68,21 +72,25 @@
     [ask:
       {text:Does the repository have a policy that ensures the metadata (landing page) will persist even if the data are no longer available? }
       {answers:
-        {yes: [set: FAIRProps+=PersistentMetadata]}
+        {yes: [set: AccessibleProps+=PersistentMetadata; Accessible=SomewhatAccessible]}
       }
     ]
 
     [ask:
       {text: Does the repository provide a clear license for reuse of the data?}
       {answers:
-        {yes: [set: FAIRProps += License] }
+        {yes: [set: AccessibleProps+=License; Accessible=SomewhatAccessible] }
       }
     ]
     [ask:
       {text: Does the repository enforce or allow the use of community standards for data format or metadata?}
       {answers:
-        {yes: [set: FAIRProps += CommunityStandard] }
+        {yes: [set: AccessibleProps+=CommunityStandard; Accessible=SomewhatAccessible] }
       }
+    ]
+    [when:
+      {AccessibleProps+=CommunityStandard,License,PersistentMetadata : [set: Accessible=FullyAccessible] }
+      {else: [set: Accessible=NotAccessible]}
     ]
   ] <-- /section Accessible
 
@@ -91,16 +99,18 @@
     [>scholix< ask:
       {text: Does the repository share literature-data links with Scholix.org, either directly or indirectly?}
       {answers:
-        {yes: }
-        {no: }
+        {yes: [set:InteroperableProps+=Scholix;Interoperable=SomewhatInteroperable]}
       }
     ]
     [>datacite< ask:
       {text: Do you include references to literature in metadata submitted to DataCite?}
       {answers:
-        {yes: }
-        {no: }
+        {yes: [set:InteroperableProps+=DataCite;Interoperable=SomewhatInteroperable]}
       }
+    ]
+    [when:
+      {InteroperableProps+=DataCite,Scholix : [set: Interoperable=FullyInteroperable] }
+      {else: [set: Interoperable=NotInteroperable]}
     ]
   ]
 
@@ -109,41 +119,29 @@
     [>allowProvision< ask:
       {text: Do you allow the provision of documentation that aids in proper (re)-use of the data?}
       {answers:
-        {yes: }
-        {no: }
+        {yes: [set: ReusableProps+=Provision; Reusable=SomewhatReusable]}
       }
     ]
     [>acceptDkNetMetadata< ask:
       {text:Does your repository accept metadata that is applicable to the dkNET community disciplines?}
       {answers:
-        {yes: }
-        {no: }
+        {yes: [set: ReusableProps+=DkNetMetadata; Reusable=SomewhatReusable]}
       }
     ]
     [>acceptGeneralMetadata< ask:
       {text: Does your repository accept metadata that is generally applicable to all disciplines?}
       {answers:
-        {yes: }
-        {no: }
+        {yes: [set: ReusableProps+=GeneralMetadata; Reusable=SomewhatReusable]}
       }
     ]
-  ]
-
-  [when:
-    {FAIRProps+=PID, License, RichMetadata, PersistentMetadata,
-      CommunityStandard: [set: FAIR=FullyFAIR] }
-      {FAIRProps+=PID:                [set: FAIR=SomewhatFAIR] }
-      {FAIRProps+=License:            [set: FAIR=SomewhatFAIR] }
-      {FAIRProps+=RichMetadata:       [set: FAIR=SomewhatFAIR] }
-      {FAIRProps+=machineAccessible:  [set: FAIR=SomewhatFAIR] }
-      {FAIRProps+=humanAccessible:    [set: FAIR=SomewhatFAIR] }
-      {FAIRProps+=CommunityStandard:  [set: FAIR=SomewhatFAIR] }
-      {FAIRProps+=PersistentMetadata: [set: FAIR=SomewhatFAIR] }
-      {else:[set: FAIR=UnFAIR]}
+    [when:
+      {ReusableProps+=Provision,DkNetMetadata,GeneralMetadata : [set: Reusable=FullyReusable] }
+      {else: [set: Reusable=NotReusable]}
     ]
+  ]
 ]
 
-<-- 
+<--
 
 [>sCitable< section:
   {title: Citable}
@@ -169,7 +167,7 @@
   ]
 ]
 
-<-- 
+<--
 
 [>sTrustworthy< section:
   {title: Trustworthy-ness}
