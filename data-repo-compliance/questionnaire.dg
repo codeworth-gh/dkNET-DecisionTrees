@@ -104,9 +104,26 @@
       {else: [set: Accessible=NotAccessible]}
     ]
   ] <-- /section Accessible
-<*** OK SO FAR ***>
   [>sInteroperable< section:
     {title: Interoperable }
+    [>metadataContVocab< ask:
+      {text: Do the metadata use a formal, accessible, shared and broadly applicable language for knowledge representation?}
+      {answers:
+          {yes: [set: InteroperableProps+=FormalMetadataVocabulary; Interoperable=SomewhatInteroperable]}
+      }
+    ]
+    [>metadataFair< ask:
+      {text: Do the metadata use vocabularies that follow FAIR principles?}
+      {answers:
+        {yes: [set: InteroperableProps+=FairMetadata; Interoperable=SomewhatInteroperable]}
+      }
+    ]
+    [>metadataRefs< ask:
+      {text: Do the metadata include qualified references to other (meta)data?}
+      {answers:
+        {yes: [set: InteroperableProps+=QualifiedMetadataReferences; Interoperable=SomewhatInteroperable]}
+      }
+    ]
     [>scholix< ask:
       {text: Does the repository share literature-data links with Scholix.org, either directly or indirectly?}
       {answers:
@@ -120,7 +137,9 @@
       }
     ]
     [when:
-      {InteroperableProps+=DataCite,Scholix : [set: Interoperable=FullyInteroperable] }
+      {InteroperableProps+=DataCite,Scholix,FormalMetadataVocabulary,FairMetadata,QualifiedMetadataReferences:
+         [set: Interoperable=FullyInteroperable]
+      }
       {else: [set: Interoperable=NotInteroperable]}
     ]
   ]
@@ -131,6 +150,18 @@
       {text: Do you allow the provision of documentation that aids in proper (re)-use of the data?}
       {answers:
         {yes: [set: ReusableProps+=Provision; Reusable=SomewhatReusable]}
+      }
+    ]
+    [>ccLicense< ask:
+      {text: Are the data covered by a commons-compliant license?}
+      {answers:
+        {yes: [set: ReusableProps+=CCLicense; Reusable=SomewhatReusable]}
+      }
+    ]
+    [>mdProvenance< ask:
+      {text: Are the metadata associated with detailed provenance?}
+      {answers:
+        {yes: [set: ReusableProps+=MetadataProvenance; Reusable=SomewhatReusable]}
       }
     ]
     [>acceptDkNetMetadata< ask:
@@ -146,7 +177,7 @@
       }
     ]
     [when:
-      {ReusableProps+=Provision,DkNetMetadata,GeneralMetadata : [set: Reusable=FullyReusable] }
+      {ReusableProps+=Provision,DkNetMetadata,GeneralMetadata,CCLicense,MetadataProvenance : [set: Reusable=FullyReusable] }
       {else: [set: Reusable=NotReusable]}
     ]
   ]
@@ -154,6 +185,7 @@
 
 <--
 
+<*** OK SO FAR ***>
 [>sCitable< section:
   {title: Citable}
   [>citable< ask:
@@ -188,11 +220,14 @@
       {Data Repository Gold Seal of Approval: see https://www.datasealofapproval.org/en/information/requirements/}
     }
     {answers:
-      {yes:
+      {yes:[set: Trustworthy = NoConcerns]}
+      { no:
+        [set: Trustworthy = SignificantConcerns]
         [>DRC97<ask:
           {text: Is the repository stakeholder governed?  }
           {answers:
             {yes:
+              [set: Trustworthy = MinorConcerns]
               [>DRC101<ask:
                 {text: Is the governance of the repository transparent?}
                 {answers:
@@ -209,6 +244,7 @@
             }
           }
         ]
+
       }
     }
   ]

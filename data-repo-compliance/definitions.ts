@@ -19,5 +19,10 @@ AccessibleProps: some of
   License,
   StdApi[Accessible via standard API].
 FindableProps: some of RichMetadata, humanAccessible, machineAccessible, PID, PidInMetadata.
-InteroperableProps: some of Scholix, DataCite.
-ReusableProps: some of Provision, DkNetMetadata, GeneralMetadata.
+InteroperableProps: some of Scholix, DataCite, FormalMetadataVocabulary, FairMetadata, QualifiedMetadataReferences.
+ReusableProps: some of
+  Provision,
+  DkNetMetadata,
+  GeneralMetadata,
+  CCLicense[Commons Compliant License.],
+  MetadataProvenance.
