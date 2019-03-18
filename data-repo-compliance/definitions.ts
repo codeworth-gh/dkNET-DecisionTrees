@@ -13,7 +13,11 @@ Reusable: one of NotReusable, SomewhatReusable, FullyReusable.
 Properties: consists of OpenProps, FindableProps, AccessibleProps, InteroperableProps, ReusableProps.
 
 OpenProps: some of humanAccessible, machineAccessible, openFormat, openLicense.
-AccessibleProps: some of PersistentMetadata, CommunityStandard, License.
-FindableProps: some of RichMetadata, humanAccessible, machineAccessible, PID.
+AccessibleProps: some of
+  PersistentMetadata,
+  CommunityStandard,
+  License,
+  StdApi[Accessible via standard API].
+FindableProps: some of RichMetadata, humanAccessible, machineAccessible, PID, PidInMetadata.
 InteroperableProps: some of Scholix, DataCite.
 ReusableProps: some of Provision, DkNetMetadata, GeneralMetadata.

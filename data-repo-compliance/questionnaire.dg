@@ -14,12 +14,12 @@
       {no:}
     }
   ]
-  [>DRC15<ask:
-  {text: Are the data covered by a commons-compliant license? }
-    {answers:
-      {yes: [set: OpenProps += openLicense] }
-    }
-  ]
+  <-- [>DRC15<ask:
+  <-- {text: Are the data covered by a commons-compliant license? }
+  <--   {answers:
+  <--     {yes: [set: OpenProps += openLicense] }
+  <--   }
+  <-- ]
   [when:
     {OpenProps+=openFormat, openLicense,
                 machineAccessible, humanAccessible: [set: Open=FullyOpen] }
@@ -35,6 +35,12 @@
 
 [>sFAIR< section:
   {title: FAIR (Findable, Accessible, Interoperable, Reusable)}
+  [>PID< ask:
+    {text: Does your repository assign globally unique and persistent identifiers (PID)? }
+    {answers:
+      {yes: [set: FindableProps+=PID; Findable=SomewhatFindable] }
+    }
+  ]
   [>sFindable< section:
     {title: Findable}
     [>DRC38< ask:
@@ -49,33 +55,38 @@
         {yes: [set: FindableProps+=RichMetadata; Findable=SomewhatFindable]}
       }
     ]
-    [ask:
+    [>PidInMetadata< ask:
+      {text: Does the metadata clearly and explicitly include the identifier of the data it describes?}
+      {answers:
+        {yes: [set:FindableProps+=PidInMetadata; Findable=SomewhatFindable]}
+      }
+    ]
+    [>WebBasedSearch< ask:
       {text: Does the repository provide web-based search and access to the data and metadata?}
       {answers:
         {yes: [set: FindableProps+=machineAccessible; Findable=SomewhatFindable] }
       }
     ]
-    [>PID< ask:
-      {text: Does your repository assign globally unique and persistent identifiers (PID)? }
-      {answers:
-        {yes: [set: FindableProps+=PID; Findable=SomewhatFindable] }
-      }
-    ]
     [when:
-      {FindableProps+=humanAccessible,RichMetadata,machineAccessible,PID : [set: Findable=FullyFindable] }
+      {FindableProps+=humanAccessible,RichMetadata,machineAccessible,PID,PidInMetadata : [set: Findable=FullyFindable] }
       {else: [set: Findable=NotFindable]}
     ]
   ] <-- /section Findable
 
   [>sAccessible< section:
     {title: Accessible}
+    [>accessStdCompApi< ask:
+      {text: Can the data be accessed via a standards compliant API?}
+      {answers:
+        {yes: [set: AccessibleProps+=StdApi; Accessible=SomewhatAccessible]}
+      }
+    ]
     [ask:
       {text:Does the repository have a policy that ensures the metadata (landing page) will persist even if the data are no longer available? }
       {answers:
         {yes: [set: AccessibleProps+=PersistentMetadata; Accessible=SomewhatAccessible]}
       }
     ]
-
     [ask:
       {text: Does the repository provide a clear license for reuse of the data?}
       {answers:
@@ -89,11 +100,11 @@
       }
     ]
     [when:
-      {AccessibleProps+=CommunityStandard,License,PersistentMetadata : [set: Accessible=FullyAccessible] }
+      {AccessibleProps+=CommunityStandard,License,PersistentMetadata,StdApi : [set: Accessible=FullyAccessible] }
       {else: [set: Accessible=NotAccessible]}
     ]
   ] <-- /section Accessible
-
+<*** OK SO FAR ***>
   [>sInteroperable< section:
     {title: Interoperable }
     [>scholix< ask:
