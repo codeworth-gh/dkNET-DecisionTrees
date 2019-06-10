@@ -47,6 +47,14 @@
       {text:Does the PID resolve to a landing page that describes the data? }
       {answers:
         {yes: [set: FindableProps+=humanAccessible; Findable=SomewhatFindable]}
+        {no:
+          [>DRC38b< ask:
+            {text:Is there a stable web address that contains metadata about each dataset?}
+            {answers:
+              {yes: [set: FindableProps+=humanAccessible; Findable=SomewhatFindable]}
+            }
+          ]
+        }
       }
     ]
     [>RichMetadata<ask:

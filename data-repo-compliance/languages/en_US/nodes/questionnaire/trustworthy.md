@@ -8,4 +8,4 @@ Core Trustworthy Data Repository Requirements include:
 
 
 ### Terms
-* *Data Repository Gold Seal of Approval*: see https://www.datasealofapproval.org/en/information/requirements/
+* *Data Repository Gold Seal of Approval*: see [here](https://www.datasealofapproval.org/en/information/requirements/).
