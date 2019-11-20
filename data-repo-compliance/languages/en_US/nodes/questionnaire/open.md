@@ -1,3 +1,9 @@
-Does the repository provide access to the data with minimal or no restrictions?
+### Does the repository provide access to the data with minimal or no restrictions?
 
-Access to the data should be unfettered, without even requiring an account, but requiring registration before using the data would be considered a minimal restriction.  Similarly, minimal restrictions may also include requiring special access for accessing large amounts of data, e.g., an API key.
+How easy is it for users to gain access to the data?  Are any impediments in place reasonable given the nature of the data, e.g., authorization for sensitive data.  Repositories that make metadata available during the embargo period should not be penalized on this question.
+
+#### Terms
+* No restriction:  Accessible without a log in
+* Minimal restriction: requiring an account and/or the user to sign data policy agreement would be considered a minimal restriction.  
+* Significant restriction, Authorization required: Requiring that someone obtain authorization ahead of downloading data, as would be the case for sensitive data, for example, even if it is understandable.
+* Significant but not justified

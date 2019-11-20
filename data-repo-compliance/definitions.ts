@@ -12,13 +12,24 @@ Reusable: one of NotReusable, SomewhatReusable, FullyReusable.
 
 Properties: consists of OpenProps, FindableProps, AccessibleProps, InteroperableProps, ReusableProps.
 
-OpenProps: some of humanAccessible, machineAccessible, openFormat, openLicense.
+OpenProps: consists of Restrictions, OpenFlags.
+OpenFlags: some of humanAccessible, machineAccessible, openFormat, openLicense,
+                    platformSupportsDataWork,
+                    restrictionsNotJustified, authorizationRequired.
+Restrictions: one of none, minimal, significant.
+
 AccessibleProps: some of
   PersistentMetadata,
   CommunityStandard,
   License,
   StdApi[Accessible via standard API].
-FindableProps: some of RichMetadata, humanAccessible, machineAccessible, PID, PidInMetadata.
+
+FindableProps: consists of PersistentIdentifier, MetadataGrade, FindableFlags.
+FindableFlags: some of humanAccessible, machineAccessible, PidInMetadata.
+PersistentIdentifier: one of none, internalPID[Internally assigned identifier (e.g. UUID)],
+                            externalPID[Externally assigned identifier (e.g. DOI)].
+MetadataGrade: one of minimal, limited, rich.
+
 InteroperableProps: some of Scholix, DataCite, FormalMetadataVocabulary, FairMetadata, QualifiedMetadataReferences.
 ReusableProps: some of
   Provision,

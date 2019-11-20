@@ -3,30 +3,39 @@
   [>open< ask:
     {text: Does the repository provide access to the data with minimal or no restrictions? }
     {answers:
-      {yes: [set: OpenProps += humanAccessible] }
+      {no restrictions: [set: OpenFlags += humanAccessible; Restrictions=none] }
+      {minimal restrictions: [set: Restrictions=minimal]}
+      {significant restrictions: [set: Restrictions=significant]}
+      {significant but not justified restrictions: [set: Restrictions=significant; OpenFlags+=restrictionsNotJustified]}
     }
   ]
   [>DRC11_19< ask:
     {text:Are you free to download the data and reuse it with no or minimal restrictions? }
     {answers:
-      {yes, using open format: [set: OpenProps+=machineAccessible, openFormat]}
-      {yes, using proprietary format: [set: OpenProps+=machineAccessible]}
+      {yes, using open format: [set: OpenFlags+=machineAccessible, openFormat]}
+      {yes, using proprietary format: [set: OpenFlags+=machineAccessible]}
       {no:}
+    }
+  ]
+  [>openPlatformReuse< ask:
+    {text: Does the repository platform make it easy to work with (e.g. download/re-use) the data?}
+    {answers:
+      {yes: [set: OpenFlags+=platformSupportsDataWork] }
     }
   ]
   <-- [>DRC15<ask:
   <-- {text: Are the data covered by a commons-compliant license? }
   <--   {answers:
-  <--     {yes: [set: OpenProps += openLicense] }
+  <--     {yes: [set: OpenFlags += openLicense] }
   <--   }
   <-- ]
-  [when:
-    {OpenProps+=openFormat, openLicense,
+  [>sumOpen< when:
+    {OpenFlags+=openFormat, openLicense,
                 machineAccessible, humanAccessible: [set: Open=FullyOpen] }
-    {OpenProps+=openFormat:        [set: Open=SomewhatOpen] }
-    {OpenProps+=openLicense:       [set: Open=SomewhatOpen] }
-    {OpenProps+=humanAccessible:   [set: Open=SomewhatOpen] }
-    {OpenProps+=machineAccessible: [set: Open=SomewhatOpen] }
+    {OpenFlags+=openFormat:        [set: Open=SomewhatOpen] }
+    {OpenFlags+=openLicense:       [set: Open=SomewhatOpen] }
+    {OpenFlags+=humanAccessible:   [set: Open=SomewhatOpen] }
+    {OpenFlags+=machineAccessible: [set: Open=SomewhatOpen] }
     {else:[set: Open=Closed]}
   ]
 ]
@@ -38,45 +47,75 @@
   [>PID< ask:
     {text: Does your repository assign globally unique and persistent identifiers (PID)? }
     {answers:
-      {yes: [set: FindableProps+=PID; Findable=SomewhatFindable] }
+      {yes: [set: PersistentIdentifier=externalPID; Findable=SomewhatFindable] }
+      {no:
+        [>sSelfPID< ask:
+          {text:  Does the repository allows users to self assign an identifier to a data set or data contribution?}
+          {answers:
+            {yes: [set: PersistentIdentifier=internalPID; Findable=SomewhatFindable] }
+            {no:  [set: PersistentIdentifier=none]}
+          }
+        ]
+      }
     }
   ]
   [>sFindable< section:
     {title: Findable}
-    [>DRC38< ask:
-      {text:Does the PID resolve to a landing page that describes the data? }
-      {answers:
-        {yes: [set: FindableProps+=humanAccessible; Findable=SomewhatFindable]}
-        {no:
-          [>DRC38b< ask:
-            {text:Is there a stable web address that contains metadata about each dataset?}
-            {answers:
-              {yes: [set: FindableProps+=humanAccessible; Findable=SomewhatFindable]}
+    [consider:
+      {slot: PersistentIdentifier }
+      {options: {none:}} <-- Hack to get PersistentIdentifier \in (internalPID, externalPID)
+      {else:
+        [>DRC38< ask:
+          {text:Does the PID resolve to a landing page that describes the data? }
+          {answers:
+            {yes: [set: FindableFlags+=humanAccessible; Findable=SomewhatFindable]}
+            {no:
+              [>DRC38b< ask:
+                {text:Is there a stable web address that contains metadata about each dataset?}
+                {answers:
+                  {yes: [set: FindableFlags+=humanAccessible; Findable=SomewhatFindable]}
+                }
+              ]
             }
-          ]
-        }
+          }
+        ]
       }
     ]
     [>RichMetadata<ask:
       {text:Does the repository support the addition of rich metadata to promote search and reuse of data? }
       {answers:
-        {yes: [set: FindableProps+=RichMetadata; Findable=SomewhatFindable]}
+        {rich: [set: MetadataGrade=rich; Findable=SomewhatFindable]}
+        {limited: [set: MetadataGrade=limited; Findable=SomewhatFindable]}
+        {minimal: [set: MetadataGrade=minimal] }
       }
     ]
-    [>PidInMetadata< ask:
-      {text: Does the metadata clearly and explicitly include the identifier of the data it describes?}
-      {answers:
-        {yes: [set:FindableProps+=PidInMetadata; Findable=SomewhatFindable]}
+    [consider:
+      {slot: PersistentIdentifier }
+      {options: {none:}} <-- Hack to get PersistentIdentifier \in (internalPID, externalPID)
+      {else:
+        [>PidInMetadata< ask:
+          {text: Does the metadata clearly and explicitly include the identifier of the data it describes?}
+          {answers:
+            {yes: [set:FindableFlags+=PidInMetadata; Findable=SomewhatFindable]}
+          }
+        ]
       }
     ]
     [>WebBasedSearch< ask:
       {text: Does the repository provide web-based search and access to the data and metadata?}
       {answers:
-        {yes: [set: FindableProps+=machineAccessible; Findable=SomewhatFindable] }
+        {yes: [set: FindableFlags+=machineAccessible; Findable=SomewhatFindable] }
       }
     ]
-    [when:
-      {FindableProps+=humanAccessible,RichMetadata,machineAccessible,PID,PidInMetadata : [set: Findable=FullyFindable] }
+    [>sumFindable< when:
+      {FindableFlags+=humanAccessible,machineAccessible,PidInMetadata;
+        PersistentIdentifier=externalPID:
+        [consider:
+          {slot: MetadataGrade}
+          {options: {minimal:}}
+          {else: [set: Findable=FullyFindable]}
+        ]
+      }
       {else: [set: Findable=NotFindable]}
     ]
   ] <-- /section Findable
@@ -107,7 +146,7 @@
         {yes: [set: AccessibleProps+=CommunityStandard; Accessible=SomewhatAccessible] }
       }
     ]
-    [when:
+    [>sumAccessible< when:
       {AccessibleProps+=CommunityStandard,License,PersistentMetadata,StdApi : [set: Accessible=FullyAccessible] }
       {else: [set: Accessible=NotAccessible]}
     ]
@@ -144,7 +183,7 @@
         {yes: [set:InteroperableProps+=DataCite;Interoperable=SomewhatInteroperable]}
       }
     ]
-    [when:
+    [>sumInteroperable< when:
       {InteroperableProps+=DataCite,Scholix,FormalMetadataVocabulary,FairMetadata,QualifiedMetadataReferences:
          [set: Interoperable=FullyInteroperable]
       }
@@ -229,7 +268,7 @@
     }
     {answers:
       {yes:[set: Trustworthy = NoConcerns]}
-      { no:
+      {no:
         [set: Trustworthy = SignificantConcerns]
         [>DRC97<ask:
           {text: Is the repository stakeholder governed?  }
@@ -252,7 +291,6 @@
             }
           }
         ]
-
       }
     }
   ]
