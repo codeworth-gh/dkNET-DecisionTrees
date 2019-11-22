@@ -18,17 +18,27 @@ OpenFlags: some of humanAccessible, machineAccessible, openFormat, openLicense,
                     restrictionsNotJustified, authorizationRequired.
 Restrictions: one of none, minimal, significant.
 
-AccessibleProps: some of
-  PersistentMetadata,
+
+AccessibleProps: consists of MetadataPersistence, AccessibleFlags.
+
+AccessibleFlags: some of
+  persistentMetadata,
   CommunityStandard,
   License,
   StdApi[Accessible via standard API].
 
-FindableProps: consists of PersistentIdentifier, MetadataGrade, FindableFlags.
-FindableFlags: some of humanAccessible, machineAccessible, PidInMetadata.
+MetadataPersistence[Are the medatadata kept after the data is deaccessioned?]: one of
+  unknown, byEvidence, byStatedPolicy.
+
+
+FindableProps: consists of PersistentIdentifier, MetadataGrade, IdInMetadata, FindableFlags.
+FindableFlags: some of humanAccessible, machineAccessible, idInMetadata, internalSearch.
 PersistentIdentifier: one of none, internalPID[Internally assigned identifier (e.g. UUID)],
                             externalPID[Externally assigned identifier (e.g. DOI)].
 MetadataGrade: one of minimal, limited, rich.
+IdInMetadata: one of none[All study IDs are included in the metadata],
+                     partial[Some study IDs are included, e.g., accession number but not DOI],
+                      all[No IDs].
 
 InteroperableProps: some of Scholix, DataCite, FormalMetadataVocabulary, FairMetadata, QualifiedMetadataReferences.
 ReusableProps: some of

@@ -96,7 +96,7 @@
         [>PidInMetadata< ask:
           {text: Does the metadata clearly and explicitly include the identifier of the data it describes?}
           {answers:
-            {yes: [set:FindableFlags+=PidInMetadata; Findable=SomewhatFindable]}
+            {yes: [set:FindableFlags+=idInMetadata; Findable=SomewhatFindable]}
           }
         ]
       }
@@ -107,8 +107,22 @@
         {yes: [set: FindableFlags+=machineAccessible; Findable=SomewhatFindable] }
       }
     ]
+    [>pidInMetadata< ask:
+      {text: Does the metadata clearly and explicitly include the identifier of the data it describes? }
+      {answers:
+          {all: [set: IdInMetadata=all; FindableFlags+=idInMetadata]}
+          {some:[set: IdInMetadata=partial; FindableFlags+=idInMetadata]}
+          {none:[set: IdInMetadata=none]}
+      }
+    ]
+    [>internalSearchFacility< ask:
+      {text: Does the repository provide a search facility for the data and metadata?}
+      {answers:
+        {yes: [set:FindableFlags+=internalSearch; Findable=SomewhatFindable]}
+      }
+    ]
     [>sumFindable< when:
-      {FindableFlags+=humanAccessible,machineAccessible,PidInMetadata;
+      {FindableFlags+=humanAccessible,machineAccessible,idInMetadata;
         PersistentIdentifier=externalPID:
         [consider:
           {slot: MetadataGrade}
@@ -123,31 +137,35 @@
   [>sAccessible< section:
     {title: Accessible}
     [>accessStdCompApi< ask:
-      {text: Can the data be accessed via a standards compliant API?}
+      {text: Can the (meta)data be accessed via a standards compliant API?}
       {answers:
-        {yes: [set: AccessibleProps+=StdApi; Accessible=SomewhatAccessible]}
+        {yes: [set: AccessibleFlags+=StdApi; Accessible=SomewhatAccessible]}
       }
     ]
-    [ask:
+    [>metadataPersistence< ask:
       {text:Does the repository have a policy that ensures the metadata (landing page) will persist even if the data are no longer available? }
       {answers:
-        {yes: [set: AccessibleProps+=PersistentMetadata; Accessible=SomewhatAccessible]}
+        {unknown: [set: MetadataPersistence=unknown]}
+        {by evidence: [set: MetadataPersistence=byEvidence; AccessibleFlags+=persistentMetadata;
+                            Accessible=SomewhatAccessible]}
+        {by policy:   [set: MetadataPersistence=byStatedPolicy; AccessibleFlags+=persistentMetadata;
+                            Accessible=SomewhatAccessible]}
       }
     ]
-    [ask:
+    [ask: <-- CONTPOINT: Question 10.
       {text: Does the repository provide a clear license for reuse of the data?}
       {answers:
-        {yes: [set: AccessibleProps+=License; Accessible=SomewhatAccessible] }
+        {yes: [set: AccessibleFlags+=License; Accessible=SomewhatAccessible] }
       }
     ]
     [ask:
       {text: Does the repository enforce or allow the use of community standards for data format or metadata?}
       {answers:
-        {yes: [set: AccessibleProps+=CommunityStandard; Accessible=SomewhatAccessible] }
+        {yes: [set: AccessibleFlags+=CommunityStandard; Accessible=SomewhatAccessible] }
       }
     ]
     [>sumAccessible< when:
-      {AccessibleProps+=CommunityStandard,License,PersistentMetadata,StdApi : [set: Accessible=FullyAccessible] }
+      {AccessibleFlags+=CommunityStandard,License,persistentMetadata,StdApi : [set: Accessible=FullyAccessible] }
       {else: [set: Accessible=NotAccessible]}
     ]
   ] <-- /section Accessible
