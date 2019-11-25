@@ -42,16 +42,21 @@ IdInMetadata: one of none[All study IDs are included in the metadata],
                      partial[Some study IDs are included, e.g., accession number but not DOI],
                      all[No IDs].
 
-InteroperableProps: consists of MetadataFAIRness, MetadataReferenceQuality, InteroperableFlags.
-InteroperableFlags: some of FormalMetadataVocabulary, FairMetadata, QualifiedMetadataReferences.
+InteroperableProps: consists of MetadataFAIRness, MetadataReferenceQuality, StudyLinkage, InteroperableFlags.
+InteroperableFlags: some of formalMetadataVocabulary, fairMetadata, qualifiedMetadataReferences, studyLinkage.
 MetadataFAIRness: one of minimal[Minimal or no mapping to appropriate ontologies],
                          allowed[Metadata may conform to FAIR vocabulary, but it's not enforced],
                          enforced[Metadata must conform to a FAIR vocabulary].
 MetadataReferenceQuality: one of freeText, informal, formal.
+StudyLinkage: one of none, freeText, textualMetadata, machineReadableMetadata.
 
-ReusableProps: some of
-  Provision,
-  DkNetMetadata,
-  GeneralMetadata,
-  CCLicense[Commons Compliant License.],
-  MetadataProvenance.
+ReusableProps: consists of DocumentationLevel, CCLicenseCompliance, ReusableFlags.
+
+DocumentationLevel: one of lacking, adequate, good, full.
+CCLicenseCompliance: one of none, nonCompliant, adequate, good, full.
+ReusableFlags: some of
+  documentationOK,
+  dkNetMetadata,
+  generalMetadata,
+  cCLicenseOK[Commons Compliant License.],
+  metadataProvenance.

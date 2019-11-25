@@ -176,33 +176,36 @@
     [>metadataContVocab< ask:
       {text: Do the metadata use a formal, accessible, shared and broadly applicable language for knowledge representation?}
       {answers:
-          {yes: [set: InteroperableFlags+=FormalMetadataVocabulary; Interoperable=SomewhatInteroperable]}
+          {yes: [set: InteroperableFlags+=formalMetadataVocabulary; Interoperable=SomewhatInteroperable]}
       }
     ]
     [>metadataFair< ask:
       {text: Do the metadata use vocabularies that follow FAIR principles?}
       {answers:
-        {enforced: [set: MetadataFAIRness=enforced; InteroperableFlags+=FairMetadata; Interoperable=SomewhatInteroperable]}
-        {allowed: [set: MetadataFAIRness=allowed; InteroperableFlags+=FairMetadata; Interoperable=SomewhatInteroperable]}
+        {enforced: [set: MetadataFAIRness=enforced; InteroperableFlags+=fairMetadata; Interoperable=SomewhatInteroperable]}
+        {allowed: [set: MetadataFAIRness=allowed; InteroperableFlags+=fairMetadata; Interoperable=SomewhatInteroperable]}
         {minimal: [set: MetadataFAIRness=minimal]}
       }
     ]
     [>metadataRefs< ask:
       {text: Do the metadata include qualified references to other (meta)data?}
       {answers:
-        {best: [set: MetadataReferenceQuality=formal; InteroperableFlags+=QualifiedMetadataReferences; Interoperable=SomewhatInteroperable]}
-        {good: [set: MetadataReferenceQuality=informal; InteroperableFlags+=QualifiedMetadataReferences; Interoperable=SomewhatInteroperable]}
+        {best: [set: MetadataReferenceQuality=formal; InteroperableFlags+=qualifiedMetadataReferences; Interoperable=SomewhatInteroperable]}
+        {good: [set: MetadataReferenceQuality=informal; InteroperableFlags+=qualifiedMetadataReferences; Interoperable=SomewhatInteroperable]}
         {worst: [set: MetadataReferenceQuality=freeText]}
       }
     ]
-    [>studyLinkage< ask: <-- CONTPOINT
+    [>studyLinkage< ask:
       {text: If the data were published in the context of an accompanying scientific paper, does the repository support bidirectional linkage between the them?}
       {answers:
-        {placeholder: <* CONTINUE HERE *> }
+        {full:[set: StudyLinkage=machineReadableMetadata; InteroperableFlags+=studyLinkage]}
+        {good:[set: StudyLinkage=textualMetadata; InteroperableFlags+=studyLinkage]}
+        {unclear:[set: StudyLinkage=freeText]}
+        {none:[set: StudyLinkage=none]}
       }
     ]
     [>sumInteroperable< when:
-      {InteroperableFlags+=FormalMetadataVocabulary,FairMetadata,QualifiedMetadataReferences:
+      {InteroperableFlags+=formalMetadataVocabulary,fairMetadata,qualifiedMetadataReferences:
          [set: Interoperable=FullyInteroperable]
       }
       {else: [set: Interoperable=NotInteroperable]}
@@ -211,38 +214,45 @@
 
   [>sReusable< section:
     {title: Re-usable}
-    [>allowProvision< ask:
-      {text: Do you allow the provision of documentation that aids in proper (re)-use of the data?}
+    [>reuseDocumentation< ask:
+      {text: Does the repository require or support documentation that aids in proper (re)-use of the data?}
       {answers:
-        {yes: [set: ReusableProps+=Provision; Reusable=SomewhatReusable]}
+        {full: [set: ReusableFlags+=documentationOK; DocumentationLevel=full]}
+        {good: [set: ReusableFlags+=documentationOK; DocumentationLevel=good]}
+        {adequate: [set: ReusableFlags+=documentationOK; DocumentationLevel=adequate]}
+        {lacking: [set: DocumentationLevel=lacking]}
       }
     ]
     [>ccLicense< ask:<-- Q18 in the updated questionnaire
       {text: Are the data covered by a commons-compliant license?}
       {answers:
-        {yes: [set: ReusableProps+=CCLicense; Reusable=SomewhatReusable]}
+        {fully compliant: [set: ReusableFlags+=cCLicenseOK; Reusable=SomewhatReusable; CCLicenseCompliance=full]}
+        {good:[set: ReusableFlags+=cCLicenseOK; Reusable=SomewhatReusable; CCLicenseCompliance=good]}
+        {adequate:[set: ReusableFlags+=cCLicenseOK; Reusable=SomewhatReusable; CCLicenseCompliance=adequate]}
+        {inappropriate:[set: CCLicenseCompliance=nonCompliant]}
+        {none:[set: CCLicenseCompliance=none]}
       }
     ]
     [>mdProvenance< ask:
       {text: Are the metadata associated with detailed provenance?}
       {answers:
-        {yes: [set: ReusableProps+=MetadataProvenance; Reusable=SomewhatReusable]}
+        {yes: [set: ReusableFlags+=metadataProvenance; Reusable=SomewhatReusable]}
       }
     ]
     [>acceptDkNetMetadata< ask:
       {text:Does your repository accept metadata that is applicable to the dkNET community disciplines?}
       {answers:
-        {yes: [set: ReusableProps+=DkNetMetadata; Reusable=SomewhatReusable]}
+        {yes: [set: ReusableFlags+=dkNetMetadata; Reusable=SomewhatReusable]}
       }
     ]
     [>acceptGeneralMetadata< ask:
       {text: Does your repository accept metadata that is generally applicable to all disciplines?}
       {answers:
-        {yes: [set: ReusableProps+=GeneralMetadata; Reusable=SomewhatReusable]}
+        {yes: [set: ReusableFlags+=generalMetadata; Reusable=SomewhatReusable]}
       }
     ]
     [when:
-      {ReusableProps+=Provision,DkNetMetadata,GeneralMetadata,CCLicense,MetadataProvenance : [set: Reusable=FullyReusable] }
+      {ReusableFlags+=documentationOK,dkNetMetadata,generalMetadata,cCLicenseOK,metadataProvenance : [set: Reusable=FullyReusable] }
       {else: [set: Reusable=NotReusable]}
     ]
   ]
