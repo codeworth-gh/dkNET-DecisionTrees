@@ -152,13 +152,15 @@
                             Accessible=SomewhatAccessible]}
       }
     ]
-    [ask: <-- CONTPOINT: Question 10.
+    [>clearLicense< ask:
       {text: Does the repository provide a clear license for reuse of the data?}
       {answers:
-        {yes: [set: AccessibleFlags+=License; Accessible=SomewhatAccessible] }
+        {dataset level: [set: ReuseLicense=DatasetLevel; AccessibleFlags+=License; Accessible=SomewhatAccessible] }
+        {repository level: [set: ReuseLicense=RepositoryLevel; AccessibleFlags+=License; Accessible=SomewhatAccessible] }
+        {no license: [set: ReuseLicense=None] }
       }
     ]
-    [ask:
+    [>communityStandards< ask:
       {text: Does the repository enforce or allow the use of community standards for data format or metadata?}
       {answers:
         {yes: [set: AccessibleFlags+=CommunityStandard; Accessible=SomewhatAccessible] }
@@ -174,35 +176,33 @@
     [>metadataContVocab< ask:
       {text: Do the metadata use a formal, accessible, shared and broadly applicable language for knowledge representation?}
       {answers:
-          {yes: [set: InteroperableProps+=FormalMetadataVocabulary; Interoperable=SomewhatInteroperable]}
+          {yes: [set: InteroperableFlags+=FormalMetadataVocabulary; Interoperable=SomewhatInteroperable]}
       }
     ]
     [>metadataFair< ask:
       {text: Do the metadata use vocabularies that follow FAIR principles?}
       {answers:
-        {yes: [set: InteroperableProps+=FairMetadata; Interoperable=SomewhatInteroperable]}
+        {enforced: [set: MetadataFAIRness=enforced; InteroperableFlags+=FairMetadata; Interoperable=SomewhatInteroperable]}
+        {allowed: [set: MetadataFAIRness=allowed; InteroperableFlags+=FairMetadata; Interoperable=SomewhatInteroperable]}
+        {minimal: [set: MetadataFAIRness=minimal]}
       }
     ]
     [>metadataRefs< ask:
       {text: Do the metadata include qualified references to other (meta)data?}
       {answers:
-        {yes: [set: InteroperableProps+=QualifiedMetadataReferences; Interoperable=SomewhatInteroperable]}
+        {best: [set: MetadataReferenceQuality=formal; InteroperableFlags+=QualifiedMetadataReferences; Interoperable=SomewhatInteroperable]}
+        {good: [set: MetadataReferenceQuality=informal; InteroperableFlags+=QualifiedMetadataReferences; Interoperable=SomewhatInteroperable]}
+        {worst: [set: MetadataReferenceQuality=freeText]}
       }
     ]
-    [>scholix< ask:
-      {text: Does the repository share literature-data links with Scholix.org, either directly or indirectly?}
+    [>studyLinkage< ask: <-- CONTPOINT
+      {text: If the data were published in the context of an accompanying scientific paper, does the repository support bidirectional linkage between the them?}
       {answers:
-        {yes: [set:InteroperableProps+=Scholix;Interoperable=SomewhatInteroperable]}
-      }
-    ]
-    [>datacite< ask:
-      {text: Do you include references to literature in metadata submitted to DataCite?}
-      {answers:
-        {yes: [set:InteroperableProps+=DataCite;Interoperable=SomewhatInteroperable]}
+        {placeholder: <* CONTINUE HERE *> }
       }
     ]
     [>sumInteroperable< when:
-      {InteroperableProps+=DataCite,Scholix,FormalMetadataVocabulary,FairMetadata,QualifiedMetadataReferences:
+      {InteroperableFlags+=FormalMetadataVocabulary,FairMetadata,QualifiedMetadataReferences:
          [set: Interoperable=FullyInteroperable]
       }
       {else: [set: Interoperable=NotInteroperable]}
@@ -217,7 +217,7 @@
         {yes: [set: ReusableProps+=Provision; Reusable=SomewhatReusable]}
       }
     ]
-    [>ccLicense< ask:
+    [>ccLicense< ask:<-- Q18 in the updated questionnaire
       {text: Are the data covered by a commons-compliant license?}
       {answers:
         {yes: [set: ReusableProps+=CCLicense; Reusable=SomewhatReusable]}

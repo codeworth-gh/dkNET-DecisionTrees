@@ -19,13 +19,15 @@ OpenFlags: some of humanAccessible, machineAccessible, openFormat, openLicense,
 Restrictions: one of none, minimal, significant.
 
 
-AccessibleProps: consists of MetadataPersistence, AccessibleFlags.
+AccessibleProps: consists of MetadataPersistence, ReuseLicense, AccessibleFlags.
 
 AccessibleFlags: some of
   persistentMetadata,
   CommunityStandard,
   License,
   StdApi[Accessible via standard API].
+
+ReuseLicense: one of None, RepositoryLevel, DatasetLevel.
 
 MetadataPersistence[Are the medatadata kept after the data is deaccessioned?]: one of
   unknown, byEvidence, byStatedPolicy.
@@ -38,9 +40,15 @@ PersistentIdentifier: one of none, internalPID[Internally assigned identifier (e
 MetadataGrade: one of minimal, limited, rich.
 IdInMetadata: one of none[All study IDs are included in the metadata],
                      partial[Some study IDs are included, e.g., accession number but not DOI],
-                      all[No IDs].
+                     all[No IDs].
 
-InteroperableProps: some of Scholix, DataCite, FormalMetadataVocabulary, FairMetadata, QualifiedMetadataReferences.
+InteroperableProps: consists of MetadataFAIRness, MetadataReferenceQuality, InteroperableFlags.
+InteroperableFlags: some of FormalMetadataVocabulary, FairMetadata, QualifiedMetadataReferences.
+MetadataFAIRness: one of minimal[Minimal or no mapping to appropriate ontologies],
+                         allowed[Metadata may conform to FAIR vocabulary, but it's not enforced],
+                         enforced[Metadata must conform to a FAIR vocabulary].
+MetadataReferenceQuality: one of freeText, informal, formal.
+
 ReusableProps: some of
   Provision,
   DkNetMetadata,
