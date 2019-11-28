@@ -1,17 +1,18 @@
 DataRepoCompliance: consists of Open, FAIR, Citable, Trustworthy, Properties.
 
-Open: one of Closed, SomewhatOpen, FullyOpen.
+Open: one of closed, partiallyOpen, fullyOpen.
 FAIR: consists of Findable, Accessible, Interoperable, Reusable.
 Citable: one of notSupported, partiallySupported, fullySupported.
-Trustworthy: one of SignificantConcerns, MinorConcerns, NoConcerns.
+Trustworthy: one of significantConcerns, minorConcerns, noConcerns.
 
-Findable: one of NotFindable, SomewhatFindable, FullyFindable.
-Accessible: one of NotAccessible, SomewhatAccessible, FullyAccessible.
+Findable:      one of notFindable, partiallyFindable, fullyFindable.
+Accessible:    one of NotAccessible, SomewhatAccessible, FullyAccessible.
 Interoperable: one of NotInteroperable, SomewhatInteroperable, FullyInteroperable.
-Reusable: one of NotReusable, SomewhatReusable, FullyReusable.
+Reusable:      one of NotReusable, SomewhatReusable, FullyReusable.
 
 Properties: consists of OpenProps, FindableProps, AccessibleProps,
-                        InteroperableProps, ReusableProps, CitableProps.
+                        InteroperableProps, ReusableProps, CitableProps,
+                        TrustworthinessProps.
 
 OpenProps: consists of Restrictions, OpenFlags.
 OpenFlags: some of humanAccessible, machineAccessible, openFormat, openLicense,
@@ -66,3 +67,8 @@ CitableProps: consists of OrcidAssociation, CitationMetadataLevel, MachineReadab
 OrcidAssociation: one of none, supported, required.
 CitationMetadataLevel: one of none, partial, full.
 MachineReadableLandingPage: one of none, exists, supportsDataCitation.
+
+TrustworthinessProps: consists of GovernanceTransparency, StakeholderGovernance, SourceOpen.
+GovernanceTransparency: one of opaque, partial, full.
+StakeholderGovernance: one of none, weak, good, full.
+SourceOpen[Is the code running the repository released under an open source license?]: one of no, partially, yes.

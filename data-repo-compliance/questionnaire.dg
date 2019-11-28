@@ -25,12 +25,12 @@
   ]
   [>sumOpen< when:
     {OpenFlags+=openFormat, openLicense,
-                machineAccessible, humanAccessible: [set: Open=FullyOpen] }
-    {OpenFlags+=openFormat:        [set: Open=SomewhatOpen] }
-    {OpenFlags+=openLicense:       [set: Open=SomewhatOpen] }
-    {OpenFlags+=humanAccessible:   [set: Open=SomewhatOpen] }
-    {OpenFlags+=machineAccessible: [set: Open=SomewhatOpen] }
-    {else:[set: Open=Closed]}
+                machineAccessible, humanAccessible: [set: Open=fullyOpen] }
+    {OpenFlags+=openFormat:        [set: Open=partiallyOpen] }
+    {OpenFlags+=openLicense:       [set: Open=partiallyOpen] }
+    {OpenFlags+=humanAccessible:   [set: Open=partiallyOpen] }
+    {OpenFlags+=machineAccessible: [set: Open=partiallyOpen] }
+    {else:[set: Open=closed]}
   ]
 ]
 
@@ -41,12 +41,12 @@
   [>PID< ask:
     {text: Does your repository assign globally unique and persistent identifiers (PID)? }
     {answers:
-      {yes: [set: PersistentIdentifier=externalPID; Findable=SomewhatFindable] }
+      {yes: [set: PersistentIdentifier=externalPID; Findable=partiallyFindable] }
       {no:
         [>sSelfPID< ask:
           {text:  Does the repository allows users to self assign an identifier to a data set or data contribution?}
           {answers:
-            {yes: [set: PersistentIdentifier=internalPID; Findable=SomewhatFindable] }
+            {yes: [set: PersistentIdentifier=internalPID; Findable=partiallyFindable] }
             {no:  [set: PersistentIdentifier=none]}
           }
         ]
@@ -62,12 +62,12 @@
         [>DRC38< ask:
           {text:Does the PID resolve to a landing page that describes the data? }
           {answers:
-            {yes: [set: FindableFlags+=humanAccessible; Findable=SomewhatFindable]}
+            {yes: [set: FindableFlags+=humanAccessible; Findable=partiallyFindable]}
             {no:
               [>DRC38b< ask:
                 {text:Is there a stable web address that contains metadata about each dataset?}
                 {answers:
-                  {yes: [set: FindableFlags+=humanAccessible; Findable=SomewhatFindable]}
+                  {yes: [set: FindableFlags+=humanAccessible; Findable=partiallyFindable]}
                 }
               ]
             }
@@ -78,8 +78,8 @@
     [>RichMetadata<ask:
       {text:Does the repository support the addition of rich metadata to promote search and reuse of data? }
       {answers:
-        {rich: [set: MetadataGrade=rich; Findable=SomewhatFindable]}
-        {limited: [set: MetadataGrade=limited; Findable=SomewhatFindable]}
+        {rich: [set: MetadataGrade=rich; Findable=partiallyFindable]}
+        {limited: [set: MetadataGrade=limited; Findable=partiallyFindable]}
         {minimal: [set: MetadataGrade=minimal] }
       }
     ]
@@ -90,7 +90,7 @@
         [>PidInMetadata< ask:
           {text: Does the metadata clearly and explicitly include the identifier of the data it describes?}
           {answers:
-            {yes: [set:FindableFlags+=idInMetadata; Findable=SomewhatFindable]}
+            {yes: [set:FindableFlags+=idInMetadata; Findable=partiallyFindable]}
           }
         ]
       }
@@ -98,7 +98,7 @@
     [>WebBasedSearch< ask:
       {text: Does the repository provide web-based search and access to the data and metadata?}
       {answers:
-        {yes: [set: FindableFlags+=machineAccessible; Findable=SomewhatFindable] }
+        {yes: [set: FindableFlags+=machineAccessible; Findable=partiallyFindable] }
       }
     ]
     [>pidInMetadata< ask:
@@ -112,7 +112,7 @@
     [>internalSearchFacility< ask:
       {text: Does the repository provide a search facility for the data and metadata?}
       {answers:
-        {yes: [set:FindableFlags+=internalSearch; Findable=SomewhatFindable]}
+        {yes: [set:FindableFlags+=internalSearch; Findable=partiallyFindable]}
       }
     ]
     [>sumFindable< when:
@@ -121,11 +121,11 @@
         [consider:
           {slot: MetadataGrade}
           {options:
-            {rich:[set: Findable=FullyFindable] }
+            {rich:[set: Findable=fullyFindable] }
           }
         ]
       }
-      {else: [set: Findable=NotFindable]}
+      {else: [set: Findable=notFindable]}
     ]
   ] <-- /section Findable
 
@@ -310,40 +310,50 @@
 ]
 
 <--
-<-- CONTPOINT
 [>sTrustworthy< section:
   {title: Trustworthy-ness}
   [>trustworthy< ask:
-    {text: Does the repository adhere to the requirements for the Data Repository Gold Seal of Approval? }
-    {terms:
-      {Data Repository Gold Seal of Approval: see https://www.datasealofapproval.org/en/information/requirements/}
-    }
+    {text: Has the repository been certified by Data Seal of Approval or the Core Trust Seal? }
     {answers:
-      {yes:[set: Trustworthy = NoConcerns]}
+      {yes:[set: Trustworthy = noConcerns]}
       {no:
-        [set: Trustworthy = SignificantConcerns]
-        [>DRC97<ask:
-          {text: Is the repository stakeholder governed?  }
+        [>DRC101<ask:
+          {text: Is the governance of the repository transparent?}
           {answers:
-            {yes:
-              [set: Trustworthy = MinorConcerns]
-              [>DRC101<ask:
-                {text: Is the governance of the repository transparent?}
-                {answers:
-                  {yes:
-                    [>DRC105< ask:
-                      {text: Is the code that runs the data infrastructure covered under an open source license?}
-                      {answers:
-                        {yes: [set: Trustworthy = NoConcerns]}
-                      }
-                    ]
-                  }
-                }
-              ]
-            }
+            {best: [set: GovernanceTransparency=full]}
+            {adequate: [set: GovernanceTransparency=partial]}
+            {unclear: [set: GovernanceTransparency=opaque]}
+          }
+        ]
+        [consider:
+          {slot: GovernanceTransparency}
+          {options: {opaque:}}
+          {else:
+            [>DRC97<ask:
+              {text: Is the repository stakeholder governed?}
+              {answers:
+                {full:[set: StakeholderGovernance=full]}
+                {good:[set: StakeholderGovernance=good]}
+                {weak:[set: StakeholderGovernance=weak]}
+                {none:[set: StakeholderGovernance=none]}
+              }
+            ]
+          }
+        ]
+        [>DRC105< ask:
+          {text: Is the code that runs the data infrastructure covered under an open source license?}
+          {answers:
+            {best: [set: SourceOpen=yes]}
+            {good: [set: SourceOpen=partially]}
+            {no: [set: SourceOpen=no]}
           }
         ]
       }
     }
+  ]
+  [when:
+    {SourceOpen=yes; StakeholderGovernance=full; GovernanceTransparency=full: [set: Trustworthy=noConcerns]}
+    {SourceOpen=no; StakeholderGovernance=none; GovernanceTransparency=opaque: [set: Trustworthy=significantConcerns]}
+    {else: [set: Trustworthy=minorConcerns]}
   ]
 ]
