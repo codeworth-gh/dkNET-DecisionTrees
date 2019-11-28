@@ -62,6 +62,7 @@ ReusableFlags: some of
   cCLicenseOK[Commons Compliant License.],
   metadataProvenanceOK.
 
-CitableProps: consists of OrcidAssociation, CitationMetadataLevel.
+CitableProps: consists of OrcidAssociation, CitationMetadataLevel, MachineReadableLandingPage.
 OrcidAssociation: one of none, supported, required.
 CitationMetadataLevel: one of none, partial, full.
+MachineReadableLandingPage: one of none, exists, supportsDataCitation.
