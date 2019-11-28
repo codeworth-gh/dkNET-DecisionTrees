@@ -18,7 +18,6 @@ OpenFlags: some of humanAccessible, machineAccessible, openFormat, openLicense,
                     restrictionsNotJustified, authorizationRequired.
 Restrictions: one of none, minimal, significant.
 
-
 AccessibleProps: consists of MetadataPersistence, ReuseLicense, AccessibleFlags.
 
 AccessibleFlags: some of
@@ -50,13 +49,14 @@ MetadataFAIRness: one of minimal[Minimal or no mapping to appropriate ontologies
 MetadataReferenceQuality: one of freeText, informal, formal.
 StudyLinkage: one of none, freeText, textualMetadata, machineReadableMetadata.
 
-ReusableProps: consists of DocumentationLevel, CCLicenseCompliance, ReusableFlags.
-
+ReusableProps: consists of DocumentationLevel, CCLicenseCompliance, MetadataProvenance, DkNetMetadataLevel, ReusableFlags.
 DocumentationLevel: one of lacking, adequate, good, full.
 CCLicenseCompliance: one of none, nonCompliant, adequate, good, full.
+MetadataProvenance: one of unclear, adequate, full.
+DkNetMetadataLevel: one of none, dataset, datasetAndSubject.
 ReusableFlags: some of
   documentationOK,
-  dkNetMetadata,
+  dkNetMetadataOK,
   generalMetadata,
   cCLicenseOK[Commons Compliant License.],
-  metadataProvenance.
+  metadataProvenanceOK.

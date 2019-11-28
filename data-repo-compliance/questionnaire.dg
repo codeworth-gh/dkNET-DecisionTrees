@@ -23,12 +23,6 @@
       {yes: [set: OpenFlags+=platformSupportsDataWork] }
     }
   ]
-  <-- [>DRC15<ask:
-  <-- {text: Are the data covered by a commons-compliant license? }
-  <--   {answers:
-  <--     {yes: [set: OpenFlags += openLicense] }
-  <--   }
-  <-- ]
   [>sumOpen< when:
     {OpenFlags+=openFormat, openLicense,
                 machineAccessible, humanAccessible: [set: Open=FullyOpen] }
@@ -126,8 +120,9 @@
         PersistentIdentifier=externalPID:
         [consider:
           {slot: MetadataGrade}
-          {options: {minimal:}}
-          {else: [set: Findable=FullyFindable]}
+          {options:
+            {rich:[set: Findable=FullyFindable] }
+          }
         ]
       }
       {else: [set: Findable=NotFindable]}
@@ -236,31 +231,34 @@
     [>mdProvenance< ask:
       {text: Are the metadata associated with detailed provenance?}
       {answers:
-        {yes: [set: ReusableFlags+=metadataProvenance; Reusable=SomewhatReusable]}
+        {best: [set: MetadataProvenance=full; ReusableFlags+=metadataProvenanceOK; Reusable=SomewhatReusable]}
+        {adequate: [set: MetadataProvenance=adequate; ReusableFlags+=metadataProvenanceOK; Reusable=SomewhatReusable] }
+        {unclear: [set: MetadataProvenance=unclear]}
+      }
+    ]
+    [>acceptGeneralMetadata< ask:
+      {text: Does the repository use a recognized community standard for representing basic metadata?}
+      {answers:
+        {yes: [set: ReusableFlags+=generalMetadata; Reusable=SomewhatReusable]}
       }
     ]
     [>acceptDkNetMetadata< ask:
       {text:Does your repository accept metadata that is applicable to the dkNET community disciplines?}
       {answers:
-        {yes: [set: ReusableFlags+=dkNetMetadata; Reusable=SomewhatReusable]}
-      }
-    ]
-    [>acceptGeneralMetadata< ask:
-      {text: Does your repository accept metadata that is generally applicable to all disciplines?}
-      {answers:
-        {yes: [set: ReusableFlags+=generalMetadata; Reusable=SomewhatReusable]}
+        {no: [set: DkNetMetadataLevel=none]}
+        {for datasets: [set: DkNetMetadataLevel=dataset; ReusableFlags+=dkNetMetadataOK; Reusable=SomewhatReusable]}
+        {for datasets & subjects: [set: DkNetMetadataLevel=datasetAndSubject; ReusableFlags+=dkNetMetadataOK; Reusable=SomewhatReusable]}
       }
     ]
     [when:
-      {ReusableFlags+=documentationOK,dkNetMetadata,generalMetadata,cCLicenseOK,metadataProvenance : [set: Reusable=FullyReusable] }
+      {ReusableFlags+=documentationOK,dkNetMetadataOK,generalMetadata,cCLicenseOK,metadataProvenanceOK : [set: Reusable=FullyReusable] }
       {else: [set: Reusable=NotReusable]}
     ]
   ]
 ]
 
-<--
+<-- CONTPOINT
 
-<*** OK SO FAR ***>
 [>sCitable< section:
   {title: Citable}
   [>citable< ask:
