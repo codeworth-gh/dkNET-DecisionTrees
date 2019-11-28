@@ -257,34 +257,39 @@
   ]
 ]
 
-<-- CONTPOINT
-
 [>sCitable< section:
   {title: Citable}
-  [>citable< ask:
-    {text: Does the repository allow you to associate your ORCID ID with a dataset?}
+  [>orcidAssociation< ask:
+    {text: Does the repository allow the authors to associate their ORCID ID with a dataset?}
     {answers:
-      {yes:
-        [>DRC73<ask:
-          {text: Does the repository provide the required metadata for supporting data citation?}
-          {answers:
-            {yes:
-              [>DRC77<ask:
-                {text: Does the repository provide a machine-readable landing page?}
-                {answers:
-                  {yes: [set: Citable = FullySupported]}
-                }
-              ]
-            }
+      {required: [set: OrcidAssociation=required; Citable=partiallySupported]}
+      {supported: [set: OrcidAssociation=supported; Citable=partiallySupported]}
+      {not available: [set: OrcidAssociation=none; CitationMetadataLevel=none]}
+    }
+  ]
+  [when:
+    {Citable=partiallySupported:
+      [>DRC73<ask:
+        {text: Does the repository provide the required metadata for supporting data citation?}
+        {answers:
+          {yes:
+            [>DRC77<ask:
+              {text: Does the repository provide a machine-readable landing page?}
+              {answers:
+                {full: [set: CitationMetadataLevel=full; Citable = fullySupported]}
+                {partial: [set: CitationMetadataLevel=partial]}
+                {none: [set: CitationMetadataLevel=none]}
+              }
+            ]
           }
-        ]
-      }
+        }
+      ]
     }
   ]
 ]
 
 <--
-
+<-- CONTPOINT
 [>sTrustworthy< section:
   {title: Trustworthy-ness}
   [>trustworthy< ask:
