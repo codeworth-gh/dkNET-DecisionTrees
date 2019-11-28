@@ -1,1 +1,0 @@
-Does the repository share literature-data links with Scholix.org, either directly or indirectly?

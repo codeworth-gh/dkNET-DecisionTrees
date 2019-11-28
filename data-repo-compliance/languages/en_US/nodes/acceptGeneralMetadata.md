@@ -1,1 +1,0 @@
-Does your repository accept metadata that is generally applicable to all disciplines?

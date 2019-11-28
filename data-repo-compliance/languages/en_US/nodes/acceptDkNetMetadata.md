@@ -1,1 +1,0 @@
-Does your repository accept metadata that is applicable to the dkNET community disciplines?

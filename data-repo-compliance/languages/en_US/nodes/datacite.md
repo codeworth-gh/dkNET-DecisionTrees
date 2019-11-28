@@ -1,1 +1,0 @@
-Do you include references to literature in metadata submitted to DataCite?

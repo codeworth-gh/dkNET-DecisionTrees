@@ -11,123 +11,22 @@ Accessible Properties
 How accessible are datasets in this repository
 
 
-# DataRepoCompliance/Properties/AccessibleProps/PersistentMetadata
-Persistent Metadata
-
-
-
-# DataRepoCompliance/Properties/AccessibleProps/CommunityStandard
-Community Standard
-Does this repository follows a community standard?
-
-
-# DataRepoCompliance/Properties/AccessibleProps/License
-License
-
-
-# DataRepoCompliance/Properties/AccessibleProps/StdApi
-Standard Api
-Are the data in this repository accessible via standard API
-
 # DataRepoCompliance/Properties/FindableProps
 Findable Properties
 How easy is it for users to find datasets in this repository
-
-# DataRepoCompliance/Properties/FindableProps/RichMetadata
-Rich Metadata
-
-
-# DataRepoCompliance/Properties/FindableProps/humanAccessible
-Human Accessible
-
-
-# DataRepoCompliance/Properties/FindableProps/machineAccessible
-Machine Accessible
-
-
-# DataRepoCompliance/Properties/FindableProps/PID
-PID
-Persistent Identifier
----
-Persistent Identifiers allow access to datasets event when the storage location changes. For example, [doi](https://www.doi.org).
-
-
-# DataRepoCompliance/Properties/FindableProps/PidInMetadata
-PID In Metadata
-Is the PID stored in the metadata?
 
 
 # DataRepoCompliance/Properties/InteroperableProps
 Interoperable Properties
 Does this repository interoperate with other systems?
 
-
-# DataRepoCompliance/Properties/InteroperableProps/Scholix
-Scholix
-Scholix: A Framework for Scholarly Link eXchange
----
-[Scholix](http://www.scholix.org)
-
-# DataRepoCompliance/Properties/InteroperableProps/DataCite
-DataCite
----
-[DataCite's website](https://datacite.org)
-
-
-# DataRepoCompliance/Properties/InteroperableProps/FormalMetadataVocabulary
-Formal Metadata Vocabulary
-
-
-# DataRepoCompliance/Properties/InteroperableProps/FairMetadata
-FAIR Metadata
-
-
-# DataRepoCompliance/Properties/InteroperableProps/QualifiedMetadataReferences
-Qualified Metadata References
-
-
 # DataRepoCompliance/Properties/OpenProps
 Open Properties
 How open are the datasets in this repository
 
-# DataRepoCompliance/Properties/OpenProps/humanAccessible
-Human Accessible
-
-
-# DataRepoCompliance/Properties/OpenProps/machineAccessible
-Machine Accessible
-
-
-# DataRepoCompliance/Properties/OpenProps/openFormat
-Open Format
-Are the data stored using an open format?
----
-Open formats are formats whose specifications are available to anyone wishing to read and write them. Thus, they prevent situation where a resercher obtains a file, but has to pay for a software in order to read it.
-
-# DataRepoCompliance/Properties/OpenProps/openLicense
-Open License
-
 
 # DataRepoCompliance/Properties/ReusableProps
 Reusable Properties
-
-
-# DataRepoCompliance/Properties/ReusableProps/Provision
-Provision
-
-
-# DataRepoCompliance/Properties/ReusableProps/DkNetMetadata
-dkNET Metadata
-
-
-# DataRepoCompliance/Properties/ReusableProps/GeneralMetadata
-General Metadata
-
-
-# DataRepoCompliance/Properties/ReusableProps/CCLicense
-CC License
-Commons Compliant License.
-
 
 # DataRepoCompliance/Properties/ReusableProps/MetadataProvenance
 Metadata Provenance
@@ -137,49 +36,12 @@ Metadata Provenance
 Trustworthy
 Can this repository be trusted with data?
 
-# DataRepoCompliance/Trustworthy/SignificantConcerns
-Significant Concerns
-
-
-# DataRepoCompliance/Trustworthy/MinorConcerns
-Minor Concerns
-
-
-# DataRepoCompliance/Trustworthy/NoConcerns
-No Concerns
-
-
 # DataRepoCompliance/Citable
 Citable
 
 
-# DataRepoCompliance/Citable/Unsupported
-Unsupported
-
-
-# DataRepoCompliance/Citable/SomewhatSupported
-Somewhat Supported
-
-
-# DataRepoCompliance/Citable/FullySupported
-Fully Supported
-
-
 # DataRepoCompliance/Open
 Open
-
-
-# DataRepoCompliance/Open/Closed
-Closed
-
-
-# DataRepoCompliance/Open/SomewhatOpen
-Somewhat Open
-
-
-# DataRepoCompliance/Open/FullyOpen
-Fully Open
-
 
 # DataRepoCompliance/FAIR
 FAIR
@@ -191,61 +53,557 @@ Read more at [FAIR principles](https://www.dtls.nl/fair-data/fair-principles-exp
 Accessible
 
 
-# DataRepoCompliance/FAIR/Accessible/NotAccessible
-Not Accessible
-
-
-# DataRepoCompliance/FAIR/Accessible/SomewhatAccessible
-Somewhat Accessible
-
-
-# DataRepoCompliance/FAIR/Accessible/FullyAccessible
-Fully Accessible
-
-
 # DataRepoCompliance/FAIR/Interoperable
 Interoperable
-
-
-# DataRepoCompliance/FAIR/Interoperable/NotInteroperable
-Not Interoperable
-
-
-# DataRepoCompliance/FAIR/Interoperable/SomewhatInteroperable
-Somewhat Interoperable
-
-
-# DataRepoCompliance/FAIR/Interoperable/FullyInteroperable
-Fully Interoperable
 
 
 # DataRepoCompliance/FAIR/Findable
 Findable
 
 
-# DataRepoCompliance/FAIR/Findable/NotFindable
-Not Findable
-
-
-# DataRepoCompliance/FAIR/Findable/SomewhatFindable
-Somewhat Findable
-
-
-# DataRepoCompliance/FAIR/Findable/FullyFindable
-Fully Findable
-
-
 # DataRepoCompliance/FAIR/Reusable
 Reusable
 
 
-# DataRepoCompliance/FAIR/Reusable/NotReusable
-Not Reusable
+# DataRepoCompliance/Properties/AccessibleProps/AccessibleFlags
+Accessible Flags
+Yes/No properties that affect accessibility.
 
 
-# DataRepoCompliance/FAIR/Reusable/SomewhatReusable
-Somewhat Reusable
+# DataRepoCompliance/Properties/AccessibleProps/AccessibleFlags/persistentMetadata
+persistent metadata
+The repository maintains metadata after datasets are deleted.
 
 
-# DataRepoCompliance/FAIR/Reusable/FullyReusable
-Fully Reusable
+# DataRepoCompliance/Properties/AccessibleProps/AccessibleFlags/communityStandard
+community standards
+The repository adheres to community standards
+
+
+# DataRepoCompliance/Properties/AccessibleProps/AccessibleFlags/licenseOK
+√ license
+
+
+# DataRepoCompliance/Properties/AccessibleProps/AccessibleFlags/stdApi
+standard API
+Accessible via standard API
+---
+Supporting standard API allows other software systems to access data on the repository in a structured, well-supported way.
+
+# DataRepoCompliance/Properties/AccessibleProps/MetadataPersistence
+Metadata Persistence
+Are the medatadata kept after the data is deaccessioned?
+
+# DataRepoCompliance/Properties/AccessibleProps/MetadataPersistence/unknown
+unknown
+
+
+# DataRepoCompliance/Properties/AccessibleProps/MetadataPersistence/byEvidence
+by evidence
+
+
+# DataRepoCompliance/Properties/AccessibleProps/MetadataPersistence/byStatedPolicy
+by stated policy
+
+
+# DataRepoCompliance/Properties/AccessibleProps/ReuseLicense
+Reuse License
+
+
+# DataRepoCompliance/Properties/AccessibleProps/ReuseLicense/none
+none
+
+
+# DataRepoCompliance/Properties/AccessibleProps/ReuseLicense/repositoryLevel
+repository level
+A single reuse license to the entire repository
+
+
+# DataRepoCompliance/Properties/AccessibleProps/ReuseLicense/datasetLevel
+dataset level
+A reuse license can be assigned to each individual datasets.
+
+# DataRepoCompliance/Properties/FindableProps/PersistentIdentifier
+Persistent Identifier
+
+
+# DataRepoCompliance/Properties/FindableProps/PersistentIdentifier/none
+none
+
+
+# DataRepoCompliance/Properties/FindableProps/PersistentIdentifier/internalPID
+internal PID
+Internally assigned identifier (e.g. UUID)
+
+# DataRepoCompliance/Properties/FindableProps/PersistentIdentifier/externalPID
+external PID
+Externally assigned identifier (e.g. DOI)
+
+# DataRepoCompliance/Properties/FindableProps/IdInMetadata
+Id In Metadata
+
+
+# DataRepoCompliance/Properties/FindableProps/IdInMetadata/none
+none
+No IDs in the metadata.
+
+# DataRepoCompliance/Properties/FindableProps/IdInMetadata/partial
+partial
+Some study IDs are included, e.g., accession number but not DOI
+
+# DataRepoCompliance/Properties/FindableProps/IdInMetadata/all
+all
+All study IDs are included in the metadata
+
+# DataRepoCompliance/Properties/FindableProps/MetadataGrade
+Metadata Grade
+
+
+# DataRepoCompliance/Properties/FindableProps/MetadataGrade/minimal
+minimal
+
+
+# DataRepoCompliance/Properties/FindableProps/MetadataGrade/limited
+limited
+
+
+# DataRepoCompliance/Properties/FindableProps/MetadataGrade/rich
+rich
+
+
+# DataRepoCompliance/Properties/FindableProps/FindableFlags
+Findable Flags
+
+
+# DataRepoCompliance/Properties/FindableProps/FindableFlags/humanAccessible
+human accessible
+
+
+# DataRepoCompliance/Properties/FindableProps/FindableFlags/machineAccessible
+machine accessible
+
+
+# DataRepoCompliance/Properties/FindableProps/FindableFlags/idInMetadata
+id in metadata
+
+
+# DataRepoCompliance/Properties/FindableProps/FindableFlags/internalSearchOK
+internal search OK
+
+
+# DataRepoCompliance/Properties/InteroperableProps/MetadataFAIRness
+Metadata FAIRness
+
+
+# DataRepoCompliance/Properties/InteroperableProps/MetadataFAIRness/minimal
+minimal
+Minimal or no mapping to appropriate ontologies
+
+# DataRepoCompliance/Properties/InteroperableProps/MetadataFAIRness/allowed
+allowed
+Metadata may conform to FAIR vocabulary, but it's not enforced
+
+# DataRepoCompliance/Properties/InteroperableProps/MetadataFAIRness/enforced
+enforced
+Metadata must conform to a FAIR vocabulary
+
+# DataRepoCompliance/Properties/InteroperableProps/StudyLinkage
+Study Linkage
+How is a dataset linked to studies (if at all)
+
+
+# DataRepoCompliance/Properties/InteroperableProps/StudyLinkage/none
+none
+No linkage to studies
+
+# DataRepoCompliance/Properties/InteroperableProps/StudyLinkage/freeText
+free text
+Linkage via free text (e.g. in a README file)
+
+
+# DataRepoCompliance/Properties/InteroperableProps/StudyLinkage/textualMetadata
+textual metadata
+Linkage via free text designated metadata fields
+
+
+# DataRepoCompliance/Properties/InteroperableProps/StudyLinkage/machineReadableMetadata
+machine readable metadata
+Linkage via structured designated metadata fields
+
+
+# DataRepoCompliance/Properties/InteroperableProps/InteroperableFlags
+Interoperable Flags
+
+
+# DataRepoCompliance/Properties/InteroperableProps/InteroperableFlags/formalMetadataVocabularyOK
+formal metadata vocabulary
+
+
+# DataRepoCompliance/Properties/InteroperableProps/InteroperableFlags/fairMetadataOK
+fair metadata
+
+
+# DataRepoCompliance/Properties/InteroperableProps/InteroperableFlags/qualifiedMetadataReferencesOK
+qualified metadata references
+
+
+# DataRepoCompliance/Properties/InteroperableProps/InteroperableFlags/studyLinkageOK
+study linkage OK
+
+
+# DataRepoCompliance/Properties/InteroperableProps/MetadataReferenceQuality
+Metadata Reference Quality
+
+
+# DataRepoCompliance/Properties/InteroperableProps/MetadataReferenceQuality/freeText
+free text
+
+
+# DataRepoCompliance/Properties/InteroperableProps/MetadataReferenceQuality/informal
+informal
+
+
+# DataRepoCompliance/Properties/InteroperableProps/MetadataReferenceQuality/formal
+formal
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps
+Trustworthiness Props
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/GovernanceTransparency
+Governance Transparency
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/GovernanceTransparency/opaque
+opaque
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/GovernanceTransparency/partial
+partial
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/GovernanceTransparency/full
+full
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/SourceOpen
+Source Open
+Is the code running the repository released under an open source license?
+
+# DataRepoCompliance/Properties/TrustworthinessProps/SourceOpen/no
+no
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/SourceOpen/partially
+partially
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/SourceOpen/yes
+yes
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/StakeholderGovernance
+Stakeholder Governance
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/StakeholderGovernance/none
+none
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/StakeholderGovernance/weak
+weak
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/StakeholderGovernance/good
+good
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/StakeholderGovernance/full
+full
+
+
+# DataRepoCompliance/Properties/OpenProps/Restrictions
+Restrictions
+
+
+# DataRepoCompliance/Properties/OpenProps/Restrictions/none
+none
+
+
+# DataRepoCompliance/Properties/OpenProps/Restrictions/minimal
+minimal
+
+
+# DataRepoCompliance/Properties/OpenProps/Restrictions/significant
+significant
+
+
+# DataRepoCompliance/Properties/OpenProps/OpenFlags
+Open Flags
+
+
+# DataRepoCompliance/Properties/OpenProps/OpenFlags/humanAccessible
+human Accessible
+
+
+# DataRepoCompliance/Properties/OpenProps/OpenFlags/machineAccessible
+machine Accessible
+
+
+# DataRepoCompliance/Properties/OpenProps/OpenFlags/openFormat
+openFormat
+Open Format
+---
+Open formats are formats whose specifications are available to anyone wishing to read and write them. Thus, they prevent situation where a researcher obtains a file, but has to pay for a software in order to read it.
+
+
+
+# DataRepoCompliance/Properties/OpenProps/OpenFlags/openLicense
+openLicense
+
+
+# DataRepoCompliance/Properties/OpenProps/OpenFlags/platformSupportsDataWork
+platform supports data
+
+
+# DataRepoCompliance/Properties/OpenProps/OpenFlags/restrictionsNotJustified
+restrictions not justified
+
+
+# DataRepoCompliance/Properties/OpenProps/OpenFlags/authorizationRequired
+authorization required
+
+
+# DataRepoCompliance/Properties/ReusableProps/DocumentationLevel
+Documentation Level
+
+
+# DataRepoCompliance/Properties/ReusableProps/DocumentationLevel/lacking
+lacking
+
+
+# DataRepoCompliance/Properties/ReusableProps/DocumentationLevel/adequate
+adequate
+
+
+# DataRepoCompliance/Properties/ReusableProps/DocumentationLevel/good
+good
+
+
+# DataRepoCompliance/Properties/ReusableProps/DocumentationLevel/full
+full
+
+
+# DataRepoCompliance/Properties/ReusableProps/CCLicenseCompliance
+CC License Compliance
+
+
+# DataRepoCompliance/Properties/ReusableProps/CCLicenseCompliance/none
+none
+
+
+# DataRepoCompliance/Properties/ReusableProps/CCLicenseCompliance/nonCompliant
+non compliant
+
+
+# DataRepoCompliance/Properties/ReusableProps/CCLicenseCompliance/adequate
+adequate
+
+
+# DataRepoCompliance/Properties/ReusableProps/CCLicenseCompliance/good
+good
+
+
+# DataRepoCompliance/Properties/ReusableProps/CCLicenseCompliance/full
+full
+
+
+# DataRepoCompliance/Properties/ReusableProps/MetadataProvenance/unclear
+unclear
+
+
+# DataRepoCompliance/Properties/ReusableProps/MetadataProvenance/adequate
+adequate
+
+
+# DataRepoCompliance/Properties/ReusableProps/MetadataProvenance/full
+full
+
+
+# DataRepoCompliance/Properties/ReusableProps/ReusableFlags
+Reusable Flags
+
+
+# DataRepoCompliance/Properties/ReusableProps/ReusableFlags/documentationOK
+documentation OK
+
+
+# DataRepoCompliance/Properties/ReusableProps/ReusableFlags/dkNetMetadataOK
+dkNetMetadata OK
+
+
+# DataRepoCompliance/Properties/ReusableProps/ReusableFlags/generalMetadata
+general metadata
+
+
+# DataRepoCompliance/Properties/ReusableProps/ReusableFlags/ccLicenseOK
+ccLicense OK
+Commons Compliant License.
+
+# DataRepoCompliance/Properties/ReusableProps/ReusableFlags/metadataProvenanceOK
+metadata provenance OK
+
+
+# DataRepoCompliance/Properties/ReusableProps/DkNetMetadataLevel
+dkNET Metadata Level
+
+
+# DataRepoCompliance/Properties/ReusableProps/DkNetMetadataLevel/none
+none
+No dkNET metadata
+
+# DataRepoCompliance/Properties/ReusableProps/DkNetMetadataLevel/dataset
+dataset
+dkNET metadata stored for dataset only
+
+
+# DataRepoCompliance/Properties/ReusableProps/DkNetMetadataLevel/datasetAndSubject
+dataset and subject
+dkNET metadata stored for dataset and subjects
+
+
+# DataRepoCompliance/Properties/CitableProps
+Citable Props
+
+
+# DataRepoCompliance/Properties/CitableProps/MachineReadableLandingPage
+Machine Readable Landing Page
+
+
+# DataRepoCompliance/Properties/CitableProps/MachineReadableLandingPage/none
+none
+
+
+# DataRepoCompliance/Properties/CitableProps/MachineReadableLandingPage/exists
+exists
+
+
+# DataRepoCompliance/Properties/CitableProps/MachineReadableLandingPage/supportsDataCitation
+supports data citation
+
+
+# DataRepoCompliance/Properties/CitableProps/CitationMetadataLevel
+Citation Metadata Level
+
+
+# DataRepoCompliance/Properties/CitableProps/CitationMetadataLevel/none
+none
+
+
+# DataRepoCompliance/Properties/CitableProps/CitationMetadataLevel/partial
+partial
+
+
+# DataRepoCompliance/Properties/CitableProps/CitationMetadataLevel/full
+full
+
+
+# DataRepoCompliance/Properties/CitableProps/OrcidAssociation
+ORCID Association
+
+
+# DataRepoCompliance/Properties/CitableProps/OrcidAssociation/none
+none
+
+
+# DataRepoCompliance/Properties/CitableProps/OrcidAssociation/supported
+supported
+
+
+# DataRepoCompliance/Properties/CitableProps/OrcidAssociation/required
+required
+
+
+# DataRepoCompliance/Trustworthy/significantConcerns
+significant concerns
+
+
+# DataRepoCompliance/Trustworthy/minorConcerns
+minor concerns
+
+
+# DataRepoCompliance/Trustworthy/noConcerns
+no concerns
+
+
+# DataRepoCompliance/Citable/notSupported
+not supported
+
+
+# DataRepoCompliance/Citable/partiallySupported
+partially supported
+
+
+# DataRepoCompliance/Citable/fullySupported
+fully supported
+
+
+# DataRepoCompliance/Open/closed
+closed
+
+
+# DataRepoCompliance/Open/partiallyOpen
+partially open
+
+
+# DataRepoCompliance/Open/fullyOpen
+fullyOpen
+
+
+# DataRepoCompliance/FAIR/Accessible/notAccessible
+not accessible
+
+
+# DataRepoCompliance/FAIR/Accessible/partiallyAccessible
+partially accessible
+
+
+# DataRepoCompliance/FAIR/Accessible/fullyAccessible
+fully accessible
+
+
+# DataRepoCompliance/FAIR/Interoperable/notInteroperable
+not interoperable
+
+
+# DataRepoCompliance/FAIR/Interoperable/partiallyInteroperable
+partially interoperable
+
+
+# DataRepoCompliance/FAIR/Interoperable/fullyInteroperable
+fully interoperable
+
+
+# DataRepoCompliance/FAIR/Findable/notFindable
+not findable
+
+
+# DataRepoCompliance/FAIR/Findable/partiallyFindable
+partially findable
+
+
+# DataRepoCompliance/FAIR/Findable/fullyFindable
+fully findable
+
+
+# DataRepoCompliance/FAIR/Reusable/notReusable
+not reusable
+
+
+# DataRepoCompliance/FAIR/Reusable/partiallyReusable
+partially reusable
+
+
+# DataRepoCompliance/FAIR/Reusable/fullyReusable
+fully reusable

@@ -112,12 +112,11 @@
     [>internalSearchFacility< ask:
       {text: Does the repository provide a search facility for the data and metadata?}
       {answers:
-        {yes: [set:FindableFlags+=internalSearch; Findable=partiallyFindable]}
+        {yes: [set:FindableFlags+=internalSearchOK; Findable=partiallyFindable]}
       }
     ]
     [>sumFindable< when:
-      {FindableFlags+=humanAccessible,machineAccessible,idInMetadata;
-        PersistentIdentifier=externalPID:
+      {FindableFlags+=humanAccessible,machineAccessible,idInMetadata,internalSearchOK; PersistentIdentifier=externalPID:
         [consider:
           {slot: MetadataGrade}
           {options:
@@ -134,7 +133,7 @@
     [>accessStdCompApi< ask:
       {text: Can the (meta)data be accessed via a standards compliant API?}
       {answers:
-        {yes: [set: AccessibleFlags+=StdApi; Accessible=SomewhatAccessible]}
+        {yes: [set: AccessibleFlags+=stdApi; Accessible=partiallyAccessible]}
       }
     ]
     [>metadataPersistence< ask:
@@ -142,68 +141,69 @@
       {answers:
         {unknown: [set: MetadataPersistence=unknown]}
         {by evidence: [set: MetadataPersistence=byEvidence; AccessibleFlags+=persistentMetadata;
-                            Accessible=SomewhatAccessible]}
+                            Accessible=partiallyAccessible]}
         {by policy:   [set: MetadataPersistence=byStatedPolicy; AccessibleFlags+=persistentMetadata;
-                            Accessible=SomewhatAccessible]}
+                            Accessible=partiallyAccessible]}
       }
     ]
     [>clearLicense< ask:
       {text: Does the repository provide a clear license for reuse of the data?}
       {answers:
-        {dataset level: [set: ReuseLicense=DatasetLevel; AccessibleFlags+=License; Accessible=SomewhatAccessible] }
-        {repository level: [set: ReuseLicense=RepositoryLevel; AccessibleFlags+=License; Accessible=SomewhatAccessible] }
-        {no license: [set: ReuseLicense=None] }
+        {dataset level: [set: ReuseLicense=datasetLevel; AccessibleFlags+=licenseOK; Accessible=partiallyAccessible] }
+        {repository level: [set: ReuseLicense=repositoryLevel; AccessibleFlags+=licenseOK; Accessible=partiallyAccessible] }
+        {no license: [set: ReuseLicense=none] }
       }
     ]
     [>communityStandards< ask:
       {text: Does the repository enforce or allow the use of community standards for data format or metadata?}
       {answers:
-        {yes: [set: AccessibleFlags+=CommunityStandard; Accessible=SomewhatAccessible] }
+        {yes: [set: AccessibleFlags+=communityStandard; Accessible=partiallyAccessible] }
       }
     ]
     [>sumAccessible< when:
-      {AccessibleFlags+=CommunityStandard,License,persistentMetadata,StdApi : [set: Accessible=FullyAccessible] }
-      {else: [set: Accessible=NotAccessible]}
+      {AccessibleFlags+=communityStandard,licenseOK,persistentMetadata,stdApi : [set: Accessible=fullyAccessible] }
+      {else: [set: Accessible=notAccessible]}
     ]
   ] <-- /section Accessible
+
   [>sInteroperable< section:
     {title: Interoperable }
     [>metadataContVocab< ask:
       {text: Do the metadata use a formal, accessible, shared and broadly applicable language for knowledge representation?}
       {answers:
-          {yes: [set: InteroperableFlags+=formalMetadataVocabulary; Interoperable=SomewhatInteroperable]}
+          {yes: [set: InteroperableFlags+=formalMetadataVocabularyOK; Interoperable=partiallyInteroperable]}
       }
     ]
     [>metadataFair< ask:
       {text: Do the metadata use vocabularies that follow FAIR principles?}
       {answers:
-        {enforced: [set: MetadataFAIRness=enforced; InteroperableFlags+=fairMetadata; Interoperable=SomewhatInteroperable]}
-        {allowed: [set: MetadataFAIRness=allowed; InteroperableFlags+=fairMetadata; Interoperable=SomewhatInteroperable]}
+        {enforced: [set: MetadataFAIRness=enforced; InteroperableFlags+=fairMetadataOK; Interoperable=partiallyInteroperable]}
+        {allowed: [set: MetadataFAIRness=allowed; InteroperableFlags+=fairMetadataOK; Interoperable=partiallyInteroperable]}
         {minimal: [set: MetadataFAIRness=minimal]}
       }
     ]
     [>metadataRefs< ask:
       {text: Do the metadata include qualified references to other (meta)data?}
       {answers:
-        {best: [set: MetadataReferenceQuality=formal; InteroperableFlags+=qualifiedMetadataReferences; Interoperable=SomewhatInteroperable]}
-        {good: [set: MetadataReferenceQuality=informal; InteroperableFlags+=qualifiedMetadataReferences; Interoperable=SomewhatInteroperable]}
+        {best: [set: MetadataReferenceQuality=formal; InteroperableFlags+=qualifiedMetadataReferencesOK; Interoperable=partiallyInteroperable]}
+        {good: [set: MetadataReferenceQuality=informal; InteroperableFlags+=qualifiedMetadataReferencesOK; Interoperable=partiallyInteroperable]}
         {worst: [set: MetadataReferenceQuality=freeText]}
       }
     ]
     [>studyLinkage< ask:
       {text: If the data were published in the context of an accompanying scientific paper, does the repository support bidirectional linkage between the them?}
       {answers:
-        {full:[set: StudyLinkage=machineReadableMetadata; InteroperableFlags+=studyLinkage]}
-        {good:[set: StudyLinkage=textualMetadata; InteroperableFlags+=studyLinkage]}
+        {full:[set: StudyLinkage=machineReadableMetadata; InteroperableFlags+=studyLinkageOK]}
+        {good:[set: StudyLinkage=textualMetadata; InteroperableFlags+=studyLinkageOK]}
         {unclear:[set: StudyLinkage=freeText]}
         {none:[set: StudyLinkage=none]}
       }
     ]
     [>sumInteroperable< when:
-      {InteroperableFlags+=formalMetadataVocabulary,fairMetadata,qualifiedMetadataReferences:
-         [set: Interoperable=FullyInteroperable]
+      {InteroperableFlags+=formalMetadataVocabularyOK,fairMetadataOK,qualifiedMetadataReferencesOK,studyLinkageOK:
+         [set: Interoperable=fullyInteroperable]
       }
-      {else: [set: Interoperable=NotInteroperable]}
+      {else: [set: Interoperable=notInteroperable]}
     ]
   ]
 
@@ -221,9 +221,9 @@
     [>ccLicense< ask:<-- Q18 in the updated questionnaire
       {text: Are the data covered by a commons-compliant license?}
       {answers:
-        {fully compliant: [set: ReusableFlags+=cCLicenseOK; Reusable=SomewhatReusable; CCLicenseCompliance=full]}
-        {good:[set: ReusableFlags+=cCLicenseOK; Reusable=SomewhatReusable; CCLicenseCompliance=good]}
-        {adequate:[set: ReusableFlags+=cCLicenseOK; Reusable=SomewhatReusable; CCLicenseCompliance=adequate]}
+        {fully compliant: [set: ReusableFlags+=ccLicenseOK; Reusable=partiallyReusable; CCLicenseCompliance=full]}
+        {good:[set: ReusableFlags+=ccLicenseOK; Reusable=partiallyReusable; CCLicenseCompliance=good]}
+        {adequate:[set: ReusableFlags+=ccLicenseOK; Reusable=partiallyReusable; CCLicenseCompliance=adequate]}
         {inappropriate:[set: CCLicenseCompliance=nonCompliant]}
         {none:[set: CCLicenseCompliance=none]}
       }
@@ -231,28 +231,28 @@
     [>mdProvenance< ask:
       {text: Are the metadata associated with detailed provenance?}
       {answers:
-        {best: [set: MetadataProvenance=full; ReusableFlags+=metadataProvenanceOK; Reusable=SomewhatReusable]}
-        {adequate: [set: MetadataProvenance=adequate; ReusableFlags+=metadataProvenanceOK; Reusable=SomewhatReusable] }
+        {best: [set: MetadataProvenance=full; ReusableFlags+=metadataProvenanceOK; Reusable=partiallyReusable]}
+        {adequate: [set: MetadataProvenance=adequate; ReusableFlags+=metadataProvenanceOK; Reusable=partiallyReusable] }
         {unclear: [set: MetadataProvenance=unclear]}
       }
     ]
     [>acceptGeneralMetadata< ask:
       {text: Does the repository use a recognized community standard for representing basic metadata?}
       {answers:
-        {yes: [set: ReusableFlags+=generalMetadata; Reusable=SomewhatReusable]}
+        {yes: [set: ReusableFlags+=generalMetadata; Reusable=partiallyReusable]}
       }
     ]
     [>acceptDkNetMetadata< ask:
       {text:Does your repository accept metadata that is applicable to the dkNET community disciplines?}
       {answers:
         {no: [set: DkNetMetadataLevel=none]}
-        {for datasets: [set: DkNetMetadataLevel=dataset; ReusableFlags+=dkNetMetadataOK; Reusable=SomewhatReusable]}
-        {for datasets & subjects: [set: DkNetMetadataLevel=datasetAndSubject; ReusableFlags+=dkNetMetadataOK; Reusable=SomewhatReusable]}
+        {for datasets: [set: DkNetMetadataLevel=dataset; ReusableFlags+=dkNetMetadataOK; Reusable=partiallyReusable]}
+        {for datasets & subjects: [set: DkNetMetadataLevel=datasetAndSubject; ReusableFlags+=dkNetMetadataOK; Reusable=partiallyReusable]}
       }
     ]
     [when:
-      {ReusableFlags+=documentationOK,dkNetMetadataOK,generalMetadata,cCLicenseOK,metadataProvenanceOK : [set: Reusable=FullyReusable] }
-      {else: [set: Reusable=NotReusable]}
+      {ReusableFlags+=documentationOK,dkNetMetadataOK,generalMetadata,ccLicenseOK,metadataProvenanceOK : [set: Reusable=fullyReusable] }
+      {else: [set: Reusable=notReusable]}
     ]
   ]
 ]
