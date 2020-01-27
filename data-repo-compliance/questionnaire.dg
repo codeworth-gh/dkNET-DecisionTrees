@@ -101,14 +101,6 @@
         {yes: [set: FindableFlags+=machineAccessible; Findable=partiallyFindable] }
       }
     ]
-    [>pidInMetadata< ask:
-      {text: Does the metadata clearly and explicitly include the identifier of the data it describes? }
-      {answers:
-          {all: [set: IdInMetadata=all; FindableFlags+=idInMetadata]}
-          {some:[set: IdInMetadata=partial; FindableFlags+=idInMetadata]}
-          {none:[set: IdInMetadata=none]}
-      }
-    ]
     [>internalSearchFacility< ask:
       {text: Does the repository provide a search facility for the data and metadata?}
       {answers:
