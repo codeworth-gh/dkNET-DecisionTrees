@@ -4,6 +4,6 @@ We are interpreting rich metadata to include the basic descriptive information a
 
 #### Terms
 
-* Rich: the majority of DCIP fields + biomedical extensions according to dkNET or Bio Schema
-* Limited: Has some structured metadata but room for improvement
-* Minimal: Minimal descriptive information
+* **Rich:** the majority of DCIP fields + biomedical extensions according to dkNET or Bio Schema
+* **Limited:** Has some structured metadata but room for improvement
+* **Minimal:** Minimal descriptive information

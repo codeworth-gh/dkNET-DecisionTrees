@@ -12,8 +12,8 @@
   [>DRC11_19< ask:
     {text:Are you free to download the data and reuse it with no or minimal restrictions? }
     {answers:
-      {yes, using open format: [set: OpenFlags+=machineAccessible, openFormat]}
-      {yes, using proprietary format: [set: OpenFlags+=machineAccessible]}
+      {yes: [set: OpenFlags+=machineAccessible, openFormat]}
+      {somewhat: [set: OpenFlags+=machineAccessible]}
       {no:}
     }
   ]
@@ -93,20 +93,17 @@
             {yes: [set:FindableFlags+=idInMetadata; Findable=partiallyFindable]}
           }
         ]
-      }
-    ]
+    }]
     [>WebBasedSearch< ask:
-      {text: Does the repository provide web-based search and access to the data and metadata?}
+      {text: Does the repository provide API-based search and access to the data and metadata?}
       {answers:
-        {yes: [set: FindableFlags+=machineAccessible; Findable=partiallyFindable] }
-      }
-    ]
+        {yes: [set: FindableFlags+=machineAccessible; Findable=partiallyFindable]}
+    }]
     [>internalSearchFacility< ask:
       {text: Does the repository provide a search facility for the data and metadata?}
       {answers:
         {yes: [set:FindableFlags+=internalSearchOK; Findable=partiallyFindable]}
-      }
-    ]
+    }]
     [>sumFindable< when:
       {FindableFlags+=humanAccessible,machineAccessible,idInMetadata,internalSearchOK; PersistentIdentifier=externalPID:
         [consider:
@@ -260,6 +257,14 @@
       {not available: [set: OrcidAssociation=none; CitationMetadataLevel=none]}
     }
   ]
+  [>DRC73<ask:
+    {text: Does the repository provide the required metadata for supporting data citation?}
+    {answers:
+      {full: [set: CitationMetadataLevel=full]}
+      {partial: [set: CitationMetadataLevel=partial]}
+      {none: [set: CitationMetadataLevel=none]}
+    }
+  ]
   [>landingPage< ask:
     {text: Does the repository provide a machine-readable landing page?}
     {answers:
@@ -273,25 +278,6 @@
           }
         ]
       }
-    }
-  ]
-  [when:
-    {Citable=partiallySupported:
-      [>DRC73<ask:
-        {text: Does the repository provide the required metadata for supporting data citation?}
-        {answers:
-          {yes:
-            [>DRC77<ask:
-              {text: Does the repository provide a machine-readable landing page?}
-              {answers:
-                {full: [set: CitationMetadataLevel=full]}
-                {partial: [set: CitationMetadataLevel=partial]}
-                {none: [set: CitationMetadataLevel=none]}
-              }
-            ]
-          }
-        }
-      ]
     }
   ]
   [when:

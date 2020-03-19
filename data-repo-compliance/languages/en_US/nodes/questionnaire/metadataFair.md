@@ -4,6 +4,6 @@ Use of a community ontology, e.g., OBO, or a controlled vocabulary that follows 
 
 #### Options
 
-* **required:** Required mapping to appropriate FAIR community ontologies widely used in biomedicine and vocabularies where possible and clear documentation
+* **enforced:** Required mapping to appropriate FAIR community ontologies widely used in biomedicine and vocabularies where possible and clear documentation
 * **allowed:** Allowed use of identifiers in the metadata scheme although not necessarily enforced; use of some identifiers but lack of mapping in some areas where it would be possible
 * **minimal:** Minimal or no mapping to appropriate ontologies

@@ -1,5 +1,6 @@
 no: no
 yes: yes
+somewhat: somewhat
 adequate: adequate
 all: all
 allowed: allowed

@@ -1,4 +1,4 @@
-### Does the machine-readable landing page supports data citation?
+### Does the machine-readable landing page support data citation?
 
 Ideally, the above metadata (both descriptive and data citation relevant) should be able to be harvested automatically, e.g., by a citation manager.  We check this by:
 

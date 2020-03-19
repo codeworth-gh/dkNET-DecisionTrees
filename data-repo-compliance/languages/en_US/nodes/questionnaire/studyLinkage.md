@@ -1,4 +1,4 @@
-### If the data were published in the context of an accompanying scientific paper, does the repository support bidirectional linkage between the them?  
+### If the data were published in the context of an accompanying scientific paper, does the repository support bidirectional linkage between them?  
 
 If the data set accompanied an article publication or had another data set associated with it, a clear reference to the article or data set should be provided in the metadata.  The metadata for the article/data set should also contain a link to the data set.  In other words, associations should be bi-directional.  If these linkages are expressed as structured metadata, then they should be consumable by registries for PIDs such as Crossref and DataCite.
 
