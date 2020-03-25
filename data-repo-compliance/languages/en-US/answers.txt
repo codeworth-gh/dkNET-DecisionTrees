@@ -35,5 +35,3 @@ unclear: unclear
 unknown: unknown
 weak: weak
 worst: worst
-yes, using open format: yes, using open format
-yes, using proprietary format: yes, using proprietary format

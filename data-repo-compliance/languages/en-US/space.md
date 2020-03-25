@@ -5,30 +5,32 @@ Data Repository Compliance
 # DataRepoCompliance/Properties
 Properties
 
+# DataRepoCompliance/Properties/FAIRProps
+FAIR Properties
+Dataset repository properties that affect how Findable, Accessible, Interoperable and Reusable the data it stores are.
 
-# DataRepoCompliance/Properties/AccessibleProps
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps
 Accessible Properties
 How accessible are datasets in this repository
 
 
-# DataRepoCompliance/Properties/FindableProps
+# DataRepoCompliance/Properties/FAIRProps/FindableProps
 Findable Properties
 How easy is it for users to find datasets in this repository
 
 
-# DataRepoCompliance/Properties/InteroperableProps
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps
 Interoperable Properties
 Does this repository interoperate with other systems?
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps
+Reusable Properties
 
 # DataRepoCompliance/Properties/OpenProps
 Open Properties
 How open are the datasets in this repository
 
-
-# DataRepoCompliance/Properties/ReusableProps
-Reusable Properties
-
-# DataRepoCompliance/Properties/ReusableProps/MetadataProvenance
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/MetadataProvenance
 Metadata Provenance
 
 
@@ -65,205 +67,198 @@ Findable
 Reusable
 
 
-# DataRepoCompliance/Properties/AccessibleProps/AccessibleFlags
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/AccessibleFlags
 Accessible Flags
 Yes/No properties that affect accessibility.
 
 
-# DataRepoCompliance/Properties/AccessibleProps/AccessibleFlags/persistentMetadata
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/AccessibleFlags/persistentMetadata
 persistent metadata
 The repository maintains metadata after datasets are deleted.
 
 
-# DataRepoCompliance/Properties/AccessibleProps/AccessibleFlags/communityStandard
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReusableFlags/communityStandard
 community standards
 The repository adheres to community standards
 
 
-# DataRepoCompliance/Properties/AccessibleProps/AccessibleFlags/licenseOK
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/AccessibleFlags/licenseOK
 √ license
 
 
-# DataRepoCompliance/Properties/AccessibleProps/AccessibleFlags/stdApi
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/AccessibleFlags/stdApi
 standard API
 Accessible via standard API
 ---
 Supporting standard API allows other software systems to access data on the repository in a structured, well-supported way.
 
-# DataRepoCompliance/Properties/AccessibleProps/MetadataPersistence
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/MetadataPersistence
 Metadata Persistence
 Are the medatadata kept after the data is deaccessioned?
 
-# DataRepoCompliance/Properties/AccessibleProps/MetadataPersistence/unknown
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/MetadataPersistence/unknown
 unknown
 
 
-# DataRepoCompliance/Properties/AccessibleProps/MetadataPersistence/byEvidence
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/MetadataPersistence/byEvidence
 by evidence
 
 
-# DataRepoCompliance/Properties/AccessibleProps/MetadataPersistence/byStatedPolicy
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/MetadataPersistence/byStatedPolicy
 by stated policy
 
 
-# DataRepoCompliance/Properties/AccessibleProps/ReuseLicense
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/ReuseLicense
 Reuse License
 
 
-# DataRepoCompliance/Properties/AccessibleProps/ReuseLicense/none
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/ReuseLicense/none
 none
 
 
-# DataRepoCompliance/Properties/AccessibleProps/ReuseLicense/repositoryLevel
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/ReuseLicense/repositoryLevel
 repository level
 A single reuse license to the entire repository
 
 
-# DataRepoCompliance/Properties/AccessibleProps/ReuseLicense/datasetLevel
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/ReuseLicense/datasetLevel
 dataset level
 A reuse license can be assigned to each individual datasets.
 
-# DataRepoCompliance/Properties/FindableProps/PersistentIdentifier
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/PersistentIdentifier
 Persistent Identifier
 
 
-# DataRepoCompliance/Properties/FindableProps/PersistentIdentifier/none
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/PersistentIdentifier/none
 none
 
 
-# DataRepoCompliance/Properties/FindableProps/PersistentIdentifier/internalPID
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/PersistentIdentifier/internalPID
 internal PID
 Internally assigned identifier (e.g. UUID)
 
-# DataRepoCompliance/Properties/FindableProps/PersistentIdentifier/externalPID
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/PersistentIdentifier/externalPID
 external PID
 Externally assigned identifier (e.g. DOI)
 
-# DataRepoCompliance/Properties/FindableProps/IdInMetadata
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/IdInMetadata
 Id In Metadata
 
 
-# DataRepoCompliance/Properties/FindableProps/IdInMetadata/none
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/IdInMetadata/none
 none
 No IDs in the metadata.
 
-# DataRepoCompliance/Properties/FindableProps/IdInMetadata/partial
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/IdInMetadata/partial
 partial
 Some study IDs are included, e.g., accession number but not DOI
 
-# DataRepoCompliance/Properties/FindableProps/IdInMetadata/all
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/IdInMetadata/all
 all
 All study IDs are included in the metadata
 
-# DataRepoCompliance/Properties/FindableProps/MetadataGrade
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/MetadataGrade
 Metadata Grade
 
 
-# DataRepoCompliance/Properties/FindableProps/MetadataGrade/minimal
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/MetadataGrade/minimal
 minimal
 
 
-# DataRepoCompliance/Properties/FindableProps/MetadataGrade/limited
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/MetadataGrade/limited
 limited
 
 
-# DataRepoCompliance/Properties/FindableProps/MetadataGrade/rich
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/MetadataGrade/rich
 rich
 
 
-# DataRepoCompliance/Properties/FindableProps/FindableFlags
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/FindableFlags
 Findable Flags
 
 
-# DataRepoCompliance/Properties/FindableProps/FindableFlags/humanAccessible
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/FindableFlags/humanAccessible
 human accessible
 
 
-# DataRepoCompliance/Properties/FindableProps/FindableFlags/machineAccessible
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/FindableFlags/machineAccessible
 machine accessible
 
-
-# DataRepoCompliance/Properties/FindableProps/FindableFlags/idInMetadata
-id in metadata
-
-
-# DataRepoCompliance/Properties/FindableProps/FindableFlags/internalSearchOK
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/FindableFlags/internalSearchOK
 internal search OK
 
-
-# DataRepoCompliance/Properties/InteroperableProps/MetadataFAIRness
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/MetadataFAIRness
 Metadata FAIRness
 
-
-# DataRepoCompliance/Properties/InteroperableProps/MetadataFAIRness/minimal
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/MetadataFAIRness/minimal
 minimal
 Minimal or no mapping to appropriate ontologies
 
-# DataRepoCompliance/Properties/InteroperableProps/MetadataFAIRness/allowed
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/MetadataFAIRness/allowed
 allowed
 Metadata may conform to FAIR vocabulary, but it's not enforced
 
-# DataRepoCompliance/Properties/InteroperableProps/MetadataFAIRness/enforced
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/MetadataFAIRness/enforced
 enforced
 Metadata must conform to a FAIR vocabulary
 
-# DataRepoCompliance/Properties/InteroperableProps/StudyLinkage
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/StudyLinkage
 Study Linkage
 How is a dataset linked to studies (if at all)
 
 
-# DataRepoCompliance/Properties/InteroperableProps/StudyLinkage/none
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/StudyLinkage/none
 none
 No linkage to studies
 
-# DataRepoCompliance/Properties/InteroperableProps/StudyLinkage/freeText
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/StudyLinkage/freeText
 free text
 Linkage via free text (e.g. in a README file)
 
 
-# DataRepoCompliance/Properties/InteroperableProps/StudyLinkage/textualMetadata
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/StudyLinkage/textualMetadata
 textual metadata
 Linkage via free text designated metadata fields
 
 
-# DataRepoCompliance/Properties/InteroperableProps/StudyLinkage/machineReadableMetadata
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/StudyLinkage/machineReadableMetadata
 machine readable metadata
 Linkage via structured designated metadata fields
 
 
-# DataRepoCompliance/Properties/InteroperableProps/InteroperableFlags
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/InteroperableFlags
 Interoperable Flags
 
 
-# DataRepoCompliance/Properties/InteroperableProps/InteroperableFlags/formalMetadataVocabularyOK
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/InteroperableFlags/formalMetadataVocabularyOK
 formal metadata vocabulary
 
 
-# DataRepoCompliance/Properties/InteroperableProps/InteroperableFlags/fairMetadataOK
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/InteroperableFlags/fairMetadataOK
 fair metadata
 
 
-# DataRepoCompliance/Properties/InteroperableProps/InteroperableFlags/qualifiedMetadataReferencesOK
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/InteroperableFlags/qualifiedMetadataReferencesOK
 qualified metadata references
 
 
-# DataRepoCompliance/Properties/InteroperableProps/InteroperableFlags/studyLinkageOK
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/InteroperableFlags/studyLinkageOK
 study linkage OK
 
 
-# DataRepoCompliance/Properties/InteroperableProps/MetadataReferenceQuality
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/MetadataReferenceQuality
 Metadata Reference Quality
 
 
-# DataRepoCompliance/Properties/InteroperableProps/MetadataReferenceQuality/freeText
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/MetadataReferenceQuality/freeText
 free text
 
 
-# DataRepoCompliance/Properties/InteroperableProps/MetadataReferenceQuality/informal
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/MetadataReferenceQuality/informal
 informal
 
 
-# DataRepoCompliance/Properties/InteroperableProps/MetadataReferenceQuality/formal
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/MetadataReferenceQuality/formal
 formal
 
 
@@ -375,100 +370,100 @@ restrictions not justified
 authorization required
 
 
-# DataRepoCompliance/Properties/ReusableProps/DocumentationLevel
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/DocumentationLevel
 Documentation Level
 
 
-# DataRepoCompliance/Properties/ReusableProps/DocumentationLevel/lacking
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/DocumentationLevel/lacking
 lacking
 
 
-# DataRepoCompliance/Properties/ReusableProps/DocumentationLevel/adequate
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/DocumentationLevel/adequate
 adequate
 
 
-# DataRepoCompliance/Properties/ReusableProps/DocumentationLevel/good
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/DocumentationLevel/good
 good
 
 
-# DataRepoCompliance/Properties/ReusableProps/DocumentationLevel/full
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/DocumentationLevel/full
 full
 
 
-# DataRepoCompliance/Properties/ReusableProps/CCLicenseCompliance
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/CCLicenseCompliance
 CC License Compliance
 
 
-# DataRepoCompliance/Properties/ReusableProps/CCLicenseCompliance/none
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/CCLicenseCompliance/none
 none
 
 
-# DataRepoCompliance/Properties/ReusableProps/CCLicenseCompliance/nonCompliant
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/CCLicenseCompliance/nonCompliant
 non compliant
 
 
-# DataRepoCompliance/Properties/ReusableProps/CCLicenseCompliance/adequate
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/CCLicenseCompliance/adequate
 adequate
 
 
-# DataRepoCompliance/Properties/ReusableProps/CCLicenseCompliance/good
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/CCLicenseCompliance/good
 good
 
 
-# DataRepoCompliance/Properties/ReusableProps/CCLicenseCompliance/full
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/CCLicenseCompliance/full
 full
 
 
-# DataRepoCompliance/Properties/ReusableProps/MetadataProvenance/unclear
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/MetadataProvenance/unclear
 unclear
 
 
-# DataRepoCompliance/Properties/ReusableProps/MetadataProvenance/adequate
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/MetadataProvenance/adequate
 adequate
 
 
-# DataRepoCompliance/Properties/ReusableProps/MetadataProvenance/full
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/MetadataProvenance/full
 full
 
 
-# DataRepoCompliance/Properties/ReusableProps/ReusableFlags
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReusableFlags
 Reusable Flags
 
 
-# DataRepoCompliance/Properties/ReusableProps/ReusableFlags/documentationOK
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReusableFlags/documentationOK
 documentation OK
 
 
-# DataRepoCompliance/Properties/ReusableProps/ReusableFlags/dkNetMetadataOK
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReusableFlags/dkNetMetadataOK
 dkNetMetadata OK
 
 
-# DataRepoCompliance/Properties/ReusableProps/ReusableFlags/generalMetadata
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReusableFlags/generalMetadata
 general metadata
 
 
-# DataRepoCompliance/Properties/ReusableProps/ReusableFlags/ccLicenseOK
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReusableFlags/ccLicenseOK
 ccLicense OK
 Commons Compliant License.
 
-# DataRepoCompliance/Properties/ReusableProps/ReusableFlags/metadataProvenanceOK
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReusableFlags/metadataProvenanceOK
 metadata provenance OK
 
 
-# DataRepoCompliance/Properties/ReusableProps/DkNetMetadataLevel
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/DkNetMetadataLevel
 dkNET Metadata Level
 
 
-# DataRepoCompliance/Properties/ReusableProps/DkNetMetadataLevel/none
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/DkNetMetadataLevel/none
 none
 No dkNET metadata
 
-# DataRepoCompliance/Properties/ReusableProps/DkNetMetadataLevel/dataset
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/DkNetMetadataLevel/dataset
 dataset
 dkNET metadata stored for dataset only
 
 
-# DataRepoCompliance/Properties/ReusableProps/DkNetMetadataLevel/datasetAndSubject
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/DkNetMetadataLevel/datasetAndSubject
 dataset and subject
 dkNET metadata stored for dataset and subjects
 

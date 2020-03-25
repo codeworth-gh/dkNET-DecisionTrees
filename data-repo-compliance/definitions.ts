@@ -10,9 +10,11 @@ Accessible:    one of notAccessible, partiallyAccessible, fullyAccessible.
 Interoperable: one of notInteroperable, partiallyInteroperable, fullyInteroperable.
 Reusable:      one of notReusable, partiallyReusable, fullyReusable.
 
-Properties: consists of OpenProps, FindableProps, AccessibleProps,
-                        InteroperableProps, ReusableProps, CitableProps,
+Properties: consists of OpenProps, FAIRProps, CitableProps,
                         TrustworthinessProps.
+
+FAIRProps: consists of FindableProps, AccessibleProps,
+                        InteroperableProps, ReusableProps.
 
 OpenProps: consists of Restrictions, OpenFlags.
 OpenFlags: some of humanAccessible, machineAccessible, openFormat, openLicense,
@@ -23,7 +25,6 @@ Restrictions: one of none, minimal, significant.
 AccessibleProps: consists of MetadataPersistence, ReuseLicense, AccessibleFlags.
 
 AccessibleFlags: some of persistentMetadata,
-                         communityStandard,
                          licenseOK,
                          stdApi[Accessible via standard API].
 
@@ -34,7 +35,7 @@ MetadataPersistence[Are the medatadata kept after the data is deaccessioned?]: o
 
 
 FindableProps: consists of PersistentIdentifier, MetadataGrade, IdInMetadata, FindableFlags.
-FindableFlags: some of humanAccessible, machineAccessible, idInMetadata, internalSearchOK.
+FindableFlags: some of humanAccessible, machineAccessible, internalSearchOK.
 PersistentIdentifier: one of none, internalPID[Internally assigned identifier (e.g. UUID)],
                             externalPID[Externally assigned identifier (e.g. DOI)].
 MetadataGrade: one of minimal, limited, rich.
@@ -60,6 +61,7 @@ MetadataProvenance:  one of unclear, adequate, full.
 DkNetMetadataLevel:  one of none, dataset, datasetAndSubject.
 ReusableFlags: some of documentationOK,
                        dkNetMetadataOK,
+                       communityStandard,
                        generalMetadata,
                        ccLicenseOK[Commons Compliant License.],
                        metadataProvenanceOK.

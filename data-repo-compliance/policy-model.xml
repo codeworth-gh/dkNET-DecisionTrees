@@ -17,12 +17,12 @@
     <person orcid="0000-0002-0153-8465">
       <name>Michael Bar-Sinai</name>
       <affiliation>Ben-Gurion University of the Negev</affiliation>
-      <email>m@mbarsinai.com</email>
+      <email>michael@codeworth.io</email>
     </person>
   </authors>
   <model answers-order="yes-first">
     <space root="DataRepoCompliance">definitions.ts</space>
-    <graph>questionnaire.dg</graph>
+    <graph>sc-drc.dg</graph>
   </model>
   <references>
     <reference doi="10.1038/sdata.2016.18">
