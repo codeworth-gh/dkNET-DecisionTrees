@@ -96,8 +96,8 @@ Supporting standard API allows other software systems to access data on the repo
 Metadata Persistence
 Are the medatadata kept after the data is deaccessioned?
 
-# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/MetadataPersistence/unknown
-unknown
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/MetadataPersistence/no
+no persistence
 
 
 # DataRepoCompliance/Properties/FAIRProps/AccessibleProps/MetadataPersistence/byEvidence

@@ -24,15 +24,6 @@
       {yes: [set: OpenFlags+=platformSupportsDataWork] }
     }
   ]
-  [when:
-    {OpenFlags+=openFormat, openLicense,
-                machineAccessible, humanAccessible: [set: Open=fullyOpen] }
-    {OpenFlags+=openFormat:        [set: Open=partiallyOpen] }
-    {OpenFlags+=openLicense:       [set: Open=partiallyOpen] }
-    {OpenFlags+=humanAccessible:   [set: Open=partiallyOpen] }
-    {OpenFlags+=machineAccessible: [set: Open=partiallyOpen] }
-    {else:[set: Open=closed]}
-  ]
 ]
 
 <--
@@ -99,14 +90,6 @@
       {answers:
         {yes: [set:FindableFlags+=internalSearchOK; Findable=partiallyFindable]}
     }]
-    [when:
-      {FindableFlags+=humanAccessible,machineAccessible,internalSearchOK; PersistentIdentifier=externalPID:
-        [when:
-          {MetadataGrade=rich; IdInMetadata=all:[set: Findable=fullyFindable] }
-        ]
-      }
-      {else: [set: Findable=notFindable]}
-    ]
   ] <-- /section Findable
 
   [>sAccessible< section:
@@ -120,44 +103,46 @@
     [>md-psst< ask: <* 11 *>
       {text: Does the repository have a policy that ensures the metadata (landing page) will persist even if the data are no longer available? }
       {answers:
-        {    unknown: [set: MetadataPersistence=unknown]}
+        {         no: [set: MetadataPersistence=no]}
         {by evidence: [set: MetadataPersistence=byEvidence; AccessibleFlags+=persistentMetadata;
                             Accessible=partiallyAccessible]}
         {  by policy: [set: MetadataPersistence=byStatedPolicy; AccessibleFlags+=persistentMetadata;
                             Accessible=partiallyAccessible]}
       }
     ]
-    [>lic-clr< ask:
+    [>lic-clr< ask: <* 12 *>
       {text: Does the repository provide a clear license for reuse of the data?}
       {answers:
         {   dataset level: [set: ReuseLicense=datasetLevel; AccessibleFlags+=licenseOK; Accessible=partiallyAccessible] }
         {repository level: [set: ReuseLicense=repositoryLevel; AccessibleFlags+=licenseOK; Accessible=partiallyAccessible] }
-        {      no license: [set: ReuseLicense=none] }
+        {      no license: [set: ReuseLicense=none; CCLicenseCompliance=none] }
       }
     ]
-    [when:
-      {AccessibleFlags+=licenseOK,persistentMetadata,stdApi : [set: Accessible=fullyAccessible] }
-      {else: [set: Accessible=notAccessible]}
+    [>fmt-com< ask: <* 13 *>
+      {text: Does the repository enforce or allow the use of community standards for data format or metadata?}
+      {answers:
+        {yes: [set: ReusableFlags+=communityStandard; Reusable=partiallyReusable] }
+      }
     ]
   ] <-- /section Accessible
 
   [>sInteroperable< section:
     {title: Interoperable }
-    [>md-vcb< ask:
+    [>md-vcb< ask: <* 14 *>
       {text: Do the metadata use a formal, accessible, shared and broadly applicable language for knowledge representation?}
       {answers:
           {yes: [set: InteroperableFlags+=formalMetadataVocabularyOK; Interoperable=partiallyInteroperable]}
       }
     ]
-    [>md-FAIR< ask:
+    [>md-FAIR< ask: <* 15 *>
       {text: Do the metadata use vocabularies that follow FAIR principles?}
       {answers:
         {enforced: [set: MetadataFAIRness=enforced; InteroperableFlags+=fairMetadataOK; Interoperable=partiallyInteroperable]}
-        {allowed: [set: MetadataFAIRness=allowed; InteroperableFlags+=fairMetadataOK; Interoperable=partiallyInteroperable]}
-        {minimal: [set: MetadataFAIRness=minimal]}
+        {allowed:  [set: MetadataFAIRness=allowed; InteroperableFlags+=fairMetadataOK; Interoperable=partiallyInteroperable]}
+        {minimal:  [set: MetadataFAIRness=minimal]}
       }
     ]
-    [>md-ref< ask:
+    [>md-ref< ask: <* 16 *>
       {text: Do the metadata include qualified references to other (meta)data?}
       {answers:
         {best: [set: MetadataReferenceQuality=formal;   InteroperableFlags+=qualifiedMetadataReferencesOK; Interoperable=partiallyInteroperable]}
@@ -165,50 +150,47 @@
         {worst: [set: MetadataReferenceQuality=freeText]}
       }
     ]
-    [>md-lnk< ask:
-      {text: If the data were published in the context of an accompanying scientific paper, does the repository support bidirectional linkage between the them?}
+    [>md-lnk< ask: <* 17 *>
+      {text: If the data were published in the context of an accompanying scientific paper, does the repository support bidirectional linkage between them?}
       {answers:
-        {full:[set: StudyLinkage=machineReadableMetadata; InteroperableFlags+=studyLinkageOK]}
+        {best:[set: StudyLinkage=machineReadableMetadata; InteroperableFlags+=studyLinkageOK]}
         {good:[set: StudyLinkage=textualMetadata; InteroperableFlags+=studyLinkageOK]}
         {unclear:[set: StudyLinkage=freeText]}
-        {none:[set: StudyLinkage=none]}
+        {worst:[set: StudyLinkage=none]}
       }
-    ]
-    [when:
-      {InteroperableFlags+=formalMetadataVocabularyOK,fairMetadataOK,qualifiedMetadataReferencesOK,studyLinkageOK:
-         [set: Interoperable=fullyInteroperable]
-      }
-      {else: [set: Interoperable=notInteroperable]}
     ]
   ]
 
   [>sReusable< section:
     {title: Re-usable}
-    [>ru-doc< ask:
+    [>ru-doc< ask: <* 18 *>
       {text: Does the repository require or support documentation that aids in proper (re)-use of the data?}
       {answers:
-        {full: [set: ReusableFlags+=documentationOK; DocumentationLevel=full]}
+        {best: [set: ReusableFlags+=documentationOK; DocumentationLevel=full]}
         {good: [set: ReusableFlags+=documentationOK; DocumentationLevel=good]}
         {adequate: [set: ReusableFlags+=documentationOK; DocumentationLevel=adequate]}
         {lacking: [set: DocumentationLevel=lacking]}
       }
     ]
-    [>lic-cc< ask:<-- Q18 in the updated questionnaire
-      {text: Are the data covered by a commons-compliant license?}
-      {answers:
-        {fully compliant: [set: ReusableFlags+=ccLicenseOK; Reusable=partiallyReusable; CCLicenseCompliance=full]}
-        {good:[set: ReusableFlags+=ccLicenseOK; Reusable=partiallyReusable; CCLicenseCompliance=good]}
-        {adequate:[set: ReusableFlags+=ccLicenseOK; Reusable=partiallyReusable; CCLicenseCompliance=adequate]}
-        {inappropriate:[set: CCLicenseCompliance=nonCompliant]}
-        {none:[set: CCLicenseCompliance=none]}
+    [when:
+      { AccessibleFlags+=licenseOK :
+        [>lic-cc< ask: <* 19 *>
+          {text: Are the data covered by a commons-compliant license?}
+          {answers:
+            {best: [set: ReusableFlags+=ccLicenseOK; Reusable=partiallyReusable; CCLicenseCompliance=full]}
+            {good:[set: ReusableFlags+=ccLicenseOK; Reusable=partiallyReusable; CCLicenseCompliance=good]}
+            {somewhat open:[set: ReusableFlags+=ccLicenseOK; Reusable=partiallyReusable; CCLicenseCompliance=adequate]}
+            {closed:[set: CCLicenseCompliance=nonCompliant]}
+          }
+        ]
       }
     ]
-    [>md-prv< ask:
-      {text: Are the metadata associated with detailed provenance?}
+    [>md-prv< ask: <* 20 *>
+      {text: Are the (meta)data associated with detailed provenance?}
       {answers:
-        {best: [set: MetadataProvenance=full; ReusableFlags+=metadataProvenanceOK; Reusable=partiallyReusable]}
-        {adequate: [set: MetadataProvenance=adequate; ReusableFlags+=metadataProvenanceOK; Reusable=partiallyReusable] }
-        {unclear: [set: MetadataProvenance=unclear]}
+         {best: [set: MetadataProvenance=full; ReusableFlags+=metadataProvenanceOK; Reusable=partiallyReusable]}
+         {good: [set: MetadataProvenance=adequate; ReusableFlags+=metadataProvenanceOK; Reusable=partiallyReusable] }
+        {worst: [set: MetadataProvenance=unclear]}
       }
     ]
     [>md-cs< ask:
@@ -224,16 +206,6 @@
         {for datasets: [set: DkNetMetadataLevel=dataset; ReusableFlags+=dkNetMetadataOK; Reusable=partiallyReusable]}
         {for datasets & subjects: [set: DkNetMetadataLevel=datasetAndSubject; ReusableFlags+=dkNetMetadataOK; Reusable=partiallyReusable]}
       }
-    ]
-    [>communityStandards< ask:
-      {text: Does the repository enforce or allow the use of community standards for data format or metadata?}
-      {answers:
-        {yes: [set: ReusableFlags+=communityStandard; Reusable=partiallyReusable] }
-      }
-    ]
-    [when:
-      {ReusableFlags+=communityStandard,documentationOK,dkNetMetadataOK,generalMetadata,ccLicenseOK,metadataProvenanceOK : [set: Reusable=fullyReusable] }
-      {else: [set: Reusable=notReusable]}
     ]
   ]
 ]
@@ -270,11 +242,6 @@
           }
         ]
       }
-    }
-  ]
-  [when:
-    { Citable=partiallySupported; CitationMetadataLevel=full; MachineReadableLandingPage=supportsDataCitation:
-      [set: Citable=fullySupported]
     }
   ]
 ]
@@ -321,9 +288,52 @@
       }
     }
   ]
-  [when:
-    {SourceOpen=yes; StakeholderGovernance=full; GovernanceTransparency=full: [set: Trustworthy=noConcerns]}
-    {SourceOpen=no; StakeholderGovernance=none; GovernanceTransparency=opaque: [set: Trustworthy=significantConcerns]}
-    {else: [set: Trustworthy=minorConcerns]}
-  ]
 ]
+[call: pInference]
+
+
+<**
+  * In this part, we inference relevant repository properties, based on the answer collected. *>
+[-->pInference<
+[when:
+  {FindableFlags+=humanAccessible,machineAccessible,internalSearchOK; PersistentIdentifier=externalPID:
+    [when:
+      {MetadataGrade=rich; IdInMetadata=all:[set: Findable=fullyFindable] }
+    ]
+  }
+  {else: [set: Findable=notFindable]}
+]
+[when:
+  {AccessibleFlags+=licenseOK,persistentMetadata,stdApi : [set: Accessible=fullyAccessible] }
+  {else: [set: Accessible=notAccessible]}
+]
+[when:
+  {InteroperableFlags+=formalMetadataVocabularyOK,fairMetadataOK,qualifiedMetadataReferencesOK,studyLinkageOK:
+     [set: Interoperable=fullyInteroperable]
+  }
+  {else: [set: Interoperable=notInteroperable]}
+]
+[when:
+  {ReusableFlags+=communityStandard,documentationOK,dkNetMetadataOK,generalMetadata,ccLicenseOK,metadataProvenanceOK : [set: Reusable=fullyReusable] }
+  {else: [set: Reusable=notReusable]}
+]
+[when:
+  { Citable=partiallySupported; CitationMetadataLevel=full; MachineReadableLandingPage=supportsDataCitation:
+    [set: Citable=fullySupported]
+  }
+]
+[when:
+  {SourceOpen=yes; StakeholderGovernance=full; GovernanceTransparency=full: [set: Trustworthy=noConcerns]}
+  {SourceOpen=no; StakeholderGovernance=none; GovernanceTransparency=opaque: [set: Trustworthy=significantConcerns]}
+  {else: [set: Trustworthy=minorConcerns]}
+]
+[when:
+  {OpenFlags+=openFormat, openLicense,
+              machineAccessible, humanAccessible: [set: Open=fullyOpen] }
+  {OpenFlags+=openFormat:        [set: Open=partiallyOpen] }
+  {OpenFlags+=openLicense:       [set: Open=partiallyOpen] }
+  {OpenFlags+=humanAccessible:   [set: Open=partiallyOpen] }
+  {OpenFlags+=machineAccessible: [set: Open=partiallyOpen] }
+  {else:[set: Open=closed]}
+]
+--]

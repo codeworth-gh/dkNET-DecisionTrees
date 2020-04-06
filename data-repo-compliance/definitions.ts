@@ -31,7 +31,7 @@ AccessibleFlags: some of persistentMetadata,
 ReuseLicense: one of none, repositoryLevel, datasetLevel.
 
 MetadataPersistence[Are the medatadata kept after the data is deaccessioned?]: one of
-  unknown, byEvidence, byStatedPolicy.
+  no, byEvidence, byStatedPolicy.
 
 
 FindableProps: consists of PersistentIdentifier, MetadataGrade, IdInMetadata, FindableFlags.
