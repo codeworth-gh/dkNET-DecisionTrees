@@ -9,12 +9,8 @@ by evidence: by evidence
 by policy: by policy
 dataset level: dataset level
 enforced: enforced
-for datasets: for datasets
-for datasets & subjects: for datasets & subjects
 full: full
-fully compliant: fully compliant
 good: good
-inappropriate: inappropriate
 lacking: lacking
 limited: limited
 minimal: minimal
@@ -32,6 +28,7 @@ significant restrictions: significant restrictions
 some: some
 supported: supported
 unclear: unclear
-unknown: unknown
 weak: weak
 worst: worst
+somewhat open:somewhat open
+closed:closed

@@ -7,5 +7,5 @@ Evidence of how decisions are made that affect the repository’s scope or direc
 #### Options:
 
 * **Best:**  Clear and up to date information
-* **Adequate:**  Some information but perhaps difficult to find, not exactly clear or up to date
-* **Unclear:**  No information at all
+* **Good:**  Some information but perhaps difficult to find, not exactly clear or up to date
+* **Worst:**  No information at all

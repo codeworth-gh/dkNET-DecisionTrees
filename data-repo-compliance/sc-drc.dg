@@ -193,18 +193,18 @@
         {worst: [set: MetadataProvenance=unclear]}
       }
     ]
-    [>md-cs< ask:
+    [>md-cs< ask: <* 21 *>
       {text: Does the repository use a recognized community standard for representing basic metadata?}
       {answers:
         {yes: [set: ReusableFlags+=generalMetadata; Reusable=partiallyReusable]}
       }
     ]
-    [>md-dkn< ask:
+    [>md-dkn< ask: <* 22 *>
       {text:Does your repository accept metadata that is applicable to the dkNET community disciplines?}
       {answers:
-        {no: [set: DkNetMetadataLevel=none]}
-        {for datasets: [set: DkNetMetadataLevel=dataset; ReusableFlags+=dkNetMetadataOK; Reusable=partiallyReusable]}
-        {for datasets & subjects: [set: DkNetMetadataLevel=datasetAndSubject; ReusableFlags+=dkNetMetadataOK; Reusable=partiallyReusable]}
+        {best: [set: DkNetMetadataLevel=datasetAndSubject; ReusableFlags+=dkNetMetadataOK; Reusable=partiallyReusable]}
+        {good: [set: DkNetMetadataLevel=dataset; ReusableFlags+=dkNetMetadataOK; Reusable=partiallyReusable]}
+        {worst: [set: DkNetMetadataLevel=none]}
       }
     ]
   ]
@@ -213,7 +213,7 @@
 [>sCitable< section:
   {title: Citable}
   [set: Citable=notSupported]
-  [>orcid< ask:
+  [>orcid< ask: <* 23 *>
     {text: Does the repository allow the authors to associate their ORCID ID with a dataset?}
     {answers:
       {required: [set: OrcidAssociation=required; Citable=partiallySupported]}
@@ -221,7 +221,7 @@
       {not available: [set: OrcidAssociation=none; CitationMetadataLevel=none]}
     }
   ]
-  [>md-daci<ask:
+  [>md-daci<ask: <* 24 *>
     {text: Does the repository provide the required metadata for supporting data citation?}
     {answers:
       {full: [set: CitationMetadataLevel=full]}
@@ -229,63 +229,51 @@
       {none: [set: CitationMetadataLevel=none]}
     }
   ]
-  [>land-api< ask:
+  [>land-api< ask: <* 25 *>
     {text: Does the repository provide a machine-readable landing page?}
     {answers:
       {no: [set: MachineReadableLandingPage=none]}
-      {yes:
-        [>land-daci< ask:
-          {text: Does that page support data citation?}
-          {answers:
-            {yes: [set: MachineReadableLandingPage=supportsDataCitation; Citable=partiallySupported]}
-            {no:  [set: MachineReadableLandingPage=exists]}
-          }
-        ]
-      }
     }
   ]
 ]
 
-<--
 [>sTrustworthy< section:
   {title: Trustworthy-ness}
-  [>tr-seal< ask:
+  [>tr-seal< ask: <* 26 *>
     {text: Has the repository been certified by Data Seal of Approval or the Core Trust Seal? }
     {answers:
       {yes:[set: Trustworthy = noConcerns]}
-      {no:
-        [>gov-tsp<ask:
-          {text: Is the governance of the repository transparent?}
-          {answers:
-            {best: [set: GovernanceTransparency=full]}
-            {adequate: [set: GovernanceTransparency=partial]}
-            {unclear: [set: GovernanceTransparency=opaque]}
-          }
-        ]
-        [consider:
-          {slot: GovernanceTransparency}
-          {options: {opaque:}}
-          {else:
-            [>gov-stk<ask:
-              {text: Is the repository stakeholder governed?}
-              {answers:
-                {full:[set: StakeholderGovernance=full]}
-                {good:[set: StakeholderGovernance=good]}
-                {weak:[set: StakeholderGovernance=weak]}
-                {none:[set: StakeholderGovernance=none]}
-              }
-            ]
-          }
-        ]
-        [>oss< ask:
-          {text: Is the code that runs the data infrastructure covered under an open source license?}
-          {answers:
-            {best: [set: SourceOpen=yes]}
-            {good: [set: SourceOpen=partially]}
-            {no: [set: SourceOpen=no]}
-          }
-        ]
-      }
+    }
+  ]
+  [>gov-tsp<ask: <* 27 *>
+    {text: Is the governance of the repository transparent?}
+    {answers:
+      {best: [set: GovernanceTransparency=full]}
+      {good: [set: GovernanceTransparency=partial]}
+      {worst: [set: GovernanceTransparency=opaque]}
+    }
+  ]
+  [consider:
+    {slot: GovernanceTransparency}
+    {options: {opaque:}}
+    {else:
+      [>gov-stk<ask: <* 28 *>
+        {text: Is the repository stakeholder governed?}
+        {answers:
+          {full:[set: StakeholderGovernance=full]}
+          {good:[set: StakeholderGovernance=good]}
+          {weak:[set: StakeholderGovernance=weak]}
+          {none:[set: StakeholderGovernance=none]}
+        }
+      ]
+    }
+  ]
+  [>oss< ask: <* 29 *>
+    {text: Is the code that runs the data infrastructure covered under an open source license?}
+    {answers:
+      {best: [set: SourceOpen=yes]}
+      {good: [set: SourceOpen=partially]}
+      {no: [set: SourceOpen=no]}
     }
   ]
 ]
