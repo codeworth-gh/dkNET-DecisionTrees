@@ -1,4 +1,4 @@
-### Does the repository assign, or the conributoer provides, a locally unique identifier to the data set or the data contribution?
+### Does the repository assign, or the contributor provides, a locally unique identifier to the data set or the data contribution?
 
 Examples include an accession number, a UUID, or some other convention.
 

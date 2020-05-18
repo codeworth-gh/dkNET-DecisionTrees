@@ -1,7 +1,7 @@
 <policy-model>
   <title>dkNET-Repository Compliance</title>
-  <date>2020-03-19</date>
-  <version>0.8</version>
+  <date>2020-05-18</date>
+  <version>0.9</version>
   <keywords>repository, FAIR, Force11, software, dkNET</keywords>
   <authors>
     <person orcid="0000-0002-8406-3871">
@@ -21,7 +21,7 @@
     </person>
   </authors>
   <model answers-order="yes-first">
-    <space root="DataRepoCompliance">definitions.ts</space>
+    <space root="DataRepoCompliance">definitions.pspace</space>
     <graph>sc-drc.dg</graph>
   </model>
   <references>
