@@ -10,4 +10,4 @@ We adapt here some of the principles for open infrastructures laid out by Bilder
 * **Full:**  Repository is governed by the research community through a clear governance process
 * **Good:**  Repository is run by an individual or company but has a strong scientific advisory board that has power to influence decisions.  
 * **Weak:**  Clearly run by NIH/researchers for researchers but not really governed as a community resource
-* **No:**  No accountability to the scientific community and no means of input
+* **None:**  Unclear or no accountability to the scientific community, and no means of input

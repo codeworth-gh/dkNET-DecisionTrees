@@ -2,8 +2,8 @@
 
 Is there evidence that metadata persists even when the data are no longer available.  Ideally, repositories clearly state their accessioning and de-accessioning policies as per the data citation principles.
 
-#### Terms
+#### Options
 
 * **by policy:** a clear persistence policy
 * **by evidence:** evidence that dataset metadata is persisted when its dataset becomes unavailable  (e.g., landing page makes it clear that a data set is no longer available)
-* **unknown:** No policy stated and no evidence.
+* **no:** No policy stated and no evidence.

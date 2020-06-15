@@ -53,7 +53,7 @@
     {best: [set: ReusableFlags+=documentationOK; DocumentationLevel=full]}
     {good: [set: ReusableFlags+=documentationOK; DocumentationLevel=good]}
     {adequate: [set: ReusableFlags+=documentationOK; DocumentationLevel=adequate]}
-    {lacking: [set: DocumentationLevel=lacking]}
+    {worst: [set: DocumentationLevel=lacking]}
   }
 ]
 [>sch-ui< ask: <* 9 *>
@@ -99,9 +99,9 @@
 [>orcid< ask: <* 23 *>
   {text: Does the repository allow the authors to associate their ORCID ID with a dataset?}
   {answers:
-    {required: [set: OrcidAssociation=required; Citable=partiallySupported]}
+    { required: [set: OrcidAssociation=required; Citable=partiallySupported]}
     {supported: [set: OrcidAssociation=supported; Citable=partiallySupported]}
-    {not available: [set: OrcidAssociation=none; CitationMetadataLevel=none]}
+    {     none: [set: OrcidAssociation=none; CitationMetadataLevel=none]}
   }
 ]
 [>md-level<ask: <* 6 *>
@@ -123,9 +123,9 @@
 [>md-daci<ask: <* 24 *>
   {text: Does the repository provide the required metadata for supporting data citation?}
   {answers:
-    {full: [set: CitationMetadataLevel=full]}
-    {partial: [set: CitationMetadataLevel=partial]}
-    {none: [set: CitationMetadataLevel=none]}
+    {      full: [set: CitationMetadataLevel=full]}
+    {   partial: [set: CitationMetadataLevel=partial]}
+    {no support: [set: CitationMetadataLevel=none]}
   }
 ]
 [>md-ref< ask: <* 16 *>
@@ -162,11 +162,11 @@
 [>md-psst< ask: <* 11 *>
   {text: Does the repository have a policy that ensures the metadata (landing page) will persist even if the data are no longer available? }
   {answers:
-    {         no: [set: MetadataPersistence=no]}
-    {by evidence: [set: MetadataPersistence=byEvidence; AccessibleFlags+=persistentMetadata;
-                        Accessible=partiallyAccessible]}
     {  by policy: [set: MetadataPersistence=byStatedPolicy; AccessibleFlags+=persistentMetadata;
                         Accessible=partiallyAccessible]}
+    {by evidence: [set: MetadataPersistence=byEvidence; AccessibleFlags+=persistentMetadata;
+                        Accessible=partiallyAccessible]}
+    {         no: [set: MetadataPersistence=no]}
   }
 ]
 [>md-FAIR< ask: <* 15 *>
@@ -240,7 +240,7 @@
 [>tr-seal< ask: <* 26 *>
   {text: Has the repository been certified by Data Seal of Approval or the Core Trust Seal? }
   {answers:
-    {yes:[set: Trustworthy = noConcerns]}
+    {yes:[set: Trustworthy=noConcerns]}
   }
 ]
 [call: pInference]

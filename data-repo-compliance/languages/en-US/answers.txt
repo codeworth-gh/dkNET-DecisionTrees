@@ -11,14 +11,13 @@ dataset level: dataset level
 enforced: enforced
 full: full
 good: good
-lacking: lacking
 limited: limited
 minimal: minimal
 minimal restrictions: minimal restrictions
 no license: no license
 no restrictions: no restrictions
+no support: no support
 none: none
-not available: not available
 partial: partial
 repository level: repository level
 required: required
