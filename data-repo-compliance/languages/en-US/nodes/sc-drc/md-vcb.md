@@ -1,8 +1,8 @@
 ### Do the metadata use a formal accessible shared and broadly applicable language for knowledge representation?
 
-Should we point towards [FAIRSharing](FAIRSharing.org), for instance? Assuming this points to metadata and results, rather than the data.  We are going to emphasize the word “shared” here, that is, two resources that use the same tags to mean the same thing, can be combined more easily that is than if they assign custom labels.  https://www.go-fair.org/fair-principles/i1-metadata-use-formal-accessible-shared-broadly-applicable-language-knowledge-representation/  Should phrase in terms of the hurdles that have to be jumped over in order to use the data and metadata (what does the user have to struggle with before using the data).  Look at formats, look at services provided and do they conform with the principle. Friction.
+The key concept here is “shared”. That is, two resources that use the same tags to mean the same thing, can be combined more easily than if they assign custom labels.  https://www.go-fair.org/fair-principles/i1-metadata-use-formal-accessible-shared-broadly-applicable-language-knowledge-representation/  In assessing the repository, consider the hurdles that have to be cleared in order to use the data and metadata, in other words, what does the user have to struggle with before using the data?  Check formats, services provided and evaluate whether they conform with the principle.
 
-From [GOFAIR](https://www.go-fair.org/fair-principles/i1-metadata-use-formal-accessible-shared-broadly-applicable-language-knowledge-representation/):
+Resources include [GOFAIR](https://www.go-fair.org/fair-principles/i1-metadata-use-formal-accessible-shared-broadly-applicable-language-knowledge-representation/):
 
 > Humans should be able to exchange and interpret each other’s data (so preferably do not use dead languages). But this also applies to computers, meaning that data that should be readable for machines without the need for specialised or ad hoc algorithms, translators, or mappings. 
 
