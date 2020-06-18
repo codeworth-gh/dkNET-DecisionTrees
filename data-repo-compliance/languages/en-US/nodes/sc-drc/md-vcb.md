@@ -10,5 +10,5 @@ The RDF extensible knowledge representation model is a way to describe and struc
 
 #### Options
 
-* **Yes:** if a formal, accessible language is explicitly listed.  Some common format (including Schema.org/microformats)
+* **Yes:** if a formal, accessible language is explicitly listed.  Some common formats (including Schema.org/microformats)
 * **No:**  if no evidence of such a language can be found.
