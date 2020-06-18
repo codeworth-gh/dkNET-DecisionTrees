@@ -50,10 +50,10 @@
 [>ru-doc< ask: <* 18 *>
   {text: Does the repository require or support documentation that aids in proper (re)-use of the data?}
   {answers:
-    {best: [set: ReusableFlags+=documentationOK; DocumentationLevel=full]}
-    {good: [set: ReusableFlags+=documentationOK; DocumentationLevel=good]}
+    {best:     [set: ReusableFlags+=documentationOK; DocumentationLevel=full]}
+    {good:     [set: ReusableFlags+=documentationOK; DocumentationLevel=good]}
     {adequate: [set: ReusableFlags+=documentationOK; DocumentationLevel=adequate]}
-    {worst: [set: DocumentationLevel=lacking]}
+    {worst:    [set: DocumentationLevel=lacking]}
   }
 ]
 [>sch-ui< ask: <* 9 *>

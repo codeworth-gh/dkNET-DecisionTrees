@@ -333,3 +333,595 @@ not reusable
 partially reusable
 #   DataRepoCompliance/FAIR/Reusable/fullyReusable
 fully reusable
+# DataRepoCompliance
+DataRepoCompliance
+
+
+# DataRepoCompliance/Properties
+Properties
+
+
+# DataRepoCompliance/Properties/FAIRProps
+FAIRProps
+
+
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps
+AccessibleProps
+
+
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/AccessibleFlags
+AccessibleFlags
+
+
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/AccessibleFlags/persistentMetadata
+persistentMetadata
+
+
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/AccessibleFlags/licenseOK
+licenseOK
+
+
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/AccessibleFlags/stdApi
+stdApi
+Accessible via standard API
+
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/MetadataPersistence
+MetadataPersistence
+Are the medatadata kept after the data is deaccessioned?
+
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/MetadataPersistence/no
+no
+
+
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/MetadataPersistence/byEvidence
+byEvidence
+
+
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/MetadataPersistence/byStatedPolicy
+byStatedPolicy
+
+
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/ReuseLicense
+ReuseLicense
+
+
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/ReuseLicense/none
+none
+
+
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/ReuseLicense/repositoryLevel
+repositoryLevel
+
+
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/ReuseLicense/datasetLevel
+datasetLevel
+
+
+# DataRepoCompliance/Properties/FAIRProps/FindableProps
+FindableProps
+
+
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/PersistentIdentifier
+PersistentIdentifier
+
+
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/PersistentIdentifier/none
+none
+
+
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/PersistentIdentifier/internalPID
+internalPID
+Internally assigned identifier (e.g. UUID)
+
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/PersistentIdentifier/externalPID
+externalPID
+Externally assigned identifier (e.g. DOI)
+
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/IdInMetadata
+IdInMetadata
+
+
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/IdInMetadata/none
+none
+No IDs
+
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/IdInMetadata/partial
+partial
+Some study IDs are included, e.g., accession number but not DOI
+
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/IdInMetadata/all
+all
+All study IDs are included in the metadata
+
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/MetadataGrade
+MetadataGrade
+
+
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/MetadataGrade/minimal
+minimal
+
+
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/MetadataGrade/limited
+limited
+
+
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/MetadataGrade/rich
+rich
+
+
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/FindableFlags
+FindableFlags
+
+
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/FindableFlags/humanAccessible
+humanAccessible
+
+
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/FindableFlags/machineAccessible
+machineAccessible
+
+
+# DataRepoCompliance/Properties/FAIRProps/FindableProps/FindableFlags/internalSearchOK
+internalSearchOK
+
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps
+InteroperableProps
+
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/MetadataFAIRness
+MetadataFAIRness
+
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/MetadataFAIRness/minimal
+minimal
+Minimal or no mapping to appropriate ontologies
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/MetadataFAIRness/allowed
+allowed
+Metadata may conform to FAIR vocabulary, but it's not enforced
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/MetadataFAIRness/enforced
+enforced
+Metadata must conform to a FAIR vocabulary
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/StudyLinkage
+StudyLinkage
+
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/StudyLinkage/none
+none
+
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/StudyLinkage/freeText
+freeText
+
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/StudyLinkage/textualMetadata
+textualMetadata
+
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/StudyLinkage/machineReadableMetadata
+machineReadableMetadata
+
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/InteroperableFlags
+InteroperableFlags
+
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/InteroperableFlags/formalMetadataVocabularyOK
+formalMetadataVocabularyOK
+
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/InteroperableFlags/fairMetadataOK
+fairMetadataOK
+
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/InteroperableFlags/qualifiedMetadataReferencesOK
+qualifiedMetadataReferencesOK
+
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/InteroperableFlags/studyLinkageOK
+studyLinkageOK
+
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/MetadataReferenceQuality
+MetadataReferenceQuality
+
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/MetadataReferenceQuality/freeText
+freeText
+
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/MetadataReferenceQuality/informal
+informal
+
+
+# DataRepoCompliance/Properties/FAIRProps/InteroperableProps/MetadataReferenceQuality/formal
+formal
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps
+ReusableProps
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/DocumentationLevel
+DocumentationLevel
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/DocumentationLevel/lacking
+lacking
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/DocumentationLevel/adequate
+adequate
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/DocumentationLevel/good
+good
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/DocumentationLevel/full
+full
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/CCLicenseCompliance
+CCLicenseCompliance
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/CCLicenseCompliance/none
+none
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/CCLicenseCompliance/nonCompliant
+nonCompliant
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/CCLicenseCompliance/adequate
+adequate
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/CCLicenseCompliance/good
+good
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/CCLicenseCompliance/full
+full
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/MetadataProvenance
+MetadataProvenance
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/MetadataProvenance/unclear
+unclear
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/MetadataProvenance/adequate
+adequate
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/MetadataProvenance/full
+full
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReusableFlags
+ReusableFlags
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReusableFlags/documentationOK
+documentationOK
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReusableFlags/dkNetMetadataOK
+dkNetMetadataOK
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReusableFlags/communityStandard
+communityStandard
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReusableFlags/generalMetadata
+generalMetadata
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReusableFlags/ccLicenseOK
+ccLicenseOK
+Commons Compliant License.
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReusableFlags/metadataProvenanceOK
+metadataProvenanceOK
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/DkNetMetadataLevel
+DkNetMetadataLevel
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/DkNetMetadataLevel/none
+none
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/DkNetMetadataLevel/dataset
+dataset
+
+
+# DataRepoCompliance/Properties/FAIRProps/ReusableProps/DkNetMetadataLevel/datasetAndSubject
+datasetAndSubject
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps
+TrustworthinessProps
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/GovernanceTransparency
+GovernanceTransparency
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/GovernanceTransparency/opaque
+opaque
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/GovernanceTransparency/partial
+partial
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/GovernanceTransparency/full
+full
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/SourceOpen
+SourceOpen
+Is the code running the repository released under an open source license?
+
+# DataRepoCompliance/Properties/TrustworthinessProps/SourceOpen/no
+no
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/SourceOpen/partially
+partially
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/SourceOpen/yes
+yes
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/StakeholderGovernance
+StakeholderGovernance
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/StakeholderGovernance/none
+none
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/StakeholderGovernance/weak
+weak
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/StakeholderGovernance/good
+good
+
+
+# DataRepoCompliance/Properties/TrustworthinessProps/StakeholderGovernance/full
+full
+
+
+# DataRepoCompliance/Properties/OpenProps
+OpenProps
+
+
+# DataRepoCompliance/Properties/OpenProps/Restrictions
+Restrictions
+
+
+# DataRepoCompliance/Properties/OpenProps/Restrictions/none
+none
+
+
+# DataRepoCompliance/Properties/OpenProps/Restrictions/minimal
+minimal
+
+
+# DataRepoCompliance/Properties/OpenProps/Restrictions/significant
+significant
+
+
+# DataRepoCompliance/Properties/OpenProps/OpenFlags
+OpenFlags
+
+
+# DataRepoCompliance/Properties/OpenProps/OpenFlags/humanAccessible
+humanAccessible
+
+
+# DataRepoCompliance/Properties/OpenProps/OpenFlags/machineAccessible
+machineAccessible
+
+
+# DataRepoCompliance/Properties/OpenProps/OpenFlags/openFormat
+openFormat
+
+
+# DataRepoCompliance/Properties/OpenProps/OpenFlags/openLicense
+openLicense
+
+
+# DataRepoCompliance/Properties/OpenProps/OpenFlags/platformSupportsDataWork
+platformSupportsDataWork
+
+
+# DataRepoCompliance/Properties/OpenProps/OpenFlags/restrictionsNotJustified
+restrictionsNotJustified
+
+
+# DataRepoCompliance/Properties/OpenProps/OpenFlags/authorizationRequired
+authorizationRequired
+
+
+# DataRepoCompliance/Properties/CitableProps
+CitableProps
+
+
+# DataRepoCompliance/Properties/CitableProps/MachineReadableLandingPage
+MachineReadableLandingPage
+
+
+# DataRepoCompliance/Properties/CitableProps/MachineReadableLandingPage/none
+none
+
+
+# DataRepoCompliance/Properties/CitableProps/MachineReadableLandingPage/exists
+exists
+
+
+# DataRepoCompliance/Properties/CitableProps/MachineReadableLandingPage/supportsDataCitation
+supportsDataCitation
+
+
+# DataRepoCompliance/Properties/CitableProps/CitationMetadataLevel
+CitationMetadataLevel
+
+
+# DataRepoCompliance/Properties/CitableProps/CitationMetadataLevel/none
+none
+
+
+# DataRepoCompliance/Properties/CitableProps/CitationMetadataLevel/partial
+partial
+
+
+# DataRepoCompliance/Properties/CitableProps/CitationMetadataLevel/full
+full
+
+
+# DataRepoCompliance/Properties/CitableProps/OrcidAssociation
+OrcidAssociation
+
+
+# DataRepoCompliance/Properties/CitableProps/OrcidAssociation/none
+none
+
+
+# DataRepoCompliance/Properties/CitableProps/OrcidAssociation/supported
+supported
+
+
+# DataRepoCompliance/Properties/CitableProps/OrcidAssociation/required
+required
+
+
+# DataRepoCompliance/Trustworthy
+Trustworthy
+
+
+# DataRepoCompliance/Trustworthy/significantConcerns
+significantConcerns
+
+
+# DataRepoCompliance/Trustworthy/minorConcerns
+minorConcerns
+
+
+# DataRepoCompliance/Trustworthy/noConcerns
+noConcerns
+
+
+# DataRepoCompliance/Citable
+Citable
+
+
+# DataRepoCompliance/Citable/notSupported
+notSupported
+
+
+# DataRepoCompliance/Citable/partiallySupported
+partiallySupported
+
+
+# DataRepoCompliance/Citable/fullySupported
+fullySupported
+
+
+# DataRepoCompliance/Open
+Open
+
+
+# DataRepoCompliance/Open/closed
+closed
+
+
+# DataRepoCompliance/Open/partiallyOpen
+partiallyOpen
+
+
+# DataRepoCompliance/Open/fullyOpen
+fullyOpen
+
+
+# DataRepoCompliance/FAIR
+FAIR
+
+
+# DataRepoCompliance/FAIR/Accessible
+Accessible
+
+
+# DataRepoCompliance/FAIR/Accessible/notAccessible
+notAccessible
+
+
+# DataRepoCompliance/FAIR/Accessible/partiallyAccessible
+partiallyAccessible
+
+
+# DataRepoCompliance/FAIR/Accessible/fullyAccessible
+fullyAccessible
+
+
+# DataRepoCompliance/FAIR/Interoperable
+Interoperable
+
+
+# DataRepoCompliance/FAIR/Interoperable/notInteroperable
+notInteroperable
+
+
+# DataRepoCompliance/FAIR/Interoperable/partiallyInteroperable
+partiallyInteroperable
+
+
+# DataRepoCompliance/FAIR/Interoperable/fullyInteroperable
+fullyInteroperable
+
+
+# DataRepoCompliance/FAIR/Findable
+Findable
+
+
+# DataRepoCompliance/FAIR/Findable/notFindable
+notFindable
+
+
+# DataRepoCompliance/FAIR/Findable/partiallyFindable
+partiallyFindable
+
+
+# DataRepoCompliance/FAIR/Findable/fullyFindable
+fullyFindable
+
+
+# DataRepoCompliance/FAIR/Reusable
+Reusable
+
+
+# DataRepoCompliance/FAIR/Reusable/notReusable
+notReusable
+
+
+# DataRepoCompliance/FAIR/Reusable/partiallyReusable
+partiallyReusable
+
+
+# DataRepoCompliance/FAIR/Reusable/fullyReusable
+fullyReusable
+
+
