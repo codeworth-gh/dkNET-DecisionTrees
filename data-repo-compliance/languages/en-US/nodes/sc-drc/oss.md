@@ -1,6 +1,6 @@
 ### Is the code that runs the data infrastructure covered under an open source license?
 
-From principles of open infrastructures.  If the repository violates the principles of community, could the repository be recreated by the community?  Some of them are and say so. Some things to look for:
+From the principles of open infrastructures.  If the repository violates the community principles, could the repository be recreated by the community?  Some of them are and say so. Some things to look for:
 
 1. Is Code maintained in an open repository?
 1. Is the license for the code made clear?
