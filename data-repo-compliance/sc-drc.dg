@@ -6,10 +6,14 @@
 [>acc< ask: 
   {text: Does the repository provide access to the data with minimal or no restrictions? }
   {answers:
-    {no restrictions: [set: OpenFlags += humanAccessible; Restrictions=none] }
-    {minimal restrictions: [set: Restrictions=minimal]}
-    {significant restrictions: [set: Restrictions=significant]}
-    {significant but not justified restrictions: [set: Restrictions=significant; OpenFlags+=restrictionsNotJustified]}
+    {no restrictions: 
+        [set: OpenFlags += humanAccessible; Restrictions=none] }
+    {minimal restrictions: 
+        [set: Restrictions=minimal] }
+    {significant restrictions: 
+        [set: Restrictions=significant] }
+    {significant but not justified restrictions: 
+        [set: Restrictions=significant; OpenFlags+=restrictionsNotJustified] }
   }
 ]
 [>reuse< ask: 
@@ -17,13 +21,13 @@
   {answers:
     {yes: [set: OpenFlags+=machineAccessible, openFormat]}
     {somewhat: [set: OpenFlags+=machineAccessible]}
-    {no:}
+    {no: <* do nothing *>}
   }
 ]
 [>lic-clr< ask: 
   {text: Does the repository provide a clear license for reuse of the data?}
   {answers:
-    {   dataset level: [set: ReuseLicense=datasetLevel; AccessibleFlags+=licenseOK; Accessible=partiallyAccessible] }
+    {   dataset level: [set: ReuseLicense=datasetLevel;    AccessibleFlags+=licenseOK; Accessible=partiallyAccessible] }
     {repository level: [set: ReuseLicense=repositoryLevel; AccessibleFlags+=licenseOK; Accessible=partiallyAccessible] }
     {      no license: [set: ReuseLicense=none; CCLicenseCompliance=none] }
   }
@@ -33,10 +37,10 @@
     [>lic-cc< ask: 
       {text: Are the data covered by a commons-compliant license?}
       {answers:
-        {best: [set: ReusableFlags+=ccLicenseOK; Reusable=partiallyReusable; CCLicenseCompliance=full]}
-        {good:[set: ReusableFlags+=ccLicenseOK; Reusable=partiallyReusable; CCLicenseCompliance=good]}
-        {somewhat open:[set: ReusableFlags+=ccLicenseOK; Reusable=partiallyReusable; CCLicenseCompliance=adequate]}
-        {closed:[set: CCLicenseCompliance=nonCompliant]}
+        {best:         [set: CCLicenseCompliance=full;     OpenFlags+=ccLicenseOK]}
+        {good:         [set: CCLicenseCompliance=good;     OpenFlags+=ccLicenseOK]}
+        {somewhat open:[set: CCLicenseCompliance=adequate; OpenFlags+=ccLicenseOK]}
+        {closed:       [set: CCLicenseCompliance=nonCompliant]}
       }
     ]
   }
@@ -50,10 +54,10 @@
 [>ru-doc< ask: 
   {text: Does the repository require or support documentation that aids in proper (re)-use of the data?}
   {answers:
-    {best:     [set: ReusableFlags+=documentationOK; DocumentationLevel=full]}
-    {good:     [set: ReusableFlags+=documentationOK; DocumentationLevel=good]}
-    {adequate: [set: ReusableFlags+=documentationOK; DocumentationLevel=adequate]}
-    {worst:    [set: DocumentationLevel=lacking]}
+    {    best: [set: DocumentationLevel=full;     ReusableFlags+=documentationOK]}
+    {    good: [set: DocumentationLevel=good;     ReusableFlags+=documentationOK]}
+    {adequate: [set: DocumentationLevel=adequate; ReusableFlags+=documentationOK]}
+    {   worst: [set: DocumentationLevel=lacking]}
   }
 ]
 [>sch-ui< ask: 
@@ -65,12 +69,12 @@
   {text: Does the repository assign globally unique and persistent identifiers (PID)? }
   {answers:
     {yes: [set: PersistentIdentifier=externalPID; Findable=partiallyFindable] }
-    {no:
+    { no:
       [>pid-l< ask: 
         {text:  Does the repository allows users to self assign an identifier to a data set or data contribution?}
         {answers:
           {yes: [set: PersistentIdentifier=internalPID; Findable=partiallyFindable] }
-          {no:  [set: PersistentIdentifier=none]}
+          { no: [set: PersistentIdentifier=none]}
         }
       ]
     }
@@ -99,9 +103,9 @@
 [>orcid< ask: 
   {text: Does the repository allow the authors to associate their ORCID ID with a dataset?}
   {answers:
-    { required: [set: OrcidAssociation=required; Citable=partiallySupported]}
+    { required: [set: OrcidAssociation=required;  Citable=partiallySupported]}
     {supported: [set: OrcidAssociation=supported; Citable=partiallySupported]}
-    {     none: [set: OrcidAssociation=none; CitationMetadataLevel=none]}
+    {     none: [set: OrcidAssociation=none;      CitationMetadataLevel=none]}
   }
 ]
 [>md-level<ask: 
@@ -115,8 +119,8 @@
 [>md-prv< ask: 
   {text: Are the (meta)data associated with detailed provenance?}
   {answers:
-      {best: [set: MetadataProvenance=full; ReusableFlags+=metadataProvenanceOK; Reusable=partiallyReusable]}
-      {good: [set: MetadataProvenance=adequate; ReusableFlags+=metadataProvenanceOK; Reusable=partiallyReusable] }
+    { best: [set: MetadataProvenance=full; ReusableFlags+=metadataProvenanceOK; Reusable=partiallyReusable]}
+    { good: [set: MetadataProvenance=adequate; ReusableFlags+=metadataProvenanceOK; Reusable=partiallyReusable] }
     {worst: [set: MetadataProvenance=unclear]}
   }
 ]
@@ -131,18 +135,18 @@
 [>md-ref< ask: 
   {text: Do the metadata include qualified references to other (meta)data?}
   {answers:
-    {best: [set: MetadataReferenceQuality=formal;   InteroperableFlags+=qualifiedMetadataReferencesOK; Interoperable=partiallyInteroperable]}
-    {good: [set: MetadataReferenceQuality=informal; InteroperableFlags+=qualifiedMetadataReferencesOK; Interoperable=partiallyInteroperable]}
+    {best:  [set: MetadataReferenceQuality=formal;   InteroperableFlags+=qualifiedMetadataReferencesOK; Interoperable=partiallyInteroperable]}
+    {good:  [set: MetadataReferenceQuality=informal; InteroperableFlags+=qualifiedMetadataReferencesOK; Interoperable=partiallyInteroperable]}
     {worst: [set: MetadataReferenceQuality=freeText]}
   }
 ]
 [>md-lnk< ask: 
   {text: If the data were published in the context of an accompanying scientific paper, does the repository support bidirectional linkage between them?}
   {answers:
-    {best:[set: StudyLinkage=machineReadableMetadata; InteroperableFlags+=studyLinkageOK]}
-    {good:[set: StudyLinkage=textualMetadata; InteroperableFlags+=studyLinkageOK]}
-    {unclear:[set: StudyLinkage=freeText]}
-    {worst:[set: StudyLinkage=none]}
+    {best:    [set: StudyLinkage=machineReadableMetadata; InteroperableFlags+=studyLinkageOK]}
+    {good:    [set: StudyLinkage=textualMetadata; InteroperableFlags+=studyLinkageOK]}
+    {unclear: [set: StudyLinkage=freeText]}
+    {worst:   [set: StudyLinkage=none]}
   }
 ]
 [>fmt-com< ask: 
@@ -154,8 +158,8 @@
 [>md-dkn< ask: 
   {text:Does the repository accept metadata that is applicable to the dkNET community disciplines?}
   {answers:
-    {best: [set: DkNetMetadataLevel=datasetAndSubject; ReusableFlags+=dkNetMetadataOK; Reusable=partiallyReusable]}
-    {good: [set: DkNetMetadataLevel=dataset; ReusableFlags+=dkNetMetadataOK; Reusable=partiallyReusable]}
+    {best:  [set: DkNetMetadataLevel=datasetAndSubject; ReusableFlags+=dkNetMetadataOK; Reusable=partiallyReusable]}
+    {good:  [set: DkNetMetadataLevel=dataset; ReusableFlags+=dkNetMetadataOK; Reusable=partiallyReusable]}
     {worst: [set: DkNetMetadataLevel=none]}
   }
 ]
@@ -173,7 +177,7 @@
   {text: Do the metadata use vocabularies that follow FAIR principles?}
   {answers:
     {enforced: [set: MetadataFAIRness=enforced; InteroperableFlags+=fairMetadataOK; Interoperable=partiallyInteroperable]}
-    {allowed:  [set: MetadataFAIRness=allowed; InteroperableFlags+=fairMetadataOK; Interoperable=partiallyInteroperable]}
+    {allowed:  [set: MetadataFAIRness=allowed;  InteroperableFlags+=fairMetadataOK; Interoperable=partiallyInteroperable]}
     {minimal:  [set: MetadataFAIRness=minimal]}
   }
 ]
@@ -185,7 +189,7 @@
       {text: Does the repository provide a machine-readable landing page?}
       {answers:
         {yes: [set: MachineReadableLandingPage=exists]}
-        {no: [set: MachineReadableLandingPage=none]}
+        { no: [set: MachineReadableLandingPage=none]}
       }
     ]
   }
@@ -228,8 +232,8 @@
 [>gov-tsp<ask: 
   {text: Is the governance of the repository transparent?}
   {answers:
-    {best: [set: GovernanceTransparency=full]}
-    {good: [set: GovernanceTransparency=partial]}
+    { best: [set: GovernanceTransparency=full]}
+    { good: [set: GovernanceTransparency=partial]}
     {worst: [set: GovernanceTransparency=opaque]}
   }
 ]
@@ -253,7 +257,7 @@
   {answers:
     {best: [set: SourceOpen=yes]}
     {good: [set: SourceOpen=partially]}
-    {no: [set: SourceOpen=no]}
+    {  no: [set: SourceOpen=no]}
   }
 ]
 [>tr-seal< ask: 
@@ -292,12 +296,12 @@
 ]
 
 [when: <-- Setting Reusable
-  {ReusableFlags+=communityStandard,documentationOK,dkNetMetadataOK,generalMetadata,ccLicenseOK,metadataProvenanceOK : [set: Reusable=fullyReusable] }
+  {ReusableFlags+=communityStandard,documentationOK,dkNetMetadataOK,generalMetadata,metadataProvenanceOK : [set: Reusable=fullyReusable] }
   {else: [set: Reusable=notReusable]}
 ]
 
 [when: <-- Setting Citable
-  { Citable=partiallySupported; CitationMetadataLevel=full; MachineReadableLandingPage=supportsDataCitation:
+  {Citable=partiallySupported; CitationMetadataLevel=full; MachineReadableLandingPage=supportsDataCitation:
     [set: Citable=fullySupported]
   }
 ]
@@ -309,9 +313,10 @@
 ]
 
 [when: <-- Setting Open
-  {OpenFlags+=openFormat, machineAccessible, humanAccessible: [set: Open=fullyOpen] }
+  {OpenFlags+=openFormat, ccLicenseOK, machineAccessible, humanAccessible: [set: Open=fullyOpen] }
   {OpenFlags+=openFormat:        [set: Open=partiallyOpen] }
   {OpenFlags+=humanAccessible:   [set: Open=partiallyOpen] }
+  {OpenFlags+=ccLicenseOK:       [set: Open=partiallyOpen] }
   {OpenFlags+=machineAccessible: [set: Open=partiallyOpen] }
   {else:[set: Open=closed]}
 ]

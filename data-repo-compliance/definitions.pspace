@@ -16,13 +16,14 @@ Properties: consists of OpenProps, FAIRProps, CitableProps,
 FAIRProps: consists of FindableProps, AccessibleProps,
                         InteroperableProps, ReusableProps.
 
-OpenProps: consists of Restrictions, OpenFlags.
+OpenProps: consists of Restrictions, CCLicenseCompliance, OpenFlags.
 OpenFlags: some of humanAccessible, machineAccessible, openFormat,
                     platformSupportsDataWork,
+                    ccLicenseOK[Commons Compliant License.],
                     restrictionsNotJustified.
 Restrictions: one of none, minimal, significant.
 
-AccessibleProps: consists of MetadataPersistence, CCLicenseCompliance, AccessibleFlags.
+AccessibleProps: consists of MetadataPersistence, AccessibleFlags.
 MetadataPersistence[Are the medatadata kept after the data is deaccessioned?]: one of
   no, byEvidence, byStatedPolicy.
 CCLicenseCompliance: one of none, nonCompliant, adequate, good, full.
@@ -61,7 +62,6 @@ ReusableFlags: some of documentationOK,
                        dkNetMetadataOK,
                        communityStandard,
                        generalMetadata,
-                       ccLicenseOK[Commons Compliant License.],
                        metadataProvenanceOK.
 
 CitableProps: consists of OrcidAssociation, CitationMetadataLevel, MachineReadableLandingPage.
