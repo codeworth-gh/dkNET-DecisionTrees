@@ -11,5 +11,5 @@ These licenses conform to the Open Definition but not to Re-Use
 #### Options
 * **best:** all content covered by an open license
 * **good:** Some content covered by an open license.
-* **somewhat open:** All content covered by a somewhat open licence
+* **somewhat open:** All content covered by a somewhat open license
 * **closed:** All content covered by closed license

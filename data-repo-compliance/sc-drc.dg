@@ -7,7 +7,7 @@
   {text: Does the repository provide access to the data with minimal or no restrictions? }
   {answers:
     {no restrictions: 
-        [set: OpenFlags += humanAccessible; Restrictions=none] }
+        [set: AccessibleFlags += humanAccessible; Restrictions=none] }
     {minimal restrictions: 
         [set: Restrictions=minimal] }
     {significant restrictions: 
@@ -19,8 +19,8 @@
 [>reuse< ask: 
   {text:Are you free to download the data and reuse it with no or minimal restrictions? }
   {answers:
-    {yes: [set: OpenFlags+=machineAccessible, openFormat]}
-    {somewhat: [set: OpenFlags+=machineAccessible]}
+    {yes: [set: OpenFlags+=openFormat; AccessibleFlags+=machineAccessible]}
+    {somewhat: [set: AccessibleFlags+=machineAccessible]}
     {no: <* do nothing *>}
   }
 ]
@@ -181,7 +181,7 @@
     {minimal:  [set: MetadataFAIRness=minimal]}
   }
 ]
-[consider:
+[consider: <-- If we haven't discovered yet whether there's a landing page or not, ask explicitly
   {slot: MachineReadableLandingPage}
   {options: {exists:} }
   {else:
@@ -227,7 +227,7 @@
 [>sch-api< ask: 
   {text: Does the repository provide API-based search and access to the data and metadata?}
   {answers:
-    {yes: [set: FindableFlags+=machineAccessible; Findable=partiallyFindable]}
+    {yes: [set: AccessibleFlags+=machineAccessible; Findable=partiallyFindable]}
 }]
 [>gov-tsp<ask: 
   {text: Is the governance of the repository transparent?}
@@ -275,16 +275,13 @@
   *>
 [-->pInference<
 [when: <-- Setting Findable
-  {FindableFlags+=humanAccessible,machineAccessible,internalSearchOK; PersistentIdentifier=externalPID:
-    [when:
-      {MetadataGrade=rich; IdInMetadata=all: [set: Findable=fullyFindable] }
-    ]
-  }
+  {FindableFlags+=internalSearchOK; PersistentIdentifier=externalPID; MetadataGrade=rich; IdInMetadata=all:
+    [set: Findable=fullyFindable]}
   {else: [set: Findable=notFindable]}
 ]
 
 [when: <-- Setting Accessible
-  {AccessibleFlags+=licenseOK,persistentMetadata,stdApi : [set: Accessible=fullyAccessible] }
+  {AccessibleFlags+=licenseOK, persistentMetadata, humanAccessible, machineAccessible, stdApi : [set: Accessible=fullyAccessible] }
   {else: [set: Accessible=notAccessible]}
 ]
 
@@ -313,11 +310,9 @@
 ]
 
 [when: <-- Setting Open
-  {OpenFlags+=openFormat, ccLicenseOK, machineAccessible, humanAccessible: [set: Open=fullyOpen] }
-  {OpenFlags+=openFormat:        [set: Open=partiallyOpen] }
-  {OpenFlags+=humanAccessible:   [set: Open=partiallyOpen] }
-  {OpenFlags+=ccLicenseOK:       [set: Open=partiallyOpen] }
-  {OpenFlags+=machineAccessible: [set: Open=partiallyOpen] }
+  {OpenFlags+=openFormat, ccLicenseOK: [set: Open=fullyOpen] }
+  {OpenFlags+=openFormat:  [set: Open=partiallyOpen] }
+  {OpenFlags+=ccLicenseOK: [set: Open=partiallyOpen] }
   {else:[set: Open=closed]}
 ]
 --]

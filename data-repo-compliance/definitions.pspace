@@ -17,17 +17,16 @@ FAIRProps: consists of FindableProps, AccessibleProps,
                         InteroperableProps, ReusableProps.
 
 OpenProps: consists of Restrictions, CCLicenseCompliance, OpenFlags.
-OpenFlags: some of humanAccessible, machineAccessible, openFormat,
-                    platformSupportsDataWork,
-                    ccLicenseOK[Commons Compliant License.],
-                    restrictionsNotJustified.
+OpenFlags: some of openFormat, platformSupportsDataWork,
+                   ccLicenseOK[Commons Compliant License.],
+                   restrictionsNotJustified.
 Restrictions: one of none, minimal, significant.
 
 AccessibleProps: consists of MetadataPersistence, AccessibleFlags.
 MetadataPersistence[Are the medatadata kept after the data is deaccessioned?]: one of
   no, byEvidence, byStatedPolicy.
 CCLicenseCompliance: one of none, nonCompliant, adequate, good, full.
-AccessibleFlags: some of persistentMetadata,
+AccessibleFlags: some of humanAccessible, machineAccessible, persistentMetadata,
                          licenseOK,
                          stdApi[Accessible via standard API].
 
