@@ -31,7 +31,7 @@ AccessibleFlags: some of humanAccessible, machineAccessible, persistentMetadata,
                          stdApi[Accessible via standard API].
 
 FindableProps: consists of PersistentIdentifier, MetadataGrade, IdInMetadata, FindableFlags.
-FindableFlags: some of humanAccessible, machineAccessible, internalSearchOK.
+FindableFlags: some of internalSearchOK.
 PersistentIdentifier: one of none, internalPID[Internally assigned identifier (e.g. UUID)],
                             externalPID[Externally assigned identifier (e.g. DOI)].
 MetadataGrade: one of minimal, limited, rich.

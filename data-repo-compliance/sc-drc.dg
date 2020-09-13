@@ -2,7 +2,7 @@
  * Data repository evaluation.
  * CC-BY by authors - see policy-model.xml
  *>
-[set: Citable=notSupported]
+[call: pPessimisticSetup]
 [>acc< ask: 
   {text: Does the repository provide access to the data with minimal or no restrictions? }
   {answers:
@@ -87,7 +87,7 @@
     [>land-pg< ask: 
       {text:Does the PID or other dataset identifier resolve to a landing page that describes the data? }
       {answers:
-        {yes: [set: FindableFlags+=humanAccessible; Findable=partiallyFindable; MachineReadableLandingPage=exists]}
+        {yes: [set: AccessibleFlags+=humanAccessible; Findable=partiallyFindable; MachineReadableLandingPage=exists]}
       }
     ]
     [>md-pid< ask: 
@@ -200,7 +200,6 @@
       {text: Does the landing page supports data citation?}
       {answers:
         {yes: [set: MachineReadableLandingPage=supportsDataCitation]}
-        {no:}
       }
     ]
   }
@@ -276,32 +275,23 @@
 [-->pInference<
 [when: <-- Setting Findable
   {FindableFlags+=internalSearchOK; PersistentIdentifier=externalPID; MetadataGrade=rich; IdInMetadata=all:
-    [set: Findable=fullyFindable]}
-  {else: [set: Findable=notFindable]}
-]
+    [set: Findable=fullyFindable]}]
 
 [when: <-- Setting Accessible
-  {AccessibleFlags+=licenseOK, persistentMetadata, humanAccessible, machineAccessible, stdApi : [set: Accessible=fullyAccessible] }
-  {else: [set: Accessible=notAccessible]}
-]
+  {AccessibleFlags+=licenseOK, persistentMetadata, humanAccessible, machineAccessible, stdApi: 
+    [set: Accessible=fullyAccessible]}]
 
 [when: <-- Setting Interoperable
   {InteroperableFlags+=formalMetadataVocabularyOK,fairMetadataOK,qualifiedMetadataReferencesOK,studyLinkageOK:
-     [set: Interoperable=fullyInteroperable]
-  }
-  {else: [set: Interoperable=notInteroperable]}
-]
+     [set: Interoperable=fullyInteroperable]}]
 
 [when: <-- Setting Reusable
-  {ReusableFlags+=communityStandard,documentationOK,dkNetMetadataOK,generalMetadata,metadataProvenanceOK : [set: Reusable=fullyReusable] }
-  {else: [set: Reusable=notReusable]}
-]
+  {ReusableFlags+=communityStandard,documentationOK,dkNetMetadataOK,generalMetadata,metadataProvenanceOK:
+   [set: Reusable=fullyReusable]}]
 
 [when: <-- Setting Citable
   {Citable=partiallySupported; CitationMetadataLevel=full; MachineReadableLandingPage=supportsDataCitation:
-    [set: Citable=fullySupported]
-  }
-]
+    [set: Citable=fullySupported]}]
 
 [when: <-- Setting Trustworthy
   {SourceOpen=yes; StakeholderGovernance=full; GovernanceTransparency=full: [set: Trustworthy=noConcerns]}
@@ -313,6 +303,16 @@
   {OpenFlags+=openFormat, ccLicenseOK: [set: Open=fullyOpen] }
   {OpenFlags+=openFormat:  [set: Open=partiallyOpen] }
   {OpenFlags+=ccLicenseOK: [set: Open=partiallyOpen] }
-  {else:[set: Open=closed]}
 ]
+--]
+
+<** 
+  Initially, set the evaluation values to be pessimistic. They will (hopefully) improve during the interview.
+*>
+[-->pPessimisticSetup<
+<-- Open, FAIR, Citable and Trustworthy
+[set: Open=closed;
+      Findable=notFindable; Accessible=notAccessible; Interoperable=notInteroperable; Reusable=notReusable;
+      Citable=notSupported; Trustworthy=significantConcerns
+  ]
 --]

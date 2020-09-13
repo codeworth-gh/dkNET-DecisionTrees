@@ -1,7 +1,12 @@
 <policy-model>
   <title>dkNET-Repository Compliance</title>
-  <date>2020-07-23</date>
+  <date>2020-09-13</date>
   <version>1.0.0</version>
+  <model answers-order="yes-first">
+    <space root="DataRepoCompliance">definitions.pspace</space>
+    <graph>sc-drc.dg</graph>
+  </model>
+  <!-- <valueInferrer>tagInference.vi</valueInferrer> -->
   <keywords>repository, FAIR, Force11, software, dkNET</keywords>
   <authors>
     <person orcid="0000-0002-8406-3871">
@@ -20,10 +25,6 @@
       <email>michael@codeworth.io</email>
     </person>
   </authors>
-  <model answers-order="yes-first">
-    <space root="DataRepoCompliance">definitions.pspace</space>
-    <graph>sc-drc.dg</graph>
-  </model>
   <references>
     <reference doi="10.1038/sdata.2016.18">
       Wilkinson et al., FAIR Data Principles Sci Data. 2016 Mar 15;3:160018.
