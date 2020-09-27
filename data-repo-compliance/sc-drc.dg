@@ -300,9 +300,15 @@
 ]
 
 [when: <-- Setting Open
-  {OpenFlags+=openFormat, ccLicenseOK: [set: Open=fullyOpen] }
+  {OpenFlags+=openFormat, ccLicenseOK, platformSupportsDataWork: 
+    [when:
+      {Restrictions=none: [set: Open=fullyOpen]}
+      {else: [set: Open=partiallyOpen]}
+    ]
+  }
   {OpenFlags+=openFormat:  [set: Open=partiallyOpen] }
   {OpenFlags+=ccLicenseOK: [set: Open=partiallyOpen] }
+  {OpenFlags+=platformSupportsDataWork: [set: Open=partiallyOpen] }
 ]
 --]
 
@@ -310,9 +316,9 @@
   Initially, set the evaluation values to be pessimistic. They will (hopefully) improve during the interview.
 *>
 [-->pPessimisticSetup<
-<-- Open, FAIR, Citable and Trustworthy
-[set: Open=closed;
-      Findable=notFindable; Accessible=notAccessible; Interoperable=notInteroperable; Reusable=notReusable;
-      Citable=notSupported; Trustworthy=significantConcerns
+  [set: Open=closed;
+        Findable=notFindable; Accessible=notAccessible; Interoperable=notInteroperable; 
+        Reusable=notReusable; Citable=notSupported; Trustworthy=significantConcerns
   ]
 --]
+
