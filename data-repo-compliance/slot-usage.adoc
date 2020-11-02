@@ -1,0 +1,194 @@
+# Slots in Translation
+
+## Slots
+
+[horizontal]
+DataRepoCompliance::
+    Root slot. Not used in model.
+Open::
+    Result slot
+
+FAIR::
+    Result slot
+
+Citable::
+    Result slot
+
+Trustworthy::
+    Result slot
+
+Findable::
+    Result slot
+
+Accessible::
+    Result slot
+
+Interoperable::
+    Result slot
+
+Reusable::
+    Result slot
+
+Properties::
+    NTA
+
+FAIRProps::
+    NTA
+
+OpenProps::
+    NTA
+
+OpenFlags::
+    * openFormat               => Open in `partially..fully`
+    * platformSupportsDataWork => Open in `partially..fully`
+    * ccLicenseOK              => Open in `partially..fully`
+    * restrictionsNotJustified => Result slot
+
+Restrictions::
+    * none        => up to `fully open`
+    * minimal     => up to `partially open`
+    * significant => up to `partially open`
+
+AccessibleProps::
+    NTA
+
+MetadataPersistence::
+    * no               => not accessible
+    * /!\ by evidence  => Accessible in `partially...fully`
+    * by stated policy => Accessible in `partially...fully`
+
+CCLicenseCompliance::
+    * none         => Open in `not..partially`
+    * nonCompliant => Open in `not..partially`
+    * adequate     => Open in `partially..fully`
+    * good         => Open in `partially..fully`
+    * full         => Open in `partially..fully`
+
+AccessibleFlags::
+    * /!\ humanAccessible    => Accessible in `not..fully`
+    * /!\ machineAccessible  => Accessible in `not..fully`
+    * persistentMetadata => Accessible in `partially..fully`
+    * licenseOK          => Accessible in `partially..fully`
+    * stdApi             => Accessible in `partially..fully`
+
+FindableProps::
+    NTA
+
+FindableFlags::
+    * internalSearchOK => Findable in `partially..fully`
+
+PersistentIdentifier::
+    * none        => Findable in `not..partially`
+    * internalPID => Findable = `partially`
+    * externalPID => Findable in `partially..fully`
+
+MetadataGrade::
+    * minimal => Findable in `not..partially`
+    * limited => Findable = `partially`
+    * rich    => Findable in `partially..fully`
+
+IdInMetadata::
+    * none    => Findable in `not..partially`
+    * partial => Findable = `partially`
+    * all     => Findable in `partially..fully`
+
+InteroperableProps::
+    NTA
+
+InteroperableFlags::
+    * formalMetadataVocabularyOK    => Interoperable in `partially..fully`
+    * fairMetadataOK                => Interoperable in `partially..fully`
+    * qualifiedMetadataReferencesOK => Interoperable in `partially..fully`
+    * studyLinkageOK                => Interoperable in `partially..fully`
+
+MetadataFAIRness::
+    Finer-grained `fairMetadataOK`.
+    * minimal  => Interoperable in `not..partially`
+    * allowed  => Interoperable in `partially..fully`
+    * enforced => Interoperable in `partially..fully`
+
+MetadataReferenceQuality::
+    Finer-grained `qualifiedMetadataReferencesOK`.
+    * freeText => Interoperable in `not..partially`
+    * informal => Interoperable in `partially..fully`
+    * formal   => Interoperable in `partially..fully`
+
+StudyLinkage::
+    Finer-grained `studyLinkageOK`
+    * none                    => Interoperable in `not..partially`
+    * freeText                => Interoperable in `not..partially`
+    * textualMetadata         => Interoperable in `partially..fully`
+    * machineReadableMetadata => Interoperable in `partially..fully`
+
+ReusableProps::
+    NTA
+
+ReusableFlags::
+    * /!\ documentationOK  => Reusable in `not..fully`
+    * dkNetMetadataOK      => Reusable in `partially..fully`
+    * communityStandard    => Reusable in `partially..fully`
+    * generalMetadata      => Reusable in `partially..fully`
+    * metadataProvenanceOK => Reusable in `partially..fully`
+
+DocumentationLevel::
+    Finer-grained `documentationOK`
+    * lacking  => Reusable in `not..partially`
+    * /!\ adequate => Reusable in `not..fully`
+    * /!\ good     => Reusable in `not..fully`
+    * /!\ full     => Reusable in `not..fully`
+
+ReuseLicense::
+    Finer-grained `licenseOK`
+    * none            => Reusable in `not..partially`
+    * repositoryLevel => Reusable in `partially..fully`
+    * datasetLevel    => Reusable in `partially..fully`
+
+MetadataProvenance::
+    Finer-grained `metadataProvenanceOK`.
+    * unclear  => Reusable in `not..partially`
+    * adequate => Reusable in `partially..fully`
+    * full     => Reusable in `partially..fully`
+
+DkNetMetadataLevel::
+    Finer-grained `dkNetMetadataOK`
+    * none              => Reusable in `not..partially`
+    * dataset           => Reusable in `partially..fully`
+    * datasetAndSubject => Reusable in `partially..fully`
+
+
+CitableProps::
+    NTA
+
+OrcidAssociation::
+    * none      => Citable in `not..partially`
+    * supported => Citable in `partially..fully`
+    * required  => Citable in `partially..fully`
+
+CitationMetadataLevel::
+    * none    => Citable in `not..partially`
+    * /!\ partial => Citable in `not..partially`
+    * full    => Citable in `not..fully`
+
+MachineReadableLandingPage::
+    * none                     => Citable in `not..partially`
+    * /!\ exists               => Citable in `not..partially`
+    * /!\ supportsDataCitation => Citable in `not..fully`
+
+TrustworthinessProps::
+    NTA
+
+GovernanceTransparency::
+    * opaque  => Trustworthy in `significantConcerns..minorConcerns`
+    * partial => Trustworthy = `minorConcerns`
+    * full    => Trustworthy in `minorConcerns..noConcerns`
+
+StakeholderGovernance::
+    * none => Trustworthy in `significantConcerns..minorConcerns`
+    * weak => Trustworthy = `minorConcerns`
+    * good => Trustworthy = `minorConcerns`
+    * full => Trustworthy in `minorConcerns..noConcerns`
+
+SourceOpen::
+    * no        => Trustworthy in `significantConcerns..minorConcerns`
+    * partially => Trustworthy = `minorConcerns`
+    * yes       => Trustworthy in `minorConcerns..noConcerns`

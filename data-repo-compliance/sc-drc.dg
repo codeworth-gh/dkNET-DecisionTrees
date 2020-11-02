@@ -7,7 +7,7 @@
   {text: Does the repository provide access to the data with minimal or no restrictions? }
   {answers:
     {no restrictions: 
-        [set: AccessibleFlags += humanAccessible; Restrictions=none] }
+        [set: Restrictions=none] }
     {minimal restrictions: 
         [set: Restrictions=minimal] }
     {significant restrictions: 
@@ -105,7 +105,7 @@
   {answers:
     { required: [set: OrcidAssociation=required;  Citable=partiallySupported]}
     {supported: [set: OrcidAssociation=supported; Citable=partiallySupported]}
-    {     none: [set: OrcidAssociation=none;      CitationMetadataLevel=none]}
+    {     none: [set: OrcidAssociation=none]}
   }
 ]
 [>md-level<ask: 
