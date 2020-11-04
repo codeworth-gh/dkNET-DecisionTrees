@@ -1,19 +1,34 @@
 # Slots in Translation
+Michael Bar-Sinai, Fiona Murphy, Maryann E. Martone
 
-[TODO]
-Get some proper explanation of this document.
+This document describes how the _low-level slots_ in our model affect its _high-level slots_. Low-level slots describe how an evaluated repository is performing on a narrow aspect, such as its compliance with Creative Commons licenses or the way it allows dataset authors to be associated with https://orcid.org/[ORCID]. High-level slots describe wide properties such as "Openness" or "Interoperability". Their value is a summary of values in relevant low-level slots.
 
-Slots not appearing here are "compound slots", that are used to group other slots. E.g. `OpenProps` groups `Restrictions`, `CCLicenseCompliance`, and `OpenFlags`. As such, these slots do not have a value of their own, and thus we do not need to discuss them here.
+## How to Read This Document
+
+Below, we list slot names on the left, and their possible values on the right. For each value, we describe what constraints it imposes on the high-level slot that summarizes it. As an example, in the following listing we look at the constraints values in the `Restrictions` slot impose on the values that may be stored in the `Open` slot.
+
+[horizontal]
+Restrictions::
+    * none        => Open in `partially..fully`
+    * minimal     => Open is `partially`
+    * significant => Open in `not..partially`
+
+Based on the above listing, we see that when an a repository does not restrict the access to its data (i.e. `Restrictions=none`), said repository can be considered _partially open_ or _fully open_ (`Open=partiallyOpen` or `Open=fullyOpen`, respectively). By way of negation, such repository cannot be considered _closed_.
+
+Conversely, when a repository imposes significant restriction on accessing data it stores, it cannot be considered _fully open_. However, based on other aspects, it may be considered _partially open_.
+
+[NOTE]
+Not all slots defined by our model appear here -- this document does not describe "compound slots", which are used to group other slots. E.g. `OpenProps` groups `Restrictions`, `CCLicenseCompliance`, and `OpenFlags`. As such, these slots serve as an organization aid, and do not have a value of their own. Thus, we do not need to discuss them here.
 
 ## Slots
 
 ### Result Slots
 
-Used for communicating results outside of the model. 
+Used for communicating results outside of the model.
 
 [horizontal]
 DataRepoCompliance::
-    Root slot, grouping all other slots together. Not used in model.
+    Root slot, grouping all other slots together.
 
 Open::
     Result slot
@@ -43,8 +58,8 @@ Reusable::
 
 Slots affecting the `Open` slot value.
 
-[NOTE]
-All conditions pertaining to the `Open` slot are conditioned in that the `CCLicenceCompliance` is above `not`.
+[IMPORTANT]
+All conditions pertaining to the `Open` slot are conditioned in that the `CCLicenceCompliance` is above `nonCompliant`.
 
 [horizontal]
 OpenFlags::
@@ -55,11 +70,11 @@ OpenFlags::
 
 Restrictions::
     * none        => Open in `partially..fully`
-    * minimal     => Open is `partially` 
-    * significant => Open in `not..partially open`
+    * minimal     => Open is `partially`
+    * significant => Open in `not..partially`
 
 CCLicenseCompliance::
-    * nonCompliant => Open in `not..partially` 
+    * nonCompliant => Open is `not`
     * none         => Open in `not..partially`
     * adequate     => Open in `partially..fully`
     * good         => Open in `partially..fully`
