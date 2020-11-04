@@ -103,8 +103,8 @@
 [>orcid< ask: 
   {text: Does the repository allow the authors to associate their ORCID ID with a dataset?}
   {answers:
-    { required: [set: OrcidAssociation=required;  Citable=partiallySupported]}
-    {supported: [set: OrcidAssociation=supported; Citable=partiallySupported]}
+    { required: [set: OrcidAssociation=required;  Citable=partiallyCitable]}
+    {supported: [set: OrcidAssociation=supported; Citable=partiallyCitable]}
     {     none: [set: OrcidAssociation=none]}
   }
 ]
@@ -127,8 +127,8 @@
 [>md-daci<ask: 
   {text: Does the repository provide the required metadata for supporting data citation?}
   {answers:
-    {      full: [set: CitationMetadataLevel=full]}
-    {   partial: [set: CitationMetadataLevel=partial]}
+    {      full: [set: CitationMetadataLevel=full; Citable=partiallyCitable]}
+    {   partial: [set: CitationMetadataLevel=partial; Citable=partiallyCitable]}
     {no support: [set: CitationMetadataLevel=none]}
   }
 ]
@@ -196,6 +196,7 @@
 ]
 [when:
   {MachineReadableLandingPage=exists:
+    [set: Citable=partiallyCitable]
     [>land-ctsp< ask:
       {text: Does the landing page supports data citation?}
       {answers:
@@ -279,7 +280,10 @@
 
 [when: <-- Setting Accessible
   {AccessibleFlags+=licenseOK, persistentMetadata, humanAccessible, machineAccessible, stdApi: 
-    [set: Accessible=fullyAccessible]}]
+    [set: Accessible=fullyAccessible]}
+  {AccessibleFlags+=machineAccessible: <-- This flag can be set in multiple places, so we apply its effect here.
+    [set: Accessible=partiallyAccessible]}
+]
 
 [when: <-- Setting Interoperable
   {InteroperableFlags+=formalMetadataVocabularyOK,fairMetadataOK,qualifiedMetadataReferencesOK,studyLinkageOK:
@@ -287,11 +291,15 @@
 
 [when: <-- Setting Reusable
   {ReusableFlags+=communityStandard,documentationOK,dkNetMetadataOK,generalMetadata,metadataProvenanceOK:
-   [set: Reusable=fullyReusable]}]
+   [set: Reusable=fullyReusable]}
+  {ReusableFlags+=documentationOK: [set: Reusable=partiallyReusable]}
+]
 
 [when: <-- Setting Citable
-  {Citable=partiallySupported; CitationMetadataLevel=full; MachineReadableLandingPage=supportsDataCitation:
-    [set: Citable=fullySupported]}]
+  {Citable=partiallyCitable; CitationMetadataLevel=full; MachineReadableLandingPage=supportsDataCitation:
+    [set: Citable=fullyCitable]}
+  {MachineReadableLandingPage=supportsDataCitation: [set: Citable=partiallyCitable]}
+]
 
 [when: <-- Setting Trustworthy
   {SourceOpen=yes; StakeholderGovernance=full; GovernanceTransparency=full: [set: Trustworthy=noConcerns]}
@@ -299,17 +307,31 @@
   {else: [set: Trustworthy=minorConcerns]}
 ]
 
-[when: <-- Setting Open
-  {OpenFlags+=openFormat, ccLicenseOK, platformSupportsDataWork: 
-    [when:
-      {Restrictions=none: [set: Open=fullyOpen]}
-      {else: [set: Open=partiallyOpen]}
+[consider: <-- Setting Open
+  {slot: CCLicenseCompliance}
+  {options:
+    { nonCompliant: [set: Open=closed] } <-- for statement only, as this is already set in >pPessimisticSetup<. 
+  }
+  {else:
+    [when: 
+      {OpenFlags+=openFormat, ccLicenseOK, platformSupportsDataWork:
+        [consider:
+          {slot: Restrictions}
+          {options:
+            {none: [set: Open=fullyOpen] }
+          }
+          {else: [set: Open=partiallyOpen]}
+        ]
+      }
+      {OpenFlags+=openFormat:  [set: Open=partiallyOpen] }
+      {OpenFlags+=ccLicenseOK: [set: Open=partiallyOpen] }
+      {OpenFlags+=platformSupportsDataWork: [set: Open=partiallyOpen] }
+      {Restrictions=minimal: [set: Open=partiallyOpen] }
+      {Restrictions=none:    [set: Open=partiallyOpen] }
     ]
   }
-  {OpenFlags+=openFormat:  [set: Open=partiallyOpen] }
-  {OpenFlags+=ccLicenseOK: [set: Open=partiallyOpen] }
-  {OpenFlags+=platformSupportsDataWork: [set: Open=partiallyOpen] }
 ]
+
 --]
 
 <** 
@@ -318,7 +340,7 @@
 [-->pPessimisticSetup<
   [set: Open=closed;
         Findable=notFindable; Accessible=notAccessible; Interoperable=notInteroperable; 
-        Reusable=notReusable; Citable=notSupported; Trustworthy=significantConcerns
+        Reusable=notReusable; Citable=notCitable; Trustworthy=significantConcerns
   ]
 --]
 

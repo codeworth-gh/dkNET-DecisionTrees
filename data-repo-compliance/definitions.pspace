@@ -2,7 +2,7 @@ DataRepoCompliance: consists of Open, FAIR, Citable, Trustworthy, Properties.
 
 Open: one of closed, partiallyOpen, fullyOpen.
 FAIR: consists of Findable, Accessible, Interoperable, Reusable.
-Citable: one of notSupported, partiallySupported, fullySupported.
+Citable: one of notCitable, partiallyCitable, fullyCitable.
 Trustworthy: one of significantConcerns, minorConcerns, noConcerns.
 
 Findable:      one of notFindable, partiallyFindable, fullyFindable.
@@ -25,7 +25,7 @@ Restrictions: one of none, minimal, significant.
 AccessibleProps: consists of MetadataPersistence, AccessibleFlags.
 MetadataPersistence[Are the medatadata kept after the data is deaccessioned?]: one of
   no, byEvidence, byStatedPolicy.
-CCLicenseCompliance: one of none, nonCompliant, adequate, good, full.
+CCLicenseCompliance: one of nonCompliant, none, adequate, good, full.
 AccessibleFlags: some of humanAccessible, machineAccessible, persistentMetadata,
                          licenseOK,
                          stdApi[Accessible via standard API].

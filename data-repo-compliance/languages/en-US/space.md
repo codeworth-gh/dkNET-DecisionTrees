@@ -66,6 +66,10 @@ no persistence
 by evidence
 # DataRepoCompliance/Properties/FAIRProps/AccessibleProps/MetadataPersistence/byStatedPolicy
 by stated policy
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/AccessibleFlags/humanAccessible
+human accessible
+# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/AccessibleFlags/machineAccessible
+machine accessible
 # DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReuseLicense
 Reuse License
 # DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReuseLicense/none
@@ -107,10 +111,6 @@ limited
 rich
 # DataRepoCompliance/Properties/FAIRProps/FindableProps/FindableFlags
 Findable Flags
-# DataRepoCompliance/Properties/FAIRProps/FindableProps/FindableFlags/humanAccessible
-human accessible
-# DataRepoCompliance/Properties/FAIRProps/FindableProps/FindableFlags/machineAccessible
-machine accessible
 # DataRepoCompliance/Properties/FAIRProps/FindableProps/FindableFlags/internalSearchOK
 internal search OK
 # DataRepoCompliance/Properties/FAIRProps/InteroperableProps/MetadataFAIRness
@@ -196,10 +196,6 @@ minimal
 significant
 # DataRepoCompliance/Properties/OpenProps/OpenFlags
 Open Flags
-# DataRepoCompliance/Properties/OpenProps/OpenFlags/humanAccessible
-human Accessible
-# DataRepoCompliance/Properties/OpenProps/OpenFlags/machineAccessible
-machine Accessible
 # DataRepoCompliance/Properties/OpenProps/OpenFlags/openFormat
 openFormat
 Open Format
@@ -209,6 +205,9 @@ Open formats are formats whose specifications are available to anyone wishing to
 platform supports data
 # DataRepoCompliance/Properties/OpenProps/OpenFlags/restrictionsNotJustified
 restrictions not justified
+# DataRepoCompliance/Properties/OpenProps/OpenFlags/ccLicenseOK
+ccLicense OK
+Commons Compliant License.
 # DataRepoCompliance/Properties/FAIRProps/ReusableProps/DocumentationLevel
 Documentation Level
 # DataRepoCompliance/Properties/FAIRProps/ReusableProps/DocumentationLevel/lacking
@@ -219,17 +218,17 @@ adequate
 good
 # DataRepoCompliance/Properties/FAIRProps/ReusableProps/DocumentationLevel/full
 full
-# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/CCLicenseCompliance
+# DataRepoCompliance/Properties/OpenProps/CCLicenseCompliance
 CC License Compliance
-# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/CCLicenseCompliance/none
+# DataRepoCompliance/Properties/OpenProps/CCLicenseCompliance/none
 none
-# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/CCLicenseCompliance/nonCompliant
+# DataRepoCompliance/Properties/OpenProps/CCLicenseCompliance/nonCompliant
 non compliant
-# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/CCLicenseCompliance/adequate
+# DataRepoCompliance/Properties/OpenProps/CCLicenseCompliance/adequate
 adequate
-# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/CCLicenseCompliance/good
+# DataRepoCompliance/Properties/OpenProps/CCLicenseCompliance/good
 good
-# DataRepoCompliance/Properties/FAIRProps/AccessibleProps/CCLicenseCompliance/full
+# DataRepoCompliance/Properties/OpenProps/CCLicenseCompliance/full
 full
 # DataRepoCompliance/Properties/FAIRProps/ReusableProps/MetadataProvenance/unclear
 unclear
@@ -245,9 +244,6 @@ documentation OK
 dkNetMetadata OK
 # DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReusableFlags/generalMetadata
 general metadata
-# DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReusableFlags/ccLicenseOK
-ccLicense OK
-Commons Compliant License.
 # DataRepoCompliance/Properties/FAIRProps/ReusableProps/ReusableFlags/metadataProvenanceOK
 metadata provenance OK
 # DataRepoCompliance/Properties/FAIRProps/ReusableProps/DkNetMetadataLevel
@@ -281,24 +277,28 @@ partial
 full
 # DataRepoCompliance/Properties/CitableProps/OrcidAssociation
 ORCID Association
+Are datasets associated with an ORCID account?
 # DataRepoCompliance/Properties/CitableProps/OrcidAssociation/none
 none
+Datasets are not associated with an ORCID account
 # DataRepoCompliance/Properties/CitableProps/OrcidAssociation/supported
 supported
+Datasets may be associated with an ORCID account
 # DataRepoCompliance/Properties/CitableProps/OrcidAssociation/required
 required
+Datasets must be associated with an ORCID account
 # DataRepoCompliance/Trustworthy/significantConcerns
 significant concerns
 # DataRepoCompliance/Trustworthy/minorConcerns
 minor concerns
 # DataRepoCompliance/Trustworthy/noConcerns
 no concerns
-# DataRepoCompliance/Citable/notSupported
-not supported
-# DataRepoCompliance/Citable/partiallySupported
-partially supported
-# DataRepoCompliance/Citable/fullySupported
-fully supported
+# DataRepoCompliance/Citable/notCitable
+not citable
+# DataRepoCompliance/Citable/partiallyCitable
+partially citable
+# DataRepoCompliance/Citable/fullyCitable
+fully citable
 # DataRepoCompliance/Open/closed
 closed
 # DataRepoCompliance/Open/partiallyOpen
