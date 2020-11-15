@@ -1,11 +1,11 @@
-# Slots in Translation
+# Dimensions in the Repository Evaluation Instrument
 Michael Bar-Sinai, Fiona Murphy, Maryann E. Martone
 
-This document describes how the _low-level slots_ in our model affect its _high-level slots_. Low-level slots describe how an evaluated repository is performing on a narrow aspect, such as its compliance with Creative Commons licenses or the way it allows dataset authors to be associated with https://orcid.org/[ORCID]. High-level slots describe wide properties such as "Openness" or "Interoperability". Their value is a summary of values in relevant low-level slots.
+This document describes how the _low-level dimensions (properties and flags)_ in our model affect its _high-level dimensions_. Low-level dimensions describe how an evaluated repository is performing on a narrow aspect, such as its compliance with Creative Commons licenses or the way it allows dataset authors to be associated with https://orcid.org/[ORCID]. High-level dimensions describe wide properties such as "Openness" or "Interoperability". Their value is a summary of values in relevant low-level dimensions.
 
 ## How to Read This Document
 
-Below, we list slot names on the left, and their possible values on the right. For each value, we describe what constraints it imposes on the high-level slot that summarizes it. As an example, in the following listing we look at the constraints values in the `Restrictions` slot impose on the values that may be stored in the `Open` slot.
+Below, we list dimensions names on the left, and their coordinates on the right. For each coordinate, we describe what constraints it imposes on the high-level dimensions that summarizes its dimension. As an example, in the following listing we look at the constraints each coordinate in the `Restrictions` dimension imposes on the evaluated repository's coordinate along the `Open` dimension.
 
 [horizontal]
 Restrictions::
@@ -15,58 +15,36 @@ Restrictions::
 
 Based on the above listing, we see that when an a repository does not restrict the access to its data (i.e. `Restrictions=none`), said repository can be considered _partially open_ or _fully open_ (`Open=partiallyOpen` or `Open=fullyOpen`, respectively). By way of negation, such repository cannot be considered _closed_.
 
-Conversely, when a repository imposes significant restriction on accessing data it stores, it cannot be considered _fully open_. However, based on other aspects, it may be considered _partially open_.
+Conversely, when a repository imposes significant restrictions on accessing data it stores, it cannot be considered _fully open_. However, based on other aspects, it may be considered _partially open_.
 
-[NOTE]
-Not all slots defined by our model appear here -- this document does not describe "compound slots", which are used to group other slots. E.g. `OpenProps` groups `Restrictions`, `CCLicenseCompliance`, and `OpenFlags`. As such, these slots serve as an organization aid, and do not have a value of their own. Thus, we do not need to discuss them here.
+## Dimensions
 
-## Slots
-
-### Result Slots
+### Result Dimensions
 
 Used for communicating results outside of the model.
 
-[horizontal]
-DataRepoCompliance::
-    Root slot, grouping all other slots together.
-
-Open::
-    Result slot
-
-FAIR::
-    Result slot
-
-Citable::
-    Result slot
-
-Trustworthy::
-    Result slot
-
-Findable::
-    Result slot
-
-Accessible::
-    Result slot
-
-Interoperable::
-    Result slot
-
-Reusable::
-    Result slot
+* Open
+* FAIR
+* Citable
+* Trustworthy
+* Findable
+* Accessible
+* Interoperable
+* Reusable
 
 ### Open
 
-Slots affecting the `Open` slot value.
+Dimensions affecting the `Open` dimension coordinate.
 
 [IMPORTANT]
-All conditions pertaining to the `Open` slot are conditioned in that the `CCLicenceCompliance` is above `nonCompliant`.
+All conditions pertaining to the `Open` dimension are conditioned in that the `CCLicenceCompliance` dimension coordinate is above `nonCompliant`.
 
 [horizontal]
 OpenFlags::
     * openFormat               => Open in `partially..fully`
     * platformSupportsDataWork => Open in `partially..fully`
     * ccLicenseOK              => Open in `partially..fully`
-    * restrictionsNotJustified => Result slot
+    * restrictionsNotJustified => Result coordinate
 
 Restrictions::
     * none        => Open in `partially..fully`
