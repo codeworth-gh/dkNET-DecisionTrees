@@ -17,11 +17,14 @@ HIPAACompliance: one of nonCompliant, compliant.
 Restrictions: some of NIHFunded, publishedOnly.
 
 CitationSupport: consists of MetadataLevel, PID, DOI.
+
 MetadataLevel: one of none, partial, full.
-PID: one of none [Repository does not support persistent identifiers in dataset metadata], 
-            supports [Repository allows adding a PID to a dataset, but does not generate one], 
-            generates [Repository can generate PID to datasets it stores.].
-DOI: one of notSupported, supported.
+
+PID[Persistent Identifier]: one of none [Repository does not support persistent identifiers in dataset metadata], 
+            supported [Repository allows adding a PID to a dataset, but does not generate one], 
+            generated [Repository can generate PID to datasets it stores.].
+
+DOI[Data Object ID, a type of PID]: one of notSupported, supported.
 
 Domain: one of multiple,
     nucAci [Nucleic acid sequence],

@@ -119,25 +119,44 @@ How large is the total dataset?
     }
 ]
 [ask:
-    {text: Are the data updated frequently, i.e., they are part of an ongoing study that will uploaded in batches?}
+    {text: Will the data be updated frequently, i.e., they are part of an ongoing study that will uploaded in batches?}
     {answers:
         {yes: [set: Versioning=supported]}
         {no: [set: Versioning=notSupported]}
         {I don't know yet:}
     }
 ]
-
-[todo:
-    How important is data citation to you?
-        Very = fully supports data citation
-    Do you want a DOI?
-        Y
+[>qCitations< ask:
+    {text: How important is data citation to you?}
+    {answers:
+        {not at all: [set: MetadataLevel=none]}
+        {somewhat: [set: MetadataLevel=partial]}
+        {crucial: [set: MetadataLevel=full]}
+    }
 ]
-
-<*
-    TASKS:
-    ======
-    Add to both : PID support, Specifically DOI in a sub-question
-    Data citation support tag from previous interview
-    Change questionnaires accordingly
-*>
+[consider:
+    {slot: MetadataLevel}
+    {options:{none:}}
+    {else:
+        [>qPIDType< ask:
+            {text: Will you need a PID for the published dataset?}
+            {answers:
+                {no: [set: PID=none;DOI=notSupported]}
+                {yes, any: [set: PID=supported]}
+                {yes, DOI only: [set: PID=supported; DOI=supported]}
+            }
+        ]
+    }
+]
+[>qNIHFunding< ask:
+    {text: Is the dataset funded, at least in part, by the NIH?}
+    {answers: 
+        {yes: [set: Restrictions+=NIHFunded]}
+    }
+]
+[>qPublishedPaprt< ask:
+    {text: Will the dataset support any published academic work?}
+    {answers: 
+        {yes: [set: Restrictions+=publishedOnly]}
+    }
+]
