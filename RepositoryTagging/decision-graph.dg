@@ -1,0 +1,148 @@
+[>qSize< ask:
+    {text:Does the repository impose size limits?}
+    {terms:
+        {contact: Contact the repository management for depositing large datasets.}
+    }
+    {answers: 
+        {no:      [set: SizeLimits=none]}
+        {contact: [set: SizeLimits=contactRepo]}
+        {yes:     [set: SizeLimits=yes]}
+    }
+]
+[>qCost< ask:
+    {text:Does depositing data involves costs to the depositor?}
+    {answers:
+        {no:        [set: Costs=none]}
+        {sometimes: [set: Costs=_sometimes]}
+        {always:    [set: Costs=yes]}
+    }
+]
+[>qVersioning< ask:
+    {text:Does the repository support versioning?}
+    {answers:
+        {yes: [set: Versioning=supported]}
+        {no:  [set: Versioning=notSupported]}
+    }
+]
+[>qPhi< ask:
+    {text:Can the repository store data containing PHI?}
+    {terms:
+        {PHI: Protected Health Information}
+    }
+    {answers:
+        {yes: 
+            [set: PHISupport=supported]
+            [>qHIPAA< ask:
+                {text:Is the repository HIPAA compliant?}
+                {answers:
+                    {yes: [set: HIPAACompliance=compliant]}
+                    {no:  [set: HIPAACompliance=nonCompliant]}
+                }
+            ]
+        }
+        {no:  [set: PHISupport=notSupported]}
+    }
+]
+[>qDomain< ask:
+    {text: Does the repository focus on a specific domain?}
+    {answers:
+        {no: [set: Domain=multiple]}
+        {yes:
+            [>qDomainList< ask:
+                {text: What is the repository's specific domain?}
+                {answers:
+                    {Nucleic acid sequence: [set: Domain=nucAci]}
+                    {Protein sequence: [set: Domain=protSeq]}
+                    {Molecular and supramolecular structure: [set: Domain=molStruct]}
+                    {Omics-Functional Genomics: [set: Domain=omicsFunctional]}
+                    {Omics-Metabolomics: [set: Domain=omicsMetabol]}
+                    {Omics-Proteomics: [set: Domain=omicsProt]}
+                    {Cytometry and Immunology: [set: Domain=cai]}
+                    {Chemistry and chemical biology, biochemistry: [set: Domain=cacb]}
+                    {Imaging: [set: Domain=imaging]}
+                    {Neuroscience: [set: Domain=neuroscience]}
+                }
+            ]
+        }
+    }
+]
+[>qDataType< ask:
+    {text: Does the repository stores a single data type?}
+    {answers:
+        {no: [set: DataTypes=multiple]}
+        {yes:
+            [>qDataTypeList< ask:
+                {text: What data type does the repository store?}
+                {answers:
+                {Amino acid sequence: [set: DataTypes=aminoSeq]}
+                {Analysis data: [set: DataTypes=analysis]}
+                {Array: [set: DataTypes=array]}
+                {Bioactivity data containing information manually extracted from the medicinal chemistry literature: [set: DataTypes=bioactivity]}
+                {Capillary electrophoresis data: [set: DataTypes=capillary]}
+                {Clinical data: [set: DataTypes=clinical]}
+                {Clinical trial: [set: DataTypes=clinicalTrials]}
+                {Coherent X-ray Imaging (CXI) data: [set: DataTypes=cxi]}
+                {Metadata on data sets: [set: DataTypes=datasetMetadata]}
+                {Primary DICOM image datasets from cancer patients and analysis datasets: [set: DataTypes=dicom]}
+                {Electron density maps: [set: DataTypes=edm]}
+                {3-Dimensional Electron Microscopy (3DEM): [set: DataTypes=em3d]}
+                {Epigenomics data: [set: DataTypes=epigenomics]}
+                {exome sequencing: [set: DataTypes=exmoeSeq]}
+                {Flow cytometry data: [set: DataTypes=fcd]}
+                {Functional enzymology data: [set: DataTypes=fed]}
+                {Flu sequence, experiment and surveillance data: [set: DataTypes=flu]}
+                {Data linking genotyping and phenotyping information in human subjects: [set: DataTypes=g2pHuman]}
+                {Genome assemblies: [set: DataTypes=genAssm]}
+                {Gene Sequence: [set: DataTypes=genSeq]}
+                {Genomics data: [set: DataTypes=genomics]}
+                {Genomic structural variants: [set: DataTypes=genomicsSV]}
+                {The Global Proteome Machine Database (GPM DB): [set: DataTypes=gpmDb]}
+                {Histological Images, Immunofluorescence Images, Section In Situ Images and Data: [set: DataTypes=hostoric]}
+                {High resolution electron miscroscopic images and molecular maps: [set: DataTypes=hrem]}
+                {Imaging data: [set: DataTypes=imaging]}
+                {Immunology research data: [set: DataTypes=immunology]}
+                {Inorganic crystal structure: [set: DataTypes=inorganic]}
+                {Kinetic models: [set: DataTypes=kinetic]}
+                {Large assemblies: [set: DataTypes=largeAssm]}
+                {Macromolecular structure data: [set: DataTypes=macroStruct]}
+                {Metabolite structure: [set: DataTypes=metabolite]}
+                {Metabolomics data and metadata: [set: DataTypes=metabolomics]}
+                {Metagonomics sequence data and associate metadata: [set: DataTypes=metagonomics]}
+                {Microarray: [set: DataTypes=microarray]}
+                {Microscopic imaging data: [set: DataTypes=mimd]}
+                {Molecular interaction data: [set: DataTypes=mind]}
+                {miRNA sequences and annotation: [set: DataTypes=mirna]}
+                {Magnetic Resonance Imaging (MRI): [set: DataTypes=mri]}
+                {Multiple sequence alignment: [set: DataTypes=msa]}
+                {Mass spectrometry data: [set: DataTypes=msi]}
+                {Data that characterize nanomaterials: [set: DataTypes=nanom]}
+                {Neuroscience research data: [set: DataTypes=neuro]}
+                {Neuroimaging data: [set: DataTypes=neuroimaging]}
+                {Next-generation sequencing (NGS): [set: DataTypes=ngs]}
+                {NMR spectroscopy data: [set: DataTypes=nmrs]}
+                {3D neuronal reconstructions and associated metadata: [set: DataTypes=nr3d]}
+                {Neurosignal recordings data: [set: DataTypes=nrd]}
+                {Curated omics data: [set: DataTypes=omics]}
+                {Phenotype data: [set: DataTypes=phenotype]}
+                {Physiological data: [set: DataTypes=physiological]}
+                {Primary imaging data: [set: DataTypes=pid]}
+                {Peptides and proteins: [set: DataTypes=pnp]}
+                {Protein interaction data: [set: DataTypes=proteinId]}
+                {Protein structure: [set: DataTypes=proteinStruct]}
+                {Proteomics: [set: DataTypes=protomics]}
+                {Reference image datasets: [set: DataTypes=rid]}
+                {RNA seq: [set: DataTypes=rnaSeq]}
+                {RNAi screening data: [set: DataTypes=rnai]}
+                {Structural data for small molecules; peptides and proteins: [set: DataTypes=sdsm]}
+                {Simple genetic polymorphism or structural variations: [set: DataTypes=sgpVariants]}
+                {Small-molecule crystal structure: [set: DataTypes=smcs]}
+                {Small-molecule and RNAi screening data; bioactibity and toxicity data: [set: DataTypes=smr]}
+                {Brain images, Segmentations, SSM, Dicom, ITK based images and statistical models: [set: DataTypes=ssm]}
+                {Tandem mass spectrometry proteomics data of peptides: [set: DataTypes=tmsp]}
+                {Transcriptomics data: [set: DataTypes=transcriptomics]}
+                {Whole genome sequencing data: [set: DataTypes=wgsd]}
+                }
+            ]
+        }
+    }
+]
