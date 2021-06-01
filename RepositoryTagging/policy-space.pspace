@@ -1,4 +1,4 @@
-NIHDSP: consists of SizeLimits, Costs, Versioning, PHISupport, DataTypes, Domain, HIPAACompliance, OtherRestictions.
+NIHDSP: consists of SizeLimits, Costs, Versioning, PHISupport, DataTypes, Domain, HIPAACompliance, Restrictions.
 
 SizeLimits: one of none[Support all data sizes],
                    contactRepo[Depositors need to contact the repository prior to depositing very large data sets],
@@ -14,7 +14,7 @@ PHISupport: one of notSupported, supported.
 
 HIPAACompliance: one of nonCompliant, compliant.
 
-OtherRestictions: some of NIHFunded, publishedOnly.
+Restrictions: some of NIHFunded, publishedOnly.
 
 Domain: one of multiple,
     nucAci [Nucleic acid sequence],

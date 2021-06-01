@@ -146,3 +146,20 @@
         }
     }
 ]
+
+[call: pRestrictions]
+
+[-->pRestrictions<
+[>qNIHFunding< ask:
+    {text: Does the repositiory requires datasets to receive NIH funding?}
+    {answers:
+        {yes: [set: Restrictions+=NIHFunded]}
+    }
+]
+[>qPublised< ask:
+    {text: Does the repositiory requires datasets to support a published paper?}
+    {answers:
+        {yes: [set: Restrictions+=publishedOnly]}
+    }
+]
+--]
