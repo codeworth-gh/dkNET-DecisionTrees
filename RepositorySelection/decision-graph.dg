@@ -1,78 +1,10 @@
-[>qSize< ask:
-    {text:Does the repository impose size limits?}
-    {terms:
-        {contact: Contact the repository management for depositing large datasets.}
-    }
-    {answers: 
-        {no:      [set: SizeLimits=none]}
-        {contact: [set: SizeLimits=contactRepo]}
-        {yes:     [set: SizeLimits=yes]}
-    }
-]
-[>qCost< ask:
-    {text:Does depositing data involves costs to the depositor?}
+[ask:
+    {text: How many types of data will you be sharing?}
     {answers:
-        {no:        [set: Costs=none]}
-        {sometimes: [set: Costs=_sometimes]}
-        {always:    [set: Costs=yes]}
-    }
-]
-[>qVersioning< ask:
-    {text:Does the repository support versioning?}
-    {answers:
-        {yes: [set: Versioning=supported]}
-        {no:  [set: Versioning=notSupported]}
-    }
-]
-[>qPhi< ask:
-    {text:Can the repository store data containing PHI?}
-    {terms:
-        {PHI: Protected Health Information}
-    }
-    {answers:
-        {yes: 
-            [set: PHISupport=supported]
-            [>qHIPAA< ask:
-                {text:Is the repository HIPAA compliant?}
-                {answers:
-                    {yes: [set: HIPAACompliance=compliant]}
-                    {no:  [set: HIPAACompliance=nonCompliant]}
-                }
-            ]
-        }
-        {no:  [set: PHISupport=notSupported]}
-    }
-]
-[>qDomain< ask:
-    {text: Does the repository focus on a specific domain?}
-    {answers:
-        {no: [set: Domain=multiple]}
-        {yes:
-            [>qDomainList< ask:
-                {text: What is the repository's specific domain?}
-                {answers:
-                    {Nucleic acid sequence: [set: Domain=nucAci]}
-                    {Protein sequence: [set: Domain=protSeq]}
-                    {Molecular and supramolecular structure: [set: Domain=molStruct]}
-                    {Omics-Functional Genomics: [set: Domain=omicsFunctional]}
-                    {Omics-Metabolomics: [set: Domain=omicsMetabol]}
-                    {Omics-Proteomics: [set: Domain=omicsProt]}
-                    {Cytometry and Immunology: [set: Domain=cai]}
-                    {Chemistry and chemical biology, biochemistry: [set: Domain=cacb]}
-                    {Imaging: [set: Domain=imaging]}
-                    {Neuroscience: [set: Domain=neuroscience]}
-                }
-            ]
-        }
-    }
-]
-[>qDataType< ask:
-    {text: Does the repository stores a single data type?}
-    {answers:
-        {no: [set: DataTypes=multiple]}
-        {yes:
-            [>qDataTypeList< ask:
-                {text: What data type does the repository store?}
+        {multiple:[set: DataTypes=multiple]}
+        {just one:
+            [ask:
+                {text: What is the data type you will be sharing?}
                 {answers:
                     {Amino acid sequence: [set: DataTypes=aminoSeq]}
                     {Analysis data: [set: DataTypes=analysis]}
@@ -146,20 +78,58 @@
         }
     }
 ]
-
-[call: pRestrictions]
-
-[-->pRestrictions<
-[>qNIHFunding< ask:
-    {text: Does the repositiory requires datasets to receive NIH funding?}
+[ask:
+    {text:What is the domain of the data you will be sharing?}
     {answers:
-        {yes: [set: Restrictions+=NIHFunded]}
+        {Multiple domains: [set: Domain=multiple]}
+        {Nucleic acid sequence: [set: Domain=nucAci]}
+        {Protein sequence: [set: Domain=protSeq]}
+        {Molecular and supramolecular structure: [set: Domain=molStruct]}
+        {Omics-Functional Genomics: [set: Domain=omicsFunctional]}
+        {Omics-Metabolomics: [set: Domain=omicsMetabol]}
+        {Omics-Proteomics: [set: Domain=omicsProt]}
+        {Cytometry and Immunology: [set: Domain=cai]}
+        {Chemistry and chemical biology, biochemistry: [set: Domain=cacb]}
+        {Imaging: [set: Domain=imaging]}
+        {Neuroscience: [set: Domain=neuroscience]}
     }
 ]
-[>qPublised< ask:
-    {text: Does the repositiory requires datasets to support a published paper?}
+[todo: 
+How big are the individual files?
+    500 Mb
+How large is the total dataset?
+    30-500 Gb
+]
+
+
+[ask:
+    {text: Are human subjects involved?}
     {answers:
-        {yes: [set: Restrictions+=publishedOnly]}
+        {yes:
+            [set: PHISupport=supported]
+            [ask:
+                {text: Will the dataset handling have to comply with HIPAA?}
+                {answers:
+                    {yes: [set: HIPAACompliance=compliant]}
+                    {no:  [set: HIPAACompliance=nonCompliant]}
+                }
+            ]
+        }
+        {no: [set: HIPAACompliance=nonCompliant;PHISupport=notSupported]}
     }
 ]
---]
+[ask:
+    {text: Are the data updated frequently, i.e., they are part of an ongoing study that will uploaded in batches?}
+    {answers:
+        {yes: [set: Versioning=supported]}
+        {no: [set: Versioning=notSupported]}
+        {I don't know yet:}
+    }
+]
+
+[todo:
+    How important is data citation to you?
+        Very = fully supports data citation
+    Do you want a DOI?
+        Y
+]

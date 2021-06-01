@@ -1,6 +1,6 @@
 <policy-model>
-  <title>Data Repository Tagging</title>
-  <subtitle>Tag a data repository using aspects realted to NIH's 2023 data policy</subtitle>
+  <title>Data Repository Selection</title>
+  <subtitle>Help a researcher select a data repository, according to NIH's upcoming 2023 policies</subtitle>
   <version>0.1</version>
   <date>2021-06-01</date>
   <!-- 
