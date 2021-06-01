@@ -1,9 +1,9 @@
-[ask:
+[>qDataType< ask:
     {text: How many types of data will you be sharing?}
     {answers:
         {multiple:[set: DataTypes=multiple]}
         {just one:
-            [ask:
+            [>qDataTypeList< ask:
                 {text: What is the data type you will be sharing?}
                 {answers:
                     {Amino acid sequence: [set: DataTypes=aminoSeq]}
@@ -78,8 +78,8 @@
         }
     }
 ]
-[ask:
-    {text:What is the domain of the data you will be sharing?}
+[>qDomain< ask:
+    {text:Do the data belong to a single domain?}
     {answers:
         {Multiple domains: [set: Domain=multiple]}
         {Nucleic acid sequence: [set: Domain=nucAci]}
@@ -133,3 +133,11 @@ How large is the total dataset?
     Do you want a DOI?
         Y
 ]
+
+<*
+    TASKS:
+    ======
+    Add to both : PID support, Specifically DOI in a sub-question
+    Data citation support tag from previous interview
+    Change questionnaires accordingly
+*>

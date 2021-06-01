@@ -148,6 +148,7 @@
 ]
 
 [call: pRestrictions]
+[call: pCitation]
 
 [-->pRestrictions<
 [>qNIHFunding< ask:
@@ -160,6 +161,41 @@
     {text: Does the repositiory requires datasets to support a published paper?}
     {answers:
         {yes: [set: Restrictions+=publishedOnly]}
+    }
+]
+--]
+
+[-->pCitation<
+[>qCitationMetadata< ask:
+    {text: Does the repository support citation metedata?}
+    {answers:
+        {no: [set: MetadataLevel=none][end]}
+        {yes - very limited: [set: MetadataLevel=partial]}
+        {yes: [set: MetadataLevel=full]}
+    }
+]
+[>qPID< ask:
+    {text: Does the repository support PIDs?}
+    {terms:
+        {PID: Persistent IDendifier - a string or a number that uniquely identifies a dataset indefinitely.}
+    }
+    {answers:
+        {no:[set: PID=none; DOI=notSupported]}
+        {supports but does not generate: [set:PID=supported]}
+        {supports and generates: [set:PID=generated]}
+    }
+]
+[consider:
+    {slot: PID}
+    {options:{none:}}
+    {else:
+        [>qDOI< ask:
+            {text: Does the repository support DOI?}
+            {answers:
+                {yes: [set: DOI=supported]}
+                {no:  [set: DOI=notSupported]}
+            }
+        ]
     }
 ]
 --]
