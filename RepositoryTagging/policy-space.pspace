@@ -48,7 +48,8 @@ Domain: one of multiple,
     cai [Cytometry and Immunology],
     cacb [Chemistry and chemical biology, biochemistry],
     imaging [Imaging],
-    neuroscience [Neuroscience].
+    neuroscience [Neuroscience],
+    other[Other].
 
 DataTypes: one of multiple, 
     aminoSeq [Amino acid sequence],

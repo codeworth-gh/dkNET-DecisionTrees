@@ -5,4 +5,4 @@ Select the domain. If it isn't in our list, select 'Other'.
 ---
 
 ### 📝 Notes 
-Please add those conditions in the notes field.
+Please note the domain name in the notes field.

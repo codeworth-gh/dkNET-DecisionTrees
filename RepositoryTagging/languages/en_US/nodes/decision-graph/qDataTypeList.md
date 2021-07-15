@@ -1,1 +1,1 @@
-# What data type does the repository store?
+# Is this repository specialized for a particular type of data?

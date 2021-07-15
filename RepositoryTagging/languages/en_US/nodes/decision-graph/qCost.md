@@ -1,4 +1,4 @@
-# Does depositing data involves costs to the depositor?
+# Does depositing data involve costs to the depositor?
 
 Sometimes there are conditions under which the depositor has to pay.
 

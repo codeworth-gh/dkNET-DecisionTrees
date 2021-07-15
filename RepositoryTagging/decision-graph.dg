@@ -17,7 +17,7 @@
     }
 ]
 [>qCost< ask:
-    {text:Does depositing data involves costs to the depositor?}
+    {text:Does depositing data involve costs to the depositor?}
     {answers:
         {no:        [set: Costs=none]}
         {sometimes: [set: Costs=_sometimes]}
@@ -68,18 +68,19 @@
                     {Chemistry and chemical biology, biochemistry: [set: Domain=cacb]}
                     {Imaging: [set: Domain=imaging]}
                     {Neuroscience: [set: Domain=neuroscience]}
+                    {Other: [set:Domain=other]}
                 }
             ]
         }
     }
 ]
 [>qDataType< ask:
-    {text: Does the repository stores a single data type?}
+    {text: Does the repository store a single data type?}
     {answers:
         {no: [set: DataTypes=multiple]}
         {yes:
             [>qDataTypeList< ask:
-                {text: What data type does the repository store?}
+                {text: Is this repository specialized for a particular type of data?}
                 {answers:
                     {Amino acid sequence: [set: DataTypes=aminoSeq]}
                     {Analysis data: [set: DataTypes=analysis]}
@@ -174,7 +175,7 @@
     }
 ]
 [>qPublised< ask:
-    {text: Does the repository requires datasets to support a published paper?}
+    {text: Does the repository require datasets to support a published paper?}
     {answers:
         {yes: [set: OtherRestrictions+=publishedOnly]}
     }
