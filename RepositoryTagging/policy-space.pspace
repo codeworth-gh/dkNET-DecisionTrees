@@ -1,8 +1,14 @@
-NIHDSP: consists of SizeLimits, Costs, Versioning, PHISupport, DataTypes, Domain, HIPAACompliance, Restrictions, CitationSupport.
+NIHDSP: consists of Restrictions, Versioning, PHISupport, DataTypes, Domain, HIPAACompliance, CitationSupport, Flags.
+
+Restrictions[Dataset properties that a repository might require in order to accept a dataset]: consists of 
+    ApplicationRequired, SizeLimits, Costs, FundingSource, OtherRestrictions.
 
 SizeLimits: one of none[Support all data sizes],
                    contactRepo[Depositors need to contact the repository prior to depositing very large data sets],
                    yes[Size limits are stated].
+
+ApplicationRequired: one of no[Accepts datasets from anyone],
+                            yes[Data deposit requires an application process].
 
 Costs: one of none[No costs involved],
               _sometimes[In some cases the repository might require payments],
@@ -14,7 +20,11 @@ PHISupport: one of notSupported, supported.
 
 HIPAACompliance: one of nonCompliant, compliant.
 
-Restrictions: some of NIHFunded, publishedOnly.
+OtherRestrictions: some of publishedOnly.
+
+FundingSource: one of Any[Datasets can be accepted regardless of funding source],
+                      NIHOnly[Datasets can be accepted only of they were funded by the NIH],
+                      NIDDKOnly[Datasets can be accepted only of they were funded by the NIDDK].
 
 CitationSupport: consists of MetadataLevel, PID, DOI.
 
@@ -25,6 +35,8 @@ PID[Persistent Identifier]: one of none [Repository does not support persistent 
             generated [Repository can generate PID to datasets it stores.].
 
 DOI[Data Object ID, a type of PID]: one of notSupported, supported.
+
+Flags: some of hasContactPerson.
 
 Domain: one of multiple,
     nucAci [Nucleic acid sequence],

@@ -1,3 +1,10 @@
+[>qApplication< ask:
+    {text: Does the repository requires depositors to go through an application process prior to depositing datasets?}
+    {answers:
+        {yes: [set: ApplicationRequired=yes]}
+        {no : [set: ApplicationRequired=no]}
+    }
+]
 [>qSize< ask:
     {text:Does the repository impose size limits?}
     {terms:
@@ -147,20 +154,29 @@
     }
 ]
 
+[>qContact< ask:
+    {text: Does the repository supply a contact person?}
+    {answers:
+        {yes: [set: Flags+=hasContactPerson]}
+    }
+]
+
 [call: pRestrictions]
 [call: pCitation]
 
 [-->pRestrictions<
-[>qNIHFunding< ask:
-    {text: Does the repositiory requires datasets to receive NIH funding?}
+[>qFundingSource< ask:
+    {text: Does the repository require data to come from an NIH funded project?}
     {answers:
-        {yes: [set: Restrictions+=NIHFunded]}
+        {no: [set: FundingSource=Any]}
+        {yes, any NIH source: [set: FundingSource=NIHOnly]}
+        {yes, NIDDK source only: [set: FundingSource=NIDDKOnly]}
     }
 ]
 [>qPublised< ask:
-    {text: Does the repositiory requires datasets to support a published paper?}
+    {text: Does the repository requires datasets to support a published paper?}
     {answers:
-        {yes: [set: Restrictions+=publishedOnly]}
+        {yes: [set: OtherRestrictions+=publishedOnly]}
     }
 ]
 --]

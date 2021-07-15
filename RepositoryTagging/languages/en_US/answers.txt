@@ -1,0 +1,87 @@
+3-Dimensional Electron Microscopy (3DEM): 3-Dimensional Electron Microscopy (3DEM)
+3D neuronal reconstructions and associated metadata: 3D neuronal reconstructions and associated metadata
+Amino acid sequence: Amino acid sequence
+Analysis data: Analysis data
+Array: Array
+Bioactivity data containing information manually extracted from the medicinal chemistry literature: Bioactivity data containing information manually extracted from the medicinal chemistry literature
+Brain images, Segmentations, SSM, Dicom, ITK based images and statistical models: Brain images, Segmentations, SSM, Dicom, ITK based images and statistical models
+Capillary electrophoresis data: Capillary electrophoresis data
+Chemistry and chemical biology, biochemistry: Chemistry and chemical biology, biochemistry
+Clinical data: Clinical data
+Clinical trial: Clinical trial
+Coherent X-ray Imaging (CXI) data: Coherent X-ray Imaging (CXI) data
+Curated omics data: Curated omics data
+Cytometry and Immunology: Cytometry and Immunology
+Data linking genotyping and phenotyping information in human subjects: Data linking genotyping and phenotyping information in human subjects
+Data that characterize nanomaterials: Data that characterize nanomaterials
+Electron density maps: Electron density maps
+Epigenomics data: Epigenomics data
+Flow cytometry data: Flow cytometry data
+Flu sequence, experiment and surveillance data: Flu sequence, experiment and surveillance data
+Functional enzymology data: Functional enzymology data
+Gene Sequence: Gene Sequence
+Genome assemblies: Genome assemblies
+Genomic structural variants: Genomic structural variants
+Genomics data: Genomics data
+High resolution electron miscroscopic images and molecular maps: High resolution electron miscroscopic images and molecular maps
+Histological Images, Immunofluorescence Images, Section In Situ Images and Data: Histological Images, Immunofluorescence Images, Section In Situ Images and Data
+Imaging: Imaging
+Imaging data: Imaging data
+Immunology research data: Immunology research data
+Inorganic crystal structure: Inorganic crystal structure
+Kinetic models: Kinetic models
+Large assemblies: Large assemblies
+Macromolecular structure data: Macromolecular structure data
+Magnetic Resonance Imaging (MRI): Magnetic Resonance Imaging (MRI)
+Mass spectrometry data: Mass spectrometry data
+Metabolite structure: Metabolite structure
+Metabolomics data and metadata: Metabolomics data and metadata
+Metadata on data sets: Metadata on data sets
+Metagonomics sequence data and associate metadata: Metagonomics sequence data and associate metadata
+Microarray: Microarray
+Microscopic imaging data: Microscopic imaging data
+Molecular and supramolecular structure: Molecular and supramolecular structure
+Molecular interaction data: Molecular interaction data
+Multiple sequence alignment: Multiple sequence alignment
+NMR spectroscopy data: NMR spectroscopy data
+Neuroimaging data: Neuroimaging data
+Neuroscience: Neuroscience
+Neuroscience research data: Neuroscience research data
+Neurosignal recordings data: Neurosignal recordings data
+Next-generation sequencing (NGS): Next-generation sequencing (NGS)
+Nucleic acid sequence: Nucleic acid sequence
+Omics-Functional Genomics: Omics-Functional Genomics
+Omics-Metabolomics: Omics-Metabolomics
+Omics-Proteomics: Omics-Proteomics
+Peptides and proteins: Peptides and proteins
+Phenotype data: Phenotype data
+Physiological data: Physiological data
+Primary DICOM image datasets from cancer patients and analysis datasets: Primary DICOM image datasets from cancer patients and analysis datasets
+Primary imaging data: Primary imaging data
+Protein interaction data: Protein interaction data
+Protein sequence: Protein sequence
+Protein structure: Protein structure
+Proteomics: Proteomics
+RNA seq: RNA seq
+RNAi screening data: RNAi screening data
+Reference image datasets: Reference image datasets
+Simple genetic polymorphism or structural variations: Simple genetic polymorphism or structural variations
+Small-molecule and RNAi screening data; bioactibity and toxicity data: Small-molecule and RNAi screening data; bioactibity and toxicity data
+Small-molecule crystal structure: Small-molecule crystal structure
+Structural data for small molecules; peptides and proteins: Structural data for small molecules; peptides and proteins
+Tandem mass spectrometry proteomics data of peptides: Tandem mass spectrometry proteomics data of peptides
+The Global Proteome Machine Database (GPM DB): The Global Proteome Machine Database (GPM DB)
+Transcriptomics data: Transcriptomics data
+Whole genome sequencing data: Whole genome sequencing data
+always: always
+contact: contact
+exome sequencing: exome sequencing
+miRNA sequences and annotation: miRNA sequences and annotation
+no: no
+sometimes: sometimes
+supports and generates: supports and generates
+supports but does not generate: supports but does not generate
+yes: yes
+yes - very limited: yes - very limited
+yes, NIDDK source only: yes, NIDDK source only
+yes, any NIH source: yes, any NIH source

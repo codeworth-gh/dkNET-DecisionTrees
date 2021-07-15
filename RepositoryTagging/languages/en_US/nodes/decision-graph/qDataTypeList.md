@@ -1,0 +1,1 @@
+# What data type does the repository store?

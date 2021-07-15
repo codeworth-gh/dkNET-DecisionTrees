@@ -1,11 +1,7 @@
-<policy-model>
+<localized-model direction="ltr" ui-lang="en">
   <title>Data Repository Tagging</title>
-  <subtitle>Tag a data repository using aspects related to NIH's 2023 data policy</subtitle>
-  <version>0.1</version>
-  <date>2021-06-01</date>
-  <!-- 
+  <subtitle>Tag a data repository using aspects realted to NIH's 2023 data policy</subtitle>
   <keywords></keywords>
-  -->
   <authors>
     <person orcid="0000-0002-8406-3871">
       <name>Maryann E. Martone</name>
@@ -23,23 +19,4 @@
       <email>michael@codeworth.io</email>
     </person>
   </authors>
-  <model answers-order="yes-first">
-    <!-- other options: yes-last, verbatim. Default: yes-first -->
-    <!-- pathes are relative to model directory -->
-    <space root="NIHDSP">policy-space.pspace</space>
-    <graph>decision-graph.dg</graph>
-    <!--
-    <valueInferrer>valueInference.vi</valueInferrer>
-    -->
-  </model>
-  <!--
-  <references>
-    <reference doi="1234567890">
-      ref1 text
-    </reference>
-    <reference url="http://somewhere.org/important/doc">
-      ref2 text
-    </reference>
-  </references>
-  -->
-</policy-model>
+</localized-model>
